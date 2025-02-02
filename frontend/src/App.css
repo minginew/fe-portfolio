@@ -1,1 +1,48 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-main-blue: #0b64fe;
+  --color-main-gray: #f2f2f2;
+  --font-museo: 'MuseoSans', 'sans-serif';
+}
+
+@layer base {
+  * {
+    background-color: var(--color-main-gray);
+  }
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/fonts/MuseoModerno-Thin.ttf);
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  font-style: normal;
+  font-weight: 200;
+  src: url(/fonts/MuseoModerno-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/fonts/MuseoModerno-Light.ttf);
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/MuseoModerno-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  font-style: normal;
+  font-weight: 500;
+  src: url(/fonts/MuseoModerno-Medium.ttf);
+}
