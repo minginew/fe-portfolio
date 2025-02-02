@@ -12,8 +12,8 @@ const Header = () => {
     <header className='fixed top-0 z-50 h-8 w-full drop-shadow-md'>
       <nav className='flex flex-wrap items-center justify-between bg-white px-5 py-1'>
         <div className='flex items-center gap-4'>
-          <span onClick={toggleMenu}>x</span>
-          <span className='self-center text-2xl font-semibold whitespace-nowrap'>M'Log</span>
+          <img className='h-5 hover:cursor-pointer' onClick={toggleMenu} alt='logo' src='/icons/menu.png' />
+          <img className='h-7' alt='logo' src='/icons/dark_logo.png' />
         </div>
       </nav>
 
@@ -23,8 +23,10 @@ const Header = () => {
         }`}
         onClick={toggleMenu}
       >
-        <div className='h-10 w-full'> Logo </div>
-        <ul className='flex h-svh w-full flex-col items-center gap-4 pt-10 pb-5'>
+        <div className='flex w-full justify-center py-5 shadow-xs'>
+          <img className='h-8' alt='logo' src='/icons/dark_logo.png' />
+        </div>
+        <ul className='flex h-svh w-full flex-col items-center gap-4 pt-5 pb-5'>
           <li>
             <Link to={'/'} className='rounded-smpx-3 block py-2' aria-current='page'>
               PortPolio
