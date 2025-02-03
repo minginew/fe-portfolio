@@ -40,3 +40,31 @@
   font-weight: 500;
   src: url(/fonts/MuseoModerno-Medium.ttf);
 }
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 0, 100;
+  }
+  100% {
+    stroke-dasharray: 100, 0;
+  }
+}
+
+@keyframes fillAnimation {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: #0b64fe;
+  }
+}
+
+.svg-icon path {
+  fill: transparent;
+  stroke: #0b64fe;
+  stroke-width: 2;
+  stroke-dasharray: 0, 100; /* 초기 상태 */
+  animation:
+    draw 2s ease forwards,
+    fillAnimation 1.5s ease 2s forwards; /* fill은 3초 동안 애니메이션 */
+}
