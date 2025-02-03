@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header className='font-museo fixed top-0 z-50 h-8 w-full text-lg font-[300] drop-shadow-sm'>
-      <nav className='flex flex-wrap items-center justify-between px-5 py-1'>
+      <nav className='bg-main-gray-100 flex flex-wrap items-center justify-between px-5 py-1'>
         <div className='flex items-center gap-4'>
           <img className='h-5 hover:cursor-pointer' onClick={toggleMenu} alt='logo' src='/icons/menu.png' />
           <img className='h-7' alt='logo' src='/icons/dark_logo.png' />
@@ -18,7 +18,7 @@ const Header = () => {
       </nav>
 
       <aside
-        className={`fixed top-0 left-0 z-50 w-56 transition-all duration-800 ${
+        className={`bg-main-gray-100 fixed top-0 left-0 z-50 w-56 transition-all duration-800 ${
           menuOpen ? 'translate-x-0 opacity-100' : '-translate-x-[100%] opacity-60'
         }`}
         onClick={toggleMenu}

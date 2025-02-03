@@ -2,14 +2,8 @@
 
 @theme {
   --color-main-blue: #0b64fe;
-  --color-main-gray: #f2f2f2;
+  --color-main-gray-100: #f0eeea;
   --font-museo: 'MuseoSans', 'sans-serif';
-}
-
-@layer base {
-  * {
-    background-color: var(--color-main-gray);
-  }
 }
 
 @font-face {
