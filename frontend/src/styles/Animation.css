@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillAnimation {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: #0b64fe;
+  }
+}
+
+.svg-icon path {
+  fill: transparent;
+  stroke: #0b64fe;
+  stroke-width: 2;
+  stroke-dasharray: 1000; /* 초기 상태 */
+  stroke-dashoffset: 1000;
+  animation:
+    draw 2s ease-out both,
+    fillAnimation 2s ease-out both;
+}
+
+.svg-icon path:nth-of-type(1) {
+  animation-delay: 0.16s;
+}
+.svg-icon path:nth-of-type(2) {
+  animation-delay: 0.32s;
+}
+.svg-icon path:nth-of-type(3) {
+  animation-delay: 0.48s;
+}
+.svg-icon path:nth-of-type(4) {
+  animation-delay: 0.64s;
+}
+.svg-icon path:nth-of-type(5) {
+  animation-delay: 0.8s;
+}
+.svg-icon path:nth-of-type(6) {
+  animation-delay: 0.96s;
+}
+.svg-icon path:nth-of-type(7) {
+  animation-delay: 1.12s;
+}
+.svg-icon path:nth-of-type(8) {
+  animation-delay: 1.28s;
+}
+.svg-icon path:nth-of-type(9) {
+  animation-delay: 1.44s;
+}
