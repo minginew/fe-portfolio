@@ -10,9 +10,10 @@ import Logo2 from '../../../public/images/Logo2.svg?react';
 const PortfolioPage = () => {
   return (
     <div className='h-auto w-full'>
-      <div className='font-museo flex h-svh w-full flex-col items-center py-15'>
-        <Logo1 className='svg-icon' />
-        <Logo2 className='svg-icon' />
+      <div className='font-museo flex h-svh w-full flex-col items-center justify-center py-15'>
+        <Logo2 className='animation-svg-draw h-auto w-[50%]' />
+        <Logo1 className='animation-svg-fill w-[25%]' />
+        <text className='animation-opacity text-xl font-[200] text-gray-600'>Frontend Portfoilo / Blog</text>
         <span className='absolute bottom-0 flex flex-col items-center'>
           <text className='text-main-blue font-[300]'>Scroll Down</text>
           <img className='bg-nones w-10 animate-bounce' alt='scroll_down_icon' src='/icons/scrolldown.png' />
