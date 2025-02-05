@@ -46,3 +46,18 @@ export function useFadeAnimation(targetRef: React.RefObject<HTMLDivElement>) {
     };
   }, []);
 }
+
+// Ref에서 실행되는 애니메이션이 끝났을 때 실행할 함수 등록
+export function useAnimationEnd(targetRef: React.RefObject<HTMLElement>, callback: () => void) {
+  useEffect(() => {
+    const element = targetRef.current;
+    if (element) {
+      element.addEventListener('animationend', callback);
+    }
+    return () => {
+      if (element) {
+        element.removeEventListener('animationend', callback);
+      }
+    };
+  }, []);
+}

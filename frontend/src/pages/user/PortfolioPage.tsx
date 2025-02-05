@@ -4,21 +4,35 @@ import Certificate from '../../components/portfolio/Certificate';
 import Education from '../../components/portfolio/Education';
 import Project from '../../components/portfolio/Project';
 import Skill from '../../components/portfolio/Skill';
-import Logo1 from '../../../public/images/Logo1.svg?react';
-import Logo2 from '../../../public/images/Logo2.svg?react';
+import Logo1 from '../../assets/images/Logo1.svg?react';
+import Logo2 from '../../assets/images/Logo2.svg?react';
+import { useAnimationEnd } from '../../hooks/useAnimation';
+import { useRef } from 'react';
 
 const PortfolioPage = () => {
+  const landingRef = useRef<HTMLDivElement>(null);
+  const handleScrollOpen = () => {
+    document.getElementById('mainpage')?.classList.remove('overflow-hidden');
+  };
+  useAnimationEnd(landingRef, handleScrollOpen);
+
   return (
-    <div className='h-auto w-full'>
-      <div className='font-museo flex h-svh w-full flex-col items-center justify-center py-15'>
-        <Logo2 className='animation-svg-draw h-auto w-[50%]' />
-        <Logo1 className='animation-svg-fill w-[25%]' />
-        <text className='animation-opacity text-xl font-[200] text-gray-600'>Frontend Portfoilo / Blog</text>
-        <span className='absolute bottom-0 flex flex-col items-center'>
-          <text className='text-main-blue font-[300]'>Scroll Down</text>
-          <img className='bg-nones w-10 animate-bounce' alt='scroll_down_icon' src='/icons/scrolldown.png' />
-        </span>
-      </div>
+    <div ref={landingRef} className='h-auto w-full'>
+      <section>
+        <div className='font-museo flex h-svh w-full flex-col items-center justify-center gap-1 pb-10'>
+          <Logo2 className='animation-svg-draw h-auto w-[55%]' />
+          <Logo1 className='animation-svg-fill w-[30%]' />
+          <text className='animation-opacity text-2xl font-[100] text-gray-600'>Frontend Portfoilo / Blog</text>
+          <span className='animation-opacity absolute bottom-0 flex flex-col items-center'>
+            <text className='text-main-blue text-md font-[400]'>Scroll Down</text>
+            <img
+              className='bg-nones w-10 animate-bounce'
+              alt='scroll_down_icon'
+              src='src/assets/icons/ui/scrolldown.png'
+            />
+          </span>
+        </div>
+      </section>
       <section className='bg-[#2c2c2c]'>
         <About />
       </section>
