@@ -23,9 +23,10 @@ export function useFadeAnimation(targetRef: React.RefObject<HTMLDivElement>) {
       threshold: 0.5, // 50% 이상 보일 때 트리거
     });
 
+    const element = targetRef.current;
     // targetRef의 자식 요소들 감시 시작
-    if (targetRef.current) {
-      const childNodes = targetRef.current.children;
+    if (element) {
+      const childNodes = element.children;
       Array.from(childNodes).forEach((child) => {
         child.classList.add('transition-all', 'duration-700');
         observer.observe(child);
@@ -34,9 +35,9 @@ export function useFadeAnimation(targetRef: React.RefObject<HTMLDivElement>) {
 
     // 컴포넌트 언마운트 시 옵저버 해제
     return () => {
-      if (targetRef.current) {
-        targetRef.current?.classList.remove('transition-all', 'duration-1000');
-        const childNodes = targetRef.current.children;
+      if (element) {
+        element?.classList.remove('transition-all', 'duration-1000');
+        const childNodes = element.children;
         Array.from(childNodes).forEach((child) => {
           child.classList.add('transition-all', 'duration-700');
           observer.unobserve(child);
