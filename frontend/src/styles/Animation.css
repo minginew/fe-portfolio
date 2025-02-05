@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+@keyframes draw {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillAnimation {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: #0b64fe;
+  }
+}
+
+@keyframes opacityAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    pointer-events: auto;
+    opacity: 1; /* 마지막에 opacity가 1로 변경됨 */
+  }
+}
+
+.animation-opacity {
+  opacity: 0;
+  pointer-events: none;
+  animation: opacityAnimation 2s ease-out forwards;
+  animation-delay: 1.8s;
+}
+
+.animation-svg-draw path {
+  fill: transparent;
+  stroke: #0b64fe;
+  stroke-width: 2;
+  stroke-dasharray: 1000; /* 초기 상태 */
+  stroke-dashoffset: 1000;
+  animation:
+    draw 2s ease-out both,
+    fillAnimation 2s ease-out both;
+}
+
+.animation-svg-fill path {
+  fill: transparent;
+  stroke: #0b64fe;
+  stroke-width: 2;
+  stroke-dasharray: 1000; /* 초기 상태 */
+  stroke-dashoffset: 1000;
+  animation: fillAnimation 2s ease-out both;
+}
+
+.animation-svg-fill path:nth-of-type(1) {
+  animation-delay: 0.16s;
+}
+.animation-svg-fill path:nth-of-type(2) {
+  animation-delay: 0.32s;
+}
+.animation-svg-fill path:nth-of-type(3) {
+  animation-delay: 0.48s;
+}
+.animation-svg-fill path:nth-of-type(4) {
+  animation-delay: 0.64s;
+}
+.animation-svg-fill path:nth-of-type(5) {
+  animation-delay: 0.8s;
+}
