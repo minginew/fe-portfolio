@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 
 export function useFadeAnimation(targetRef: React.RefObject<HTMLDivElement>) {
   useEffect(() => {
-    targetRef.current?.classList.add('transition-all', 'duration-700');
     // IntersectionObserver 콜백 함수
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
@@ -21,19 +20,43 @@ export function useFadeAnimation(targetRef: React.RefObject<HTMLDivElement>) {
 
     // IntersectionObserver 인스턴스 생성
     const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.3, // 50% 이상 보일 때 트리거
+      threshold: 0.5, // 50% 이상 보일 때 트리거
     });
 
-    // targetRef로 전달된 요소 감시 시작
-    if (targetRef.current) {
-      observer.observe(targetRef.current);
+    const element = targetRef.current;
+    // targetRef의 자식 요소들 감시 시작
+    if (element) {
+      const childNodes = element.children;
+      Array.from(childNodes).forEach((child) => {
+        child.classList.add('transition-all', 'duration-700');
+        observer.observe(child);
+      });
     }
 
     // 컴포넌트 언마운트 시 옵저버 해제
     return () => {
-      if (targetRef.current) {
-        targetRef.current?.classList.remove('transition-all', 'duration-1000');
-        observer.unobserve(targetRef.current);
+      if (element) {
+        element?.classList.remove('transition-all', 'duration-1000');
+        const childNodes = element.children;
+        Array.from(childNodes).forEach((child) => {
+          child.classList.add('transition-all', 'duration-700');
+          observer.unobserve(child);
+        });
+      }
+    };
+  }, []);
+}
+
+// Ref에서 실행되는 애니메이션이 끝났을 때 실행할 함수 등록
+export function useAnimationEnd(targetRef: React.RefObject<HTMLElement>, callback: () => void) {
+  useEffect(() => {
+    const element = targetRef.current;
+    if (element) {
+      element.addEventListener('animationend', callback);
+    }
+    return () => {
+      if (element) {
+        element.removeEventListener('animationend', callback);
       }
     };
   }, []);
