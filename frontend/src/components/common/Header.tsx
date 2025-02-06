@@ -9,7 +9,7 @@ const Header = () => {
   };
 
   return (
-    <header className='animation-opacity font-museo fixed top-0 z-50 h-auto w-full text-lg font-[300] drop-shadow-md select-none'>
+    <header className='font-museo animation-opacity fixed top-0 z-50 h-auto w-full text-lg font-[300] drop-shadow-md select-none'>
       <nav className='bg-main-gray-100 flex h-14 w-full flex-wrap items-center justify-between px-3 py-1'>
         <div className='flex items-center gap-1 opacity-70'>
           <img
