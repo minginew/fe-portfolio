@@ -3,9 +3,9 @@ import Header from '../components/common/Header';
 
 const MainPage = () => {
   return (
-    <div id='mainpage' className='bg-main-gray-100 flex h-full w-full flex-col justify-center overflow-hidden'>
+    <div id='mainpage' className='bg-main-gray-100 flex h-svh w-full flex-col justify-center overflow-hidden'>
       <Header />
-      <main className='h-svh w-full'>
+      <main className='h-full w-full'>
         <Outlet />
       </main>
     </div>

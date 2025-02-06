@@ -36,7 +36,6 @@ export function useFadeAnimation(targetRef: React.RefObject<HTMLDivElement>) {
     // 컴포넌트 언마운트 시 옵저버 해제
     return () => {
       if (element) {
-        element?.classList.remove('transition-all', 'duration-1000');
         const childNodes = element.children;
         Array.from(childNodes).forEach((child) => {
           child.classList.add('transition-all', 'duration-700');
