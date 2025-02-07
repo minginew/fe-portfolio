@@ -5,8 +5,8 @@ const Skill = () => {
   const skillRef = useRef<HTMLDivElement>(null);
   useFadeAnimation(skillRef);
   return (
-    <div ref={skillRef} className='flex h-[1000px] w-full items-center justify-center bg-orange-900'>
-      <span className='text-5xl'>Skill</span>
+    <div ref={skillRef} className='relative h-[500px] w-full'>
+      <span className='absolute left-10 text-2xl'>SKILL</span>
     </div>
   );
 };

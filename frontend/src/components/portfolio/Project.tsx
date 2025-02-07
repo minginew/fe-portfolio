@@ -5,8 +5,35 @@ const Project = () => {
   const projectRef = useRef<HTMLDivElement>(null);
   useFadeAnimation(projectRef);
   return (
-    <div ref={projectRef} className='flex h-[1000px] w-full items-center justify-center bg-purple-900'>
-      <span className='text-5xl'>Project</span>
+    <div
+      ref={projectRef}
+      className='bg-main-gray-100 flex w-full flex-col items-center overflow-y-hidden pt-25 text-[#2c2c2c]'
+    >
+      <div className='text-5xl font-[500]'>PROJECT</div>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
+      <span className='text-2xl'>텍스트</span>
     </div>
   );
 };
