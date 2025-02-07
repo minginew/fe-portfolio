@@ -1,38 +1,41 @@
 @import 'tailwindcss';
 
-@keyframes draw {
-  0% {
-    stroke-dashoffset: 1000;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes fillAnimation {
-  0% {
-    fill: transparent;
-  }
-  100% {
-    fill: #0b64fe;
-  }
-}
-
 @keyframes opacityAnimation {
   0% {
     opacity: 0;
   }
+  99% {
+    opacity: 0.5;
+  }
   100% {
-    pointer-events: auto;
-    opacity: 1; /* 마지막에 opacity가 1로 변경됨 */
+    opacity: 1;
   }
 }
 
 .animation-opacity {
   opacity: 0;
-  pointer-events: none;
-  animation: opacityAnimation 2s ease-out forwards;
-  animation-delay: 1.8s;
+  /* pointer-events: none;  훅으로 대체*/
+  animation: opacityAnimation 2s ease both;
+  /* animation-delay: 1.8s; light house 에러유발 코드*/
+  will-change: opacity;
+}
+
+@keyframes drawAnimation {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillAnimation {
+  from {
+    fill: transparent;
+  }
+  to {
+    fill: #0b64fe;
+  }
 }
 
 .animation-svg-draw path {
@@ -42,8 +45,9 @@
   stroke-dasharray: 1000; /* 초기 상태 */
   stroke-dashoffset: 1000;
   animation:
-    draw 2s ease-out both,
+    drawAnimation 2s ease-out both,
     fillAnimation 2s ease-out both;
+  will-change: stroke-dashoffset, fill;
 }
 
 .animation-svg-fill path {
@@ -53,6 +57,7 @@
   stroke-dasharray: 1000; /* 초기 상태 */
   stroke-dashoffset: 1000;
   animation: fillAnimation 2s ease-out both;
+  will-change: fill;
 }
 
 .animation-svg-fill path:nth-of-type(1) {
@@ -69,4 +74,62 @@
 }
 .animation-svg-fill path:nth-of-type(5) {
   animation-delay: 0.8s;
+}
+
+.animation-border::before,
+.animation-border span::before,
+.animation-border::after,
+.animation-border span::after {
+  content: '';
+  position: absolute;
+  background: #0b64fe;
+  display: inline-block;
+}
+
+@keyframes borderAnimation-x {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes borderAnimation-y {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+  }
+}
+.animation-border::before {
+  left: 0%;
+  top: 0%;
+  width: 0%;
+  height: 1px;
+  animation: borderAnimation-x 2s ease-out both;
+}
+
+.animation-border::after {
+  right: 0%;
+  bottom: 0%;
+  width: 0%;
+  height: 1px;
+  animation: borderAnimation-x 2s ease-out both;
+}
+
+.animation-border span::before {
+  left: 0%;
+  bottom: 0%;
+  width: 1px;
+  height: 0%;
+  animation: borderAnimation-y 2s ease-out both;
+}
+
+.animation-border span::after {
+  right: 0%;
+  top: 0%;
+  width: 1px;
+  height: 0%;
+  animation: borderAnimation-y 2s ease-out both;
 }
