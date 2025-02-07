@@ -5,8 +5,8 @@ const Education = () => {
   const educationRef = useRef<HTMLDivElement>(null);
   useFadeAnimation(educationRef);
   return (
-    <div ref={educationRef} className='flex h-[1000px] w-full items-center justify-center bg-yellow-900'>
-      <span className='text-5xl'>Education</span>
+    <div ref={educationRef} className='relative h-[500px] w-full'>
+      <span className='absolute left-10 text-2xl'>education</span>
     </div>
   );
 };
