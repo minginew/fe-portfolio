@@ -20,7 +20,7 @@ export function useFadeAnimation(targetRef: React.RefObject<HTMLDivElement>) {
 
     // IntersectionObserver 인스턴스 생성
     const observer = new IntersectionObserver(observerCallback, {
-      threshold: 0.5, // 50% 이상 보일 때 트리거
+      threshold: 0.4, // 40% 이상 보일 때 트리거
     });
 
     const element = targetRef.current;

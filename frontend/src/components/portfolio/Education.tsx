@@ -6,7 +6,7 @@ const Education = () => {
   useFadeAnimation(educationRef);
   return (
     <div ref={educationRef} className='relative h-[500px] w-full'>
-      <span className='absolute left-10 text-2xl'>education</span>
+      <span className='absolute left-[50%] -translate-x-[50%] text-3xl'>education</span>
     </div>
   );
 };

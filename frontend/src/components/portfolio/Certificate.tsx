@@ -6,7 +6,7 @@ const Certificate = () => {
   useFadeAnimation(certificateRef);
   return (
     <div ref={certificateRef} className='relative h-[500px] w-full'>
-      <span className='absolute left-10 text-3xl'>Certificate</span>
+      <span className='absolute left-[50%] -translate-x-[50%] text-3xl'>Certificate</span>
     </div>
   );
 };
