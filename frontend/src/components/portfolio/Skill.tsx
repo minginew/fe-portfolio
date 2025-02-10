@@ -2,16 +2,16 @@ import { useRef } from 'react';
 import { useFadeAnimation } from '../../hooks/useAnimation';
 
 const Skill = () => {
+  const titleRef = useRef<HTMLDivElement>(null);
   const skillRef = useRef<HTMLDivElement>(null);
-  const skillsRef = useRef<HTMLDivElement>(null);
+  useFadeAnimation(titleRef);
   useFadeAnimation(skillRef);
-  useFadeAnimation(skillsRef);
   return (
-    <article className='mb-20 w-full'>
-      <div ref={skillRef} className='flex justify-center text-4xl'>
+    <article className='mb-30 w-full'>
+      <div ref={titleRef} className='flex justify-center text-4xl'>
         <div>Skill</div>
       </div>
-      <div ref={skillsRef} className='bg-main-black-100 mt-10 grid grid-cols-1 gap-5 p-5'>
+      <div ref={skillRef} className='bg-main-black-100 mt-10 grid grid-cols-1 gap-5 p-5'>
         <div className='relative'>
           <div className='bg-main-black-100 mb-3 grid items-center justify-items-center text-xl'>Friendly</div>
           <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10'>
