@@ -9,10 +9,12 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --check ./src",
-    "format:fix": "prettier --write ./src"
+    "format:fix": "prettier --write ./src",
+    "gen": "npx supabase gen types typescript --project-id \"$VITE_SUPABASE_PROJECT_ID\" --schema public > src/types/supabase.ts"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
+    "@supabase/supabase-js": "^2.48.1",
     "@tailwindcss/vite": "^4.0.0",
     "axios": "^1.7.9",
     "react": "^18.3.1",
