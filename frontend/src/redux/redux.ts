@@ -11,12 +11,12 @@ export interface Project {
   projectId: number;
   title: string;
   content: string;
+  roles: string[];
+  techstack: string[];
+  summary: string;
+  thumbnail: string;
   startDate: string;
   endDate: string;
-  thumbnailUrl: string | File;
-  summary: string;
-  roles: string[];
-  techStack: string[];
 }
 
 export interface Projects {
