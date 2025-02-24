@@ -3,6 +3,8 @@ import rootReducer from './reducer';
 import { configureStore } from '@reduxjs/toolkit';
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from 'redux-persist';
 import { authApi } from './api/authApi';
+import { postsApi } from './api/postApi';
+import { projectsApi } from './api/projectApi';
 
 //persist : 지속하다. //redux의 state 즉 상태값들을 지속적으로 유지시켜준다.
 const persistConfig = {
@@ -23,7 +25,7 @@ export const store = configureStore({
         //리덕스는 직렬화 되지 않은 값들은 에러로 처리하기 때문에 serializableCheck를 ignored 한다.(false)
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(authApi.middleware),
+    }).concat(authApi.middleware, postsApi.middleware, projectsApi.middleware),
 });
 
 export const persistor = persistStore(store);
