@@ -35,20 +35,17 @@ export const createProject = createAsyncThunk(
 );
 
 // UPDATE: Project 수정
-export const updateProject = createAsyncThunk(
-  'projects/updateProject',
-  async (project: Project, thunksApi) => {
-    try {
-      const { projectId, ...updateProject } = project;
-      const { error } = await supabase.from('posts').update(updateProject).eq('project_id', projectId);
-      if (error) {
-        return thunksApi.rejectWithValue(error.message);
-      }
-    } catch (error) {
-      return thunksApi.rejectWithValue(error);
+export const updateProject = createAsyncThunk('projects/updateProject', async (project: Project, thunksApi) => {
+  try {
+    const { projectId, ...updateProject } = project;
+    const { error } = await supabase.from('posts').update(updateProject).eq('project_id', projectId);
+    if (error) {
+      return thunksApi.rejectWithValue(error.message);
     }
+  } catch (error) {
+    return thunksApi.rejectWithValue(error);
   }
-);
+});
 
 // DELETE: Project 삭제
 export const deleteProject = createAsyncThunk('projects/deleteProject', async (projectId: number, thunksApi) => {

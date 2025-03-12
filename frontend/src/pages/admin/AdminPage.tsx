@@ -1,8 +1,9 @@
+import '@styles/Input.css';
 import { useEffect } from 'react';
 import { supabase } from '../../util/supabaseClient';
 import { Outlet, useNavigate } from 'react-router-dom';
-import AdminNavbar from '../../components/admin/AdminNavbar';
 import { getTimeDifference } from '../../hooks/useDate';
+import AdminNavbar from '../../components/admin/AdminNavbar';
 
 const AdminPage = () => {
   const navigator = useNavigate();
@@ -11,7 +12,6 @@ const AdminPage = () => {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === 'INITIAL_SESSION') {
-        console.log(session);
         if (!session?.access_token) {
           navigator('/signin');
         } else {
@@ -31,7 +31,7 @@ const AdminPage = () => {
     };
   }, []);
   return (
-    <div className='bg-main-gray-100 w-full'>
+    <div className='bg-main-gray-100 w-full overflow-y-scroll'>
       <AdminNavbar />
       <Outlet />
     </div>

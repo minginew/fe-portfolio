@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
-import Header from '../components/common/Header';
-import Intro from '../components/common/Intro';
+import Header from '../../components/common/Header';
+import Intro from '../../components/common/Intro';
 import { useRef, useState } from 'react';
-import { useAnimationEnd } from '../hooks/useAnimation';
+import { useAnimationEnd } from '../../hooks/useAnimation';
 
 const MainPage = () => {
   //redux-persist 로 대체할 예정
@@ -31,12 +31,12 @@ const MainPage = () => {
       className='bg-main-gray-100 pointer-events-none flex w-full flex-col justify-center overflow-hidden'
     >
       <div
-        className={`bg-main-gray-100 fixed top-0 left-0 z-[9999] flex h-svh w-full flex-col items-center p-5 transition-all duration-2000 ${introEnd ? 'invisible -translate-y-full' : 'visible translate-y-0'}`}
+        className={`fixed top-0 left-0 z-[9999] flex h-svh w-full flex-col items-center bg-[url(src/assets/images/background_white.jpg)] p-5 transition-all duration-2000 ${introEnd ? 'invisible -translate-y-full' : 'visible translate-y-0'}`}
       >
         <Intro />
         <div
           ref={buttonRef}
-          className='animation-opacity md:bg-main-gray-200 md:hover:bg-main-blue absolute bottom-12 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-blue-400'
+          className='animation-opacity hover:bg-main-blue absolute bottom-12 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-blue-400'
         >
           <div className='text-sm font-medium text-white' onClick={handleMlogEnter}>
             Click!

@@ -24,9 +24,7 @@ export const authApi = createApi({
     signOut: builder.mutation<void, void>({
       queryFn: async () => {
         const { error } = await supabase.auth.signOut();
-
-        if (error) return { error: { message: error.message } }; // ✅ error 객체 대신 error.message만 반환
-
+        if (error) return { error: { message: error.message } };
         return { data: undefined };
       },
     }),
