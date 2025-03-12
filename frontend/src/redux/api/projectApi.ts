@@ -64,7 +64,7 @@ export const projectsApi = createApi({
     updateProject: builder.mutation<number, Project>({
       queryFn: async (project) => {
         const { projectId, ...updateProject } = project;
-        const { status } = await supabase.from('posts').update(updateProject).eq('project_id', projectId);
+        const { status } = await supabase.from('projects').update(updateProject).eq('project_id', projectId);
         return { data: status };
       },
       invalidatesTags: ['Projects'],

@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-import { useAnimationEnd } from '../../hooks/useAnimation';
 import Logo1 from '../../assets/images/Logo1.svg?react';
 import Logo2 from '../../assets/images/Logo2.svg?react';
 

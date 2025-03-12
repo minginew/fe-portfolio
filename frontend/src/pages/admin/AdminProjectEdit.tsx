@@ -1,5 +1,5 @@
-import Editor from '../blog/Editor';
-import Tag from '../blog/Tag';
+import Editor from '../../components/blog/Editor';
+import Tag from '../../components/blog/Tag';
 import { useEffect, useState } from 'react';
 import { useUploadThumbnailMutation } from '@/redux/api/storageApi';
 import { useNavigate, useParams } from 'react-router-dom';
