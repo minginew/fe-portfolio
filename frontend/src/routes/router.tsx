@@ -1,18 +1,23 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import PortfolioPage from '../pages/user/PortfolioPage';
-import ProjectPage from '../pages/user/ProjectPage';
-import PostPage from '../pages/user/PostPage';
-import ProjectList from '../components/project/ProjectList';
-import PostList from '../components/post/PostList';
-import PostDetail from '../components/post/PostDetail';
-import ProjectDetail from '../components/project/ProjectDetail';
-import MainPage from '../pages/MainPage';
+import ProjectList from '../pages/user/ProjectList';
+import PostList from '../pages/user/PostList';
+import PostDetail from '../pages/user/PostDetail';
+import ProjectDetail from '../pages/user/ProjectDetail';
+import MainPage from '../pages/user/MainPage';
 import LoginPage from '../pages/admin/LoginPage';
 import AdminPage from '../pages/admin/AdminPage';
-import AdminProjectList from '../components/admin/AdminProjectList';
-import AdminProjectDetail from '../components/admin/AdminProjectDetail';
-import AdminPostList from '../components/admin/AdminPostList';
-import AdminPostDetail from '../components/admin/AdminPostDetail';
+import AdminProjectList from '../pages/admin/AdminProjectList';
+import AdminProjectDetail from '../pages/admin/AdminProjectDetail';
+import AdminPostList from '../pages/admin/AdminPostList';
+import AdminPostDetail from '../pages/admin/AdminPostDetail';
+import AdminProjectEdit from '../pages/admin/AdminProjectEdit';
+import AdminPostEdit from '@/pages/admin/AdminPostEdit';
+
+export const ROUTES = {
+  PROJECT_EDIT: '/admin/project/edit',
+  POST_EDIT: '/admin/post/edit',
+};
 
 const router = createBrowserRouter([
   {
@@ -24,32 +29,25 @@ const router = createBrowserRouter([
         element: <PortfolioPage />,
       },
       {
-        path: '/project',
-        element: <ProjectPage />,
-        children: [
-          {
-            path: '',
-            element: <ProjectList />,
-          },
-          {
-            path: ':id',
-            element: <ProjectDetail />,
-          },
-        ],
+        path: '/portfolio',
+        element: <PortfolioPage />,
       },
       {
+        path: '/project',
+        element: <ProjectList />,
+      },
+      {
+        path: '/project/:id',
+        element: <ProjectDetail />,
+      },
+
+      {
         path: '/post',
-        element: <PostPage />,
-        children: [
-          {
-            path: '',
-            element: <PostList />,
-          },
-          {
-            path: ':id',
-            element: <PostDetail />,
-          },
-        ],
+        element: <PostList />,
+      },
+      {
+        path: '/post/:id',
+        element: <PostDetail />,
       },
     ],
   },
@@ -74,12 +72,20 @@ const router = createBrowserRouter([
         element: <AdminProjectDetail />,
       },
       {
+        path: 'project/edit/:id?',
+        element: <AdminProjectEdit />,
+      },
+      {
         path: 'post',
         element: <AdminPostList />,
       },
       {
         path: 'post/:id',
         element: <AdminPostDetail />,
+      },
+      {
+        path: 'post/edit/:id?',
+        element: <AdminPostEdit />,
       },
     ],
   },

@@ -3,23 +3,14 @@ import { useGetPostsQuery } from '../../redux/api/postApi';
 import { getKST } from '../../hooks/useDate';
 import { useGetText } from '@/hooks/useParser';
 
-const AdminPostList = () => {
+const PostList = () => {
   const { data } = useGetPostsQuery();
   const navigator = useNavigate();
-  const handleCreatePost = () => {
-    navigator('edit');
-  };
 
   return (
     <div className='flex w-full flex-col items-center px-2'>
       <div className='border-main-blue text-main-blue mb-5 flex h-28 w-full items-center justify-between border-b-1 px-2'>
         <div className='font-museo px-2 py-4 text-4xl font-bold'>POST</div>
-        <button
-          className='hover:bg-main-blue h-10 cursor-pointer rounded-lg bg-blue-400 px-3 text-white'
-          onClick={handleCreatePost}
-        >
-          <span>작성하기</span>
-        </button>
       </div>
       <div className='my-5 flex w-full flex-col gap-4 px-2'>
         {data?.map((post) => (
@@ -49,4 +40,5 @@ const AdminPostList = () => {
     </div>
   );
 };
-export default AdminPostList;
+
+export default PostList;

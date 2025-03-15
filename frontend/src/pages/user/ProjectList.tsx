@@ -1,24 +1,15 @@
 import { useNavigate } from 'react-router-dom';
 import { useGetProjectsQuery } from '../../redux/api/projectApi';
-const AdminProjectList = () => {
+const ProjectList = () => {
   const { data } = useGetProjectsQuery();
   const navigator = useNavigate();
-  const handleCreateProject = () => {
-    navigator('edit');
-  };
 
   return (
     <div className='flex w-full flex-col items-center px-2'>
-      <div className='border-main-blue text-main-blue mb-5 flex h-28 w-full items-center justify-between border-b-1 px-2'>
+      <div className='border-main-blue text-main-blue mb-5 flex h-28 w-full max-w-6xl items-center justify-between border-b-1 px-2'>
         <div className='font-museo px-2 py-4 text-4xl font-bold'>PROJECT</div>
-        <button
-          className='hover:bg-main-blue h-10 cursor-pointer rounded-lg bg-blue-400 px-3 text-white'
-          onClick={handleCreateProject}
-        >
-          <span>작성하기</span>
-        </button>
       </div>
-      <div className='my-5 flex w-full flex-col gap-4 px-2'>
+      <div className='my-5 flex w-full max-w-6xl flex-col gap-4 px-2'>
         {data?.map((project) => (
           <div
             key={project.projectId}
@@ -58,4 +49,5 @@ const AdminProjectList = () => {
     </div>
   );
 };
-export default AdminProjectList;
+
+export default ProjectList;

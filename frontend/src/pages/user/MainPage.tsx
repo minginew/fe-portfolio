@@ -1,53 +1,65 @@
-import { Outlet } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import Intro from '../../components/common/Intro';
-import { useRef, useState } from 'react';
+import Footer from '@components/common/Footer';
+import background from '@images/background_white.jpg';
+
+import { Outlet, useLocation } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 import { useAnimationEnd } from '../../hooks/useAnimation';
 
 const MainPage = () => {
-  //redux-persist 로 대체할 예정
+  const location = useLocation();
   const [introEnd, setIntroEnd] = useState<boolean>(false);
   const mainRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   const handleActiveButton = () => {
-    console.log('버튼 활성화');
     mainRef.current?.classList.remove('pointer-events-none');
   };
 
   const handleMlogEnter = () => {
     setIntroEnd(true);
-    console.log('스크롤 활성화됨');
-    mainRef.current?.classList.remove('overflow-hidden');
+    mainRef.current?.classList.remove('overflow-hidden', 'h-svh');
   };
-  // 버튼 누르면 Settion에 저장
-  // 버튼 누르면 스크롤 막기 해제
 
   useAnimationEnd(buttonRef, handleActiveButton);
+
   return (
     <div
       ref={mainRef}
       id='mainpage'
-      className='bg-main-gray-100 pointer-events-none flex w-full flex-col justify-center overflow-hidden'
+      className={`bg-main-gray-100 ${location.pathname === '/' ? 'pointer-events-none h-svh overflow-hidden' : ''} flex w-full flex-col justify-center`}
     >
-      <div
-        className={`fixed top-0 left-0 z-[9999] flex h-svh w-full flex-col items-center bg-[url(src/assets/images/background_white.jpg)] p-5 transition-all duration-2000 ${introEnd ? 'invisible -translate-y-full' : 'visible translate-y-0'}`}
-      >
-        <Intro />
+      {location.pathname === '/' ? (
         <div
-          ref={buttonRef}
-          className='animation-opacity hover:bg-main-blue absolute bottom-12 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-blue-400'
+          className={`fixed top-0 left-0 z-[9999] flex h-svh w-full flex-col items-center p-5 transition-all duration-2000 ${introEnd ? 'invisible -translate-y-full' : 'visible translate-y-0'}`}
+          style={{
+            backgroundImage: `url(${background})`,
+          }}
         >
-          <div className='text-sm font-medium text-white' onClick={handleMlogEnter}>
-            Click!
+          <Intro />
+          <div
+            ref={buttonRef}
+            className='animation-opacity hover:bg-main-blue absolute bottom-12 flex h-15 w-15 cursor-pointer items-center justify-center rounded-full bg-blue-400'
+          >
+            <div className='text-sm font-medium text-white' onClick={handleMlogEnter}>
+              Click!
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <></>
+      )}
       <div className='relative z-[9998]'>
         <Header />
-        <main className='h-svh w-full'>
+        <main className='mt-14 w-full'>
           <Outlet />
         </main>
+        <Footer />
       </div>
     </div>
   );

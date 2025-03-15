@@ -21,9 +21,10 @@ const AdminProjectEdit = () => {
   const [content, setContent] = useState<string>('');
 
   //초기값 query
-  const { data: intialState, error: queryError } = useGetProjectByIdQuery(projectId, {
+  const { data: initailState, error: queryError } = useGetProjectByIdQuery(projectId, {
     skip: projectId === -1,
   });
+
   //썸네일, 프로젝트 생성, 프로젝트 수정 Mutation
   const [uploadThumbnail, { isLoading: isUploadingThumbnail }] = useUploadThumbnailMutation();
   const [createProject, { isLoading: isCreatingProject }] = useCreateProjectMutation();
@@ -45,19 +46,19 @@ const AdminProjectEdit = () => {
 
   //게시글을 update 하는경우 초기값 초기화
   useEffect(() => {
-    if (intialState) {
-      console.log(intialState.title);
-      setTitle(intialState.title);
-      setSummary(intialState.summary);
-      setRoles([...intialState.roles]);
-      setTechstack([...intialState.techstack]);
-      setStartDate(intialState.startDate);
-      setEndDate(intialState.endDate);
-      setThumbnail(intialState.thumbnail);
-      setContent(intialState.content);
-      console.log(intialState.content);
+    if (initailState) {
+      console.log(initailState.title);
+      setTitle(initailState.title);
+      setSummary(initailState.summary);
+      setRoles([...initailState.roles]);
+      setTechstack([...initailState.techstack]);
+      setStartDate(initailState.startDate);
+      setEndDate(initailState.endDate);
+      setThumbnail(initailState.thumbnail);
+      setContent(initailState.content);
+      console.log(initailState.content);
     }
-  }, [intialState]);
+  }, [initailState]);
 
   const handleRolesBlur = (data: string[]) => {
     console.log(data);
@@ -104,7 +105,7 @@ const AdminProjectEdit = () => {
   };
 
   return (
-    <div className='relative flex h-svh w-full flex-col gap-7 p-4'>
+    <div className='relative flex h-svh w-full flex-col gap-7 px-4 py-8'>
       <div className='my-2 ml-2 text-3xl font-bold text-blue-400'>Project Info</div>
       <div className='input-border'>
         <span className='bg-main-gray-100'>PROJECT</span>

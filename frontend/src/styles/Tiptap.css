@@ -5,9 +5,17 @@
     @apply mt-1;
   }
 
-  .tiptap ul,
+  .tiptap ul {
+    @apply my-2 ml-1 list-disc pr-4 pl-4;
+  }
+
   .tiptap ol {
-    @apply pl-4;
+    @apply my-2 ml-1 list-decimal pr-4 pl-4;
+  }
+
+  .tiptap ul li p,
+  .tiptap ol li p {
+    @apply mt-1 mb-1;
   }
 
   .tiptap h1 {
@@ -110,81 +118,85 @@
 }
 
 .is-h1 {
-  @apply h-7 w-7 bg-[url('@icons/toolbar/H1.svg')] bg-cover bg-center fill-red-50;
+  @apply h-7 w-7 cursor-pointer bg-[url('@icons/toolbar/H1.svg')] bg-cover bg-center fill-red-50;
 }
 
 .is-not-h1 {
-  @apply h-7 w-7 bg-[url('@icons/toolbar/H1.svg')] bg-cover bg-center opacity-60;
+  @apply h-7 w-7 cursor-pointer bg-[url('@icons/toolbar/H1.svg')] bg-cover bg-center opacity-60;
 }
 
 .is-h2 {
-  @apply h-7 w-7 bg-[url('@icons/toolbar/H2.svg')] bg-cover bg-center;
+  @apply h-7 w-7 cursor-pointer bg-[url('@icons/toolbar/H2.svg')] bg-cover bg-center;
 }
 
 .is-not-h2 {
-  @apply h-7 w-7 bg-[url('@icons/toolbar/H2.svg')] bg-cover bg-center opacity-60;
+  @apply h-7 w-7 cursor-pointer bg-[url('@icons/toolbar/H2.svg')] bg-cover bg-center opacity-60;
 }
 
 .is-h3 {
-  @apply h-7 w-7 bg-[url('@icons/toolbar/H3.svg')] bg-cover bg-center;
+  @apply h-7 w-7 cursor-pointer bg-[url('@icons/toolbar/H3.svg')] bg-cover bg-center;
 }
 
 .is-not-h3 {
-  @apply h-7 w-7 bg-[url('@icons/toolbar/H3.svg')] bg-cover bg-center opacity-60;
+  @apply h-7 w-7 cursor-pointer bg-[url('@icons/toolbar/H3.svg')] bg-cover bg-center opacity-60;
 }
 
 .is-h4 {
-  @apply h-7 w-7 bg-[url('@icons/toolbar/H4.svg')] bg-cover bg-center;
+  @apply h-7 w-7 cursor-pointer bg-[url('@icons/toolbar/H4.svg')] bg-cover bg-center;
 }
 
 .is-not-h4 {
-  @apply h-7 w-7 bg-[url('@icons/toolbar/H4.svg')] bg-cover bg-center opacity-60;
+  @apply h-7 w-7 cursor-pointer bg-[url('@icons/toolbar/H4.svg')] bg-cover bg-center opacity-60;
 }
 
 .is-bold {
-  @apply h-6 w-6 bg-[url('@icons/toolbar/Bold.svg')] bg-cover bg-center;
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Bold.svg')] bg-cover bg-center;
 }
 
 .is-not-bold {
-  @apply h-6 w-6 bg-[url('@icons/toolbar/Bold.svg')] bg-cover bg-center opacity-60;
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Bold.svg')] bg-cover bg-center opacity-60;
 }
 
 .is-italic {
-  @apply h-6 w-6 bg-[url('@icons/toolbar/Italic.svg')] bg-cover bg-center;
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Italic.svg')] bg-cover bg-center;
 }
 
 .is-not-italic {
-  @apply h-6 w-6 bg-[url('@icons/toolbar/Italic.svg')] bg-cover bg-center opacity-60;
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Italic.svg')] bg-cover bg-center opacity-60;
 }
 
 .is-strike {
-  @apply h-6 w-6 bg-[url('@icons/toolbar/Strike.svg')] bg-cover bg-center;
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Strike.svg')] bg-cover bg-center;
 }
 
 .is-not-strike {
-  @apply h-6 w-6 bg-[url('@icons/toolbar/Strike.svg')] bg-cover bg-center opacity-60;
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Strike.svg')] bg-cover bg-center opacity-60;
 }
 
 .is-code {
-  @apply h-6 w-6 bg-[url('@icons/toolbar/Code.svg')] bg-cover bg-center;
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Code.svg')] bg-cover bg-center;
 }
 
 .is-not-code {
-  @apply h-6 w-6 bg-[url('@icons/toolbar/Code.svg')] bg-cover bg-center opacity-60;
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Code.svg')] bg-cover bg-center opacity-60;
 }
 
 .is-code-block {
-  @apply h-6 w-6 bg-[url('@icons/toolbar/CodeBlock.svg')] bg-cover bg-center;
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/CodeBlock.svg')] bg-cover bg-center;
 }
 
 .is-not-code-block {
-  @apply h-6 w-6 bg-[url('@icons/toolbar/CodeBlock.svg')] bg-cover bg-center opacity-60;
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/CodeBlock.svg')] bg-cover bg-center opacity-60;
 }
 
 .is-quote {
-  @apply h-6 w-6 bg-[url('@icons/toolbar/Quote.svg')] bg-cover bg-center;
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Quote.svg')] bg-cover bg-center;
 }
 
 .is-not-quote {
-  @apply h-6 w-6 bg-[url('@icons/toolbar/Quote.svg')] bg-cover bg-center opacity-60;
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Quote.svg')] bg-cover bg-center opacity-60;
+}
+
+.is-image {
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Upload.svg')] bg-cover bg-center opacity-60 hover:opacity-100;
 }
