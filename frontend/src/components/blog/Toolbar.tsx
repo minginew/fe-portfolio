@@ -1,10 +1,13 @@
-import { useCurrentEditor } from '@tiptap/react';
+import { Editor } from '@tiptap/react';
 import Items from './Items';
 
-const Toolbar = () => {
-  const { editor } = useCurrentEditor();
+interface Props {
+  editor: Editor | null;
+}
+const Toolbar = ({ editor }: Props) => {
+  if (!editor) return null;
   return (
-    <div className='flex w-full items-center gap-4 border-b-1 px-4 pb-2'>
+    <div className='flex w-full items-center justify-center gap-5 border-b-1 pb-2'>
       <div className='flex items-center justify-center gap-3'>
         <Items.H1 editor={editor} />
         <Items.H2 editor={editor} />
@@ -20,7 +23,7 @@ const Toolbar = () => {
         <Items.Code editor={editor} />
         <Items.CodeBlock editor={editor} />
         <Items.Quote editor={editor} />
-        {/* <Icon.AddPhoto editor={editor} /> */}
+        <Items.AddImage editor={editor} />
       </div>
     </div>
   );
