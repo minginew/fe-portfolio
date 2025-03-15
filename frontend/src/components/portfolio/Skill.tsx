@@ -1,3 +1,22 @@
+import HTML from '@icons/brand/HTML.svg';
+import CSS from '@icons/brand/CSS.svg';
+import JavaScript from '@icons/brand/JavaScript.svg';
+import TypeScript from '@icons/brand/TypeScript.svg';
+import JavaLight from '@icons/brand/Java-Light.svg';
+import ReactDark from '@icons/brand/React-Dark.svg';
+import Redux from '@icons/brand/Redux.svg';
+import TailwindCSS from '@icons/brand/TailwindCSS-Light.svg';
+import D3 from '@icons/brand/D3-Light.svg';
+import VueJS from '@icons/brand/VueJS-Light.svg';
+import Spring from '@icons/brand/Spring-Light.svg';
+import MySQL from '@icons/brand/MySQL-Light.svg';
+import Supabase from '@icons/brand/Supabase-Light.svg';
+import Git from '@icons/brand/Git.svg';
+import Github from '@icons/brand/Github-Light.svg';
+import VSCode from '@icons/brand/VSCode-Light.svg';
+import Figma from '@icons/brand/Figma-Light.svg';
+import Idea from '@icons/brand/Idea-Light.svg';
+
 import { useRef } from 'react';
 import { useFadeAnimation } from '../../hooks/useAnimation';
 
@@ -15,34 +34,34 @@ const Skill = () => {
         <div className='relative'>
           <div className='bg-main-black-100 mb-3 grid items-center justify-items-center text-xl'>Friendly</div>
           <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10 duration-500 sm:place-content-center'>
-            <img className='h-12 w-12' alt='html icon' src='src/assets/icons/brand/HTML.svg' />
-            <img className='h-12 w-12' alt='css icon' src='src/assets/icons/brand/CSS.svg' />
-            <img className='h-12 w-12' alt='javascript icon' src='src/assets/icons/brand/JavaScript.svg' />
-            <img className='h-12 w-12' alt='typescript icon' src='src/assets/icons/brand/TypeScript.svg' />
-            <img className='h-12 w-12' alt='java icon' src='src/assets/icons/brand/Java-Light.svg' />
-            <img className='h-12 w-12' alt='react icon' src='src/assets/icons/brand/React-Dark.svg' />
-            <img className='h-12 w-12' alt='redux icon' src='src/assets/icons/brand/Redux.svg' />
-            <img className='h-12 w-12' alt='tailwind icon' src='src/assets/icons/brand/TailwindCSS-Light.svg' />
-            <img className='h-12 w-12' alt='d3 icon' src='src/assets/icons/brand/D3-Light.svg' />
+            <img className='h-12 w-12' alt='html icon' src={HTML} />
+            <img className='h-12 w-12' alt='css icon' src={CSS} />
+            <img className='h-12 w-12' alt='javascript icon' src={JavaScript} />
+            <img className='h-12 w-12' alt='typescript icon' src={TypeScript} />
+            <img className='h-12 w-12' alt='java icon' src={JavaLight} />
+            <img className='h-12 w-12' alt='react icon' src={ReactDark} />
+            <img className='h-12 w-12' alt='redux icon' src={Redux} />
+            <img className='h-12 w-12' alt='tailwind icon' src={TailwindCSS} />
+            <img className='h-12 w-12' alt='d3 icon' src={D3} />
           </div>
         </div>
         <div className='relative'>
           <div className='bg-main-black-100 mt-5 mb-3 grid items-center justify-items-center text-xl'>Used</div>
           <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10 duration-500 sm:place-content-center'>
-            <img className='h-12 w-12' alt='vue icon' src='src/assets/icons/brand/VueJS-Light.svg' />
-            <img className='h-12 w-12' alt='spring icon' src='src/assets/icons/brand/Spring-Light.svg' />
-            <img className='h-12 w-12' alt='mysql icon' src='src/assets/icons/brand/MySQL-Light.svg' />
-            <img className='h-12 w-12' alt='supabase icon' src='src/assets/icons/brand/Supabase-Light.svg' />
+            <img className='h-12 w-12' alt='vue icon' src={VueJS} />
+            <img className='h-12 w-12' alt='spring icon' src={Spring} />
+            <img className='h-12 w-12' alt='mysql icon' src={MySQL} />
+            <img className='h-12 w-12' alt='supabase icon' src={Supabase} />
           </div>
         </div>
         <div className='relative'>
           <div className='bg-main-black-100 mt-5 mb-3 grid items-center justify-items-center text-xl'>Tools</div>
           <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10 sm:place-content-center'>
-            <img className='h-12 w-12' alt='git icon' src='src/assets/icons/brand/Git.svg' />
-            <img className='h-12 w-12' alt='github icon' src='src/assets/icons/brand/Github-Light.svg' />
-            <img className='h-12 w-12' alt='vscode icon' src='src/assets/icons/brand/VSCode-Light.svg' />
-            <img className='h-12 w-12' alt='figma icon' src='src/assets/icons/brand/Figma-Light.svg' />
-            <img className='h-12 w-12' alt='Idea icon' src='src/assets/icons/brand/Idea-Light.svg' />
+            <img className='h-12 w-12' alt='git icon' src={Git} />
+            <img className='h-12 w-12' alt='github icon' src={Github} />
+            <img className='h-12 w-12' alt='vscode icon' src={VSCode} />
+            <img className='h-12 w-12' alt='figma icon' src={Figma} />
+            <img className='h-12 w-12' alt='Idea icon' src={Idea} />
           </div>
         </div>
       </div>
