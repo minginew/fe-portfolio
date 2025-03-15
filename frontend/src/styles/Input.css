@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+.input-border {
+  @apply relative rounded-xl border-3 border-gray-300 text-gray-400 focus-within:border-blue-400 focus-within:text-blue-400;
+}
+
+.input-border > span {
+  @apply absolute -top-1 left-3 -translate-y-1/2 px-2 font-bold;
+}
+
+.input-border > :not(span) {
+  @apply text-gray-500;
+}
