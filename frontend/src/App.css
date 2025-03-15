@@ -1,10 +1,12 @@
 @import 'tailwindcss';
 
+/* --color-main-gray-100: #f0eeea; */
 @theme {
   --color-main-blue: #0b64fe;
-  --color-main-gray-100: #f0eeea;
+  --color-main-gray-100: #fafafa;
   --color-main-gray-200: #808080;
-  --color-main-black-100: #2c2c2c;
+  --color-main-black-50: #343434;
+  --color-main-black-100: #232323;
   --font-museo: 'MuseoSans', 'sans-serif';
 }
 

@@ -23,7 +23,20 @@
     "noUncheckedSideEffectImports": true,
 
     /* svgr */
-    "types": ["vite-plugin-svgr/client"]
+    "types": ["vite-plugin-svgr/client"],
+
+    /* vite-alias */
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@icons/*": ["./src/assets/icons/*"],
+      "@images/*": ["./src/assets/images/*"],
+      "@components/*": ["./src/components/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@styles": ["./src/styles/*"],
+      "@redux/*": ["./src/redux/*"]
+    }
   },
   "include": ["src", "svg.d.ts"]
 }

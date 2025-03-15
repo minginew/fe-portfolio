@@ -4,8 +4,8 @@ import { store } from './store';
 // 타입스크립트 적용 hook start
 export type RootState = ReturnType<typeof store.getState>;
 export type AddDispatch = typeof store.dispatch;
-export const useAddDispatch = () => useDispatch<AddDispatch>();
-export const useAddSelector: TypedUseSelectorHook<RootState> = useSelector;
+export const useAppDispatch = () => useDispatch<AddDispatch>();
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 export interface Project {
   projectId: number;
