@@ -7,7 +7,7 @@ const Certificate = () => {
   useFadeAnimation(titleRef);
   useFadeAnimation(certificateRef);
   return (
-    <article ref={titleRef} className='mb-30 flex w-full flex-col items-center'>
+    <article ref={titleRef} className='mb-30 flex w-full max-w-5xl flex-col items-center'>
       <div className='flex justify-center text-4xl'>
         <div>certificate</div>
       </div>

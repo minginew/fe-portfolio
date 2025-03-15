@@ -7,7 +7,7 @@ const Education = () => {
   useFadeAnimation(titleRef);
   useFadeAnimation(educationRef);
   return (
-    <article ref={titleRef} className='mb-30 flex w-full flex-col items-center'>
+    <article ref={titleRef} className='mb-30 flex w-full max-w-5xl flex-col items-center'>
       <div className='flex justify-center text-4xl'>
         <div>Education</div>
       </div>

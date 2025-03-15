@@ -11,10 +11,10 @@ const Skill = () => {
       <div ref={titleRef} className='flex justify-center text-4xl'>
         <div>Skill</div>
       </div>
-      <div ref={skillRef} className='bg-main-black-100 mt-10 grid grid-cols-1 gap-5 p-5'>
+      <div ref={skillRef} className='bg-main-black-100 mt-10 grid grid-cols-1 gap-5 p-3'>
         <div className='relative'>
           <div className='bg-main-black-100 mb-3 grid items-center justify-items-center text-xl'>Friendly</div>
-          <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10'>
+          <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10 duration-500 sm:place-content-center'>
             <img className='h-12 w-12' alt='html icon' src='src/assets/icons/brand/HTML.svg' />
             <img className='h-12 w-12' alt='css icon' src='src/assets/icons/brand/CSS.svg' />
             <img className='h-12 w-12' alt='javascript icon' src='src/assets/icons/brand/JavaScript.svg' />
@@ -28,7 +28,7 @@ const Skill = () => {
         </div>
         <div className='relative'>
           <div className='bg-main-black-100 mt-5 mb-3 grid items-center justify-items-center text-xl'>Used</div>
-          <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10'>
+          <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10 duration-500 sm:place-content-center'>
             <img className='h-12 w-12' alt='vue icon' src='src/assets/icons/brand/VueJS-Light.svg' />
             <img className='h-12 w-12' alt='spring icon' src='src/assets/icons/brand/Spring-Light.svg' />
             <img className='h-12 w-12' alt='mysql icon' src='src/assets/icons/brand/MySQL-Light.svg' />
@@ -37,7 +37,7 @@ const Skill = () => {
         </div>
         <div className='relative'>
           <div className='bg-main-black-100 mt-5 mb-3 grid items-center justify-items-center text-xl'>Tools</div>
-          <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10'>
+          <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10 sm:place-content-center'>
             <img className='h-12 w-12' alt='git icon' src='src/assets/icons/brand/Git.svg' />
             <img className='h-12 w-12' alt='github icon' src='src/assets/icons/brand/Github-Light.svg' />
             <img className='h-12 w-12' alt='vscode icon' src='src/assets/icons/brand/VSCode-Light.svg' />

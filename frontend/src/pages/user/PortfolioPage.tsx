@@ -8,10 +8,10 @@ const PortfolioPage = () => {
       <section className='sticky top-0 z-0 h-svh p-3'>
         <Hero />
       </section>
-      <section className='bg-main-black-100 relative z-1 rounded-t-3xl'>
+      <section className='bg-main-black-100 relative z-1 flex w-full justify-center rounded-t-3xl'>
         <About />
       </section>
-      <section className='relative z-1'>
+      <section className='bg-main-black-100 relative z-1 rounded-b-3xl'>
         <Project />
       </section>
     </div>

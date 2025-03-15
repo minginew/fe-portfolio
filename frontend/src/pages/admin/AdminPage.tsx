@@ -31,7 +31,7 @@ const AdminPage = () => {
     };
   }, []);
   return (
-    <div className='bg-main-gray-100 w-full overflow-y-scroll'>
+    <div className='bg-main-gray-100 w-full'>
       <AdminNavbar />
       <Outlet />
     </div>

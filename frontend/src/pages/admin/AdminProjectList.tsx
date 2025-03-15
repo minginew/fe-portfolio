@@ -8,9 +8,9 @@ const AdminProjectList = () => {
   };
 
   return (
-    <div className='flex w-full flex-col items-center'>
-      <div className='border-main-blue text-main-blue flex w-[90%] items-center justify-between border-b-4 px-2'>
-        <div className='px-2 py-4 text-4xl font-bold'>Projects</div>
+    <div className='flex w-full flex-col items-center px-2'>
+      <div className='border-main-blue text-main-blue mb-5 flex h-28 w-full items-center justify-between border-b-1 px-2'>
+        <div className='font-museo px-2 py-4 text-4xl font-bold'>PROJECT</div>
         <button
           className='hover:bg-main-blue h-10 cursor-pointer rounded-lg bg-blue-400 px-3 text-white'
           onClick={handleCreateProject}
@@ -39,14 +39,14 @@ const AdminProjectList = () => {
             <div className='mb-4'>{project.summary}</div>
             <div className='mb-3 flex gap-3'>
               {project.techstack?.map((stack, index) => (
-                <div key={index} className='rounded-2xl bg-blue-100 px-3 py-1 text-xs'>
+                <div key={index} className='rounded-2xl bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600'>
                   {stack}
                 </div>
               ))}
             </div>
             <div className='flex gap-3'>
               {project.roles?.map((role, index) => (
-                <div key={index} className='rounded-2xl bg-blue-100 px-3 py-1 text-xs'>
+                <div key={index} className='rounded-2xl bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600'>
                   {role}
                 </div>
               ))}
