@@ -47,7 +47,6 @@ const AdminProjectEdit = () => {
   //게시글을 update 하는경우 초기값 초기화
   useEffect(() => {
     if (initailState) {
-      console.log(initailState.title);
       setTitle(initailState.title);
       setSummary(initailState.summary);
       setRoles([...initailState.roles]);
@@ -56,20 +55,16 @@ const AdminProjectEdit = () => {
       setEndDate(initailState.endDate);
       setThumbnail(initailState.thumbnail);
       setContent(initailState.content);
-      console.log(initailState.content);
     }
   }, [initailState]);
 
   const handleRolesBlur = (data: string[]) => {
-    console.log(data);
     setRoles([...data]);
   };
   const handleTechstackBlur = (data: string[]) => {
-    console.log(data);
     setTechstack([...data]);
   };
   const handleContentBlur = (data: string) => {
-    console.log(data);
     setContent(data);
   };
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,7 +109,6 @@ const AdminProjectEdit = () => {
           defaultValue={title}
           placeholder='프로젝트명을 입력하세요.'
           onBlur={(e) => {
-            console.log(e.target.value);
             setTitle(e.target.value);
           }}
         />
@@ -126,7 +120,6 @@ const AdminProjectEdit = () => {
           defaultValue={summary}
           placeholder='프로젝트 소개를 작성하세요.'
           onBlur={(e) => {
-            console.log(e.target.value);
             setSummary(e.target.value);
           }}
         />
@@ -147,7 +140,6 @@ const AdminProjectEdit = () => {
             defaultValue={startDate}
             placeholder='YYYY / MM'
             onBlur={(e) => {
-              console.log(e.target.value);
               setStartDate(e.target.value);
             }}
           />
@@ -159,7 +151,6 @@ const AdminProjectEdit = () => {
             defaultValue={endDate}
             placeholder='YYYY / MM'
             onBlur={(e) => {
-              console.log(e.target.value);
               setEndDate(e.target.value);
             }}
           />

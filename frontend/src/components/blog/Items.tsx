@@ -111,7 +111,6 @@ export namespace Items {
         if (location.pathname.startsWith(ROUTES.PROJECT_EDIT)) {
           const { data } = await uploadProjectFile(file);
           if (data) {
-            console.log(data.url);
             editor?.commands.setImage({ src: data.url });
           }
         } else if (location.pathname.startsWith(ROUTES.POST_EDIT)) {

@@ -10,7 +10,6 @@ export const fetchProjects = createAsyncThunk('projects/fetchProjects', async (_
     if (error) {
       return thunksApi.rejectWithValue(error.message);
     }
-    console.log(projects);
     return projects;
   } catch (error) {
     return thunksApi.rejectWithValue(error);

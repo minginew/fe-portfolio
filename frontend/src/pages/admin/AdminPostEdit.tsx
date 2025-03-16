@@ -37,12 +37,9 @@ const AdminPostEdit = () => {
   //게시글을 update 하는경우 초기값 초기화
   useEffect(() => {
     if (intialState) {
-      console.log(intialState.title);
       setTitle(intialState.title);
       setContent(intialState.content);
       setTags(intialState.tags);
-
-      console.log(intialState.content);
     }
   }, [intialState]);
 
@@ -50,7 +47,6 @@ const AdminPostEdit = () => {
     setTags([...data]);
   };
   const handleContentBlur = (data: string) => {
-    console.log(data);
     setContent(data);
   };
 
@@ -80,7 +76,6 @@ const AdminPostEdit = () => {
           defaultValue={title}
           placeholder='프로젝트명을 입력하세요.'
           onBlur={(e) => {
-            console.log(e.target.value);
             setTitle(e.target.value);
           }}
         />
