@@ -3,18 +3,31 @@ import Intro from '../../components/common/Intro';
 import Footer from '@components/common/Footer';
 import background from '@images/background_white.jpg';
 
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { useAnimationEnd } from '../../hooks/useAnimation';
+import { ROUTES } from '@/routes/router';
 
 const MainPage = () => {
+  const navigator = useNavigate();
   const location = useLocation();
+  const pathname = location.pathname;
   const [introEnd, setIntroEnd] = useState<boolean>(false);
   const mainRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (location.pathname === '/' && introEnd) {
+      navigator('portfolio');
+    }
+    if (
+      pathname.startsWith(ROUTES.POST) ||
+      pathname.startsWith(ROUTES.PROJECT) ||
+      pathname.startsWith(ROUTES.PORTFOLIO)
+    ) {
+      window.scrollTo(0, 0);
+    }
   }, [location.pathname]);
 
   const handleActiveButton = () => {
@@ -54,9 +67,9 @@ const MainPage = () => {
       ) : (
         <></>
       )}
-      <div className='relative z-[9998]'>
+      <div className='relative z-[9990]'>
         <Header />
-        <main className='mt-14 w-full'>
+        <main className='mt-14 flex h-auto w-full justify-center'>
           <Outlet />
         </main>
         <Footer />

@@ -8,7 +8,7 @@ const PostList = () => {
   const navigator = useNavigate();
 
   return (
-    <div className='flex w-full flex-col items-center px-2'>
+    <div className='flex min-h-screen w-full max-w-6xl flex-col items-center px-2'>
       <div className='border-main-blue text-main-blue mb-5 flex h-28 w-full items-center justify-between border-b-1 px-2'>
         <div className='font-museo px-2 py-4 text-4xl font-bold'>POST</div>
       </div>
@@ -33,9 +33,15 @@ const PostList = () => {
                 </div>
               ))}
             </div>
-            <div></div>
           </div>
         ))}
+        {data && data.length === 0 ? (
+          <div className='mt-25 flex w-full items-center justify-center text-lg text-gray-500'>
+            <p>작성된 게시글이 없습니다.</p>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

@@ -3,9 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Card = ({ data }: { data: Project }) => {
   const navigator = useNavigate();
-  // id까지 받아서 하드코딩
-  // 클릭시 project/:id로 라우팅
-  // or project list는 미리 쿼리를 받아서, 캐싱해두기..?
   return (
     <div
       key={data.projectId}
@@ -29,11 +26,14 @@ const Card = ({ data }: { data: Project }) => {
       </div>
       <div className='mb-4 text-gray-200'>{data.summary}</div>
       <div className='mb-3 flex gap-3'>
-        {data.techstack?.map((stack, index) => (
-          <div key={index} className='rounded-2xl bg-[#3A86FF] px-4 py-2 text-xs font-bold text-white'>
-            {stack}
-          </div>
-        ))}
+        {data.techstack?.map(
+          (stack, index) =>
+            index < 3 && (
+              <div key={index} className='rounded-2xl bg-[#3A86FF] px-4 py-2 text-xs font-bold text-white'>
+                {stack}
+              </div>
+            )
+        )}
       </div>
       <div className='flex gap-3'>
         {data.roles?.map((role, index) => (

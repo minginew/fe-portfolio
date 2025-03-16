@@ -17,6 +17,9 @@ import AdminPostEdit from '@/pages/admin/AdminPostEdit';
 export const ROUTES = {
   PROJECT_EDIT: '/admin/project/edit',
   POST_EDIT: '/admin/post/edit',
+  PORTFOLIO: '/portfolio',
+  PROJECT: '/project',
+  POST: '/post',
 };
 
 const router = createBrowserRouter([
