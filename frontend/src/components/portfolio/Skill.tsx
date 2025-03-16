@@ -33,7 +33,7 @@ const Skill = () => {
       <div ref={skillRef} className='bg-main-black-100 mt-10 grid grid-cols-1 gap-5 p-3'>
         <div className='relative'>
           <div className='bg-main-black-100 mb-3 grid items-center justify-items-center text-xl'>Friendly</div>
-          <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10 duration-500 sm:place-content-center'>
+          <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] place-content-center gap-3 px-10 duration-500'>
             <img className='h-12 w-12' alt='html icon' src={HTML} />
             <img className='h-12 w-12' alt='css icon' src={CSS} />
             <img className='h-12 w-12' alt='javascript icon' src={JavaScript} />
@@ -47,7 +47,7 @@ const Skill = () => {
         </div>
         <div className='relative'>
           <div className='bg-main-black-100 mt-5 mb-3 grid items-center justify-items-center text-xl'>Used</div>
-          <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10 duration-500 sm:place-content-center'>
+          <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] place-content-center gap-3 px-10 duration-500'>
             <img className='h-12 w-12' alt='vue icon' src={VueJS} />
             <img className='h-12 w-12' alt='spring icon' src={Spring} />
             <img className='h-12 w-12' alt='mysql icon' src={MySQL} />
@@ -56,7 +56,7 @@ const Skill = () => {
         </div>
         <div className='relative'>
           <div className='bg-main-black-100 mt-5 mb-3 grid items-center justify-items-center text-xl'>Tools</div>
-          <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] gap-3 px-10 sm:place-content-center'>
+          <div className='box-b-border grid grid-cols-[repeat(auto-fit,_max(48px))] place-content-center gap-3 px-10'>
             <img className='h-12 w-12' alt='git icon' src={Git} />
             <img className='h-12 w-12' alt='github icon' src={Github} />
             <img className='h-12 w-12' alt='vscode icon' src={VSCode} />

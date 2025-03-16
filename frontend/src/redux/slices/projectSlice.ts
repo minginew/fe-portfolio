@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchProjects} from '../thunks/projectThunks';
+import { fetchProjects } from '../thunks/projectThunks';
 import { Projects } from '../redux';
 
 const initialState: Projects = {

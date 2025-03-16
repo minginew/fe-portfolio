@@ -42,7 +42,6 @@ const ProjectViewer = () => {
   //Project viewer 초기값
   useEffect(() => {
     if (initailState) {
-      console.log(initailState.title);
       setTitle(initailState.title);
       setRoles([...initailState.roles]);
       setTechstack([...initailState.techstack]);
@@ -50,7 +49,6 @@ const ProjectViewer = () => {
       setEndDate(initailState.endDate);
 
       editor?.commands.setContent(initailState.content);
-      console.log(initailState.content);
     }
   }, [initailState]);
 

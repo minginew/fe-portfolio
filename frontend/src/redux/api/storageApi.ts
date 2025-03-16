@@ -9,14 +9,14 @@ export const storageApi = createApi({
       queryFn: async (file) => {
         try {
           const { data, error } = await supabase.storage
-            .from("project_images")
+            .from('project_images')
             .upload(`thumbnail/${file.name}`, file, { upsert: true });
-    
+
           if (error) return { error };
-  
-          const { data: { publicUrl } } = supabase.storage
-            .from("project_images")
-            .getPublicUrl(data.path);
+
+          const {
+            data: { publicUrl },
+          } = supabase.storage.from('project_images').getPublicUrl(data.path);
 
           return { data: { url: publicUrl } };
         } catch (error) {
@@ -28,22 +28,19 @@ export const storageApi = createApi({
       queryFn: async (file) => {
         try {
           const { data, error } = await supabase.storage
-            .from("project_images")
+            .from('project_images')
             .upload(`projects/${file.name}`, file, { upsert: true });
-    
-          if (error){ 
-            console.log("아 ㅈㄴ하기싫다");
-            console.log(error);
-            return { error };}
-  
-          const { data: { publicUrl } } = supabase.storage
-            .from("project_images")
-            .getPublicUrl(data.path);
+
+          if (error) {
+            return { error };
+          }
+
+          const {
+            data: { publicUrl },
+          } = supabase.storage.from('project_images').getPublicUrl(data.path);
 
           return { data: { url: publicUrl } };
         } catch (error) {
-          
-          console.log(error);
           return { error };
         }
       },
@@ -52,14 +49,14 @@ export const storageApi = createApi({
       queryFn: async (file) => {
         try {
           const { data, error } = await supabase.storage
-            .from("post_images")
+            .from('post_images')
             .upload(`posts/${file.name}`, file, { upsert: true });
-    
+
           if (error) return { error };
-  
-          const { data: { publicUrl } } = supabase.storage
-            .from("post_images")
-            .getPublicUrl(data.path);
+
+          const {
+            data: { publicUrl },
+          } = supabase.storage.from('post_images').getPublicUrl(data.path);
 
           return { data: { url: publicUrl } };
         } catch (error) {
@@ -70,8 +67,4 @@ export const storageApi = createApi({
   }),
 });
 
-export const {
-useUploadThumbnailMutation,
-useUploadProjectFileMutation,
-useUploadPostFileMutation
-} = storageApi;
+export const { useUploadThumbnailMutation, useUploadProjectFileMutation, useUploadPostFileMutation } = storageApi;

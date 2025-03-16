@@ -55,7 +55,7 @@ const Editor = ({ initailState, onContentBlur }: Props) => {
     content: '',
     editorProps: {
       attributes: {
-        class: 'w-full min-h-60 focus:outline-none',
+        class: 'w-[95%] min-h-60 focus:outline-none',
       },
       handleDrop: function (view, event, _, moved) {
         if (!moved && event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0]) {
@@ -117,7 +117,7 @@ const Editor = ({ initailState, onContentBlur }: Props) => {
     <>
       <Toolbar editor={editor} />
       <EditorContent
-        className='w-full px-4 pb-4'
+        className='flex w-full justify-center px-4 pb-4'
         editor={editor}
         onBlur={() => onContentBlur(editor?.getHTML() || '')}
       />

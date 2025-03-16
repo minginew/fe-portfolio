@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [postsApi.reducerPath]: postsApi.reducer,
   [projectsApi.reducerPath]: projectsApi.reducer,
-  [storageApi.reducerPath]: storageApi.reducer
+  [storageApi.reducerPath]: storageApi.reducer,
 });
 
 export default rootReducer;

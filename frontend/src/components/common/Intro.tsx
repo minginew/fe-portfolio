@@ -8,8 +8,8 @@ const Intro = () => {
     <div ref={introRef} className='relative flex h-full w-full items-center justify-center'>
       <div className='animation-border'>
         <span className='flex flex-col items-center justify-center'>
-          <Logo2 className='animation-svg-draw h-auto w-[65%]' />
-          <Logo1 className='animation-svg-fill w-[30%]' />
+          <Logo2 className='animation-svg-draw h-auto w-40 sm:w-48' />
+          <Logo1 className='animation-svg-fill w-22 sm:w-26' />
         </span>
       </div>
     </div>

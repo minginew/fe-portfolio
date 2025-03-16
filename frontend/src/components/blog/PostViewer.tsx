@@ -41,12 +41,10 @@ const PostViewer = () => {
   //Project viewer 초기값
   useEffect(() => {
     if (initailState) {
-      console.log(initailState.title);
       setTitle(initailState.title);
       setTags([...initailState.tags]);
       setCreateAt(initailState.createAt);
       editor?.commands.setContent(initailState.content);
-      console.log(initailState.content);
     }
   }, [initailState]);
 

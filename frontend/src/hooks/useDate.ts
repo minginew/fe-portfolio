@@ -1,5 +1,5 @@
 export function getKST(timestamp: string) {
-  if(!timestamp) return null;
+  if (!timestamp) return null;
   const date = new Date(timestamp);
   const options: Intl.DateTimeFormatOptions = {
     timeZone: 'Asia/Seoul',
