@@ -32,15 +32,13 @@ const About = () => {
               <div>thsalsrl7531@naver.com </div>
             </div>
             <div className='mb-2 text-[20px] font-bold'>꾸준하게 성장하는 개발자</div>
-            <div className='w-[400px] break-words opacity-45'>
+            <div className='w-[400px] px-4 break-words opacity-45 sm:px-0'>
               <p>
                 사용자의 의사결정과 원활한 서비스 이용을 돕는 직관적인 웹서비스를 구축하는 것에 흥미를 느껴 프론트엔드
                 개발을 시작했습니다.
               </p>
               <p>기본기를 기르고자 SSAFY에 입과하여 코딩 교육과정과 프로젝트에서 프론트엔드 경험을 쌓았습니다.</p>
-              <p>
-                현재는 더 빠르고 향상된 사용자 경험을 제공하는 서비스를 만들고자 웹 성능 최적화를 학습하고 있습니다.
-              </p>
+              <p>현재는 더 빠르고 향상된 사용자 경험을 제공하는 서비스를 만들고자 웹 성능 최적화를 학습중 입니다.</p>
             </div>
           </div>
         </div>

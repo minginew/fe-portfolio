@@ -5,8 +5,8 @@ const ProjectList = () => {
   const navigator = useNavigate();
 
   return (
-    <div className='flex w-full flex-col items-center px-2'>
-      <div className='border-main-blue text-main-blue mb-5 flex h-28 w-full max-w-6xl items-center justify-between border-b-1 px-2'>
+    <div className='flex min-h-screen w-full max-w-6xl flex-col items-center px-2'>
+      <div className='border-main-blue text-main-blue mb-5 flex h-28 w-full items-center justify-between border-b-1 px-2'>
         <div className='font-museo px-2 py-4 text-4xl font-bold'>PROJECT</div>
       </div>
       <div className='my-5 flex w-full max-w-6xl flex-wrap justify-center gap-10 px-2'>

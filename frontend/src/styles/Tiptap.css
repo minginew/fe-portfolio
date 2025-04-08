@@ -43,10 +43,10 @@
   }
 
   .tiptap img {
-    @apply my-2 max-w-[768px];
+    @apply my-2 w-full max-w-[768px];
   }
   .tiptap li > p > img {
-    @apply mt-4 max-w-[400px];
+    @apply mt-4 w-full max-w-[400px];
   }
 
   .tiptap {
