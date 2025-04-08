@@ -1,9 +1,9 @@
 import '@styles/Input.css';
 import { useEffect } from 'react';
-import { supabase } from '../../util/supabaseClient';
+import { supabase } from '@util/supabaseClient';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { getTimeDifference } from '../../hooks/useDate';
-import AdminNavbar from '../../components/admin/AdminNavbar';
+import { getTimeDifference } from '@hooks/useDate';
+import AdminNavbar from '@components/admin/AdminNavbar';
 
 const AdminPage = () => {
   const navigator = useNavigate();

@@ -11,7 +11,7 @@ import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
 import { all, createLowlight } from 'lowlight';
 
 //Project API
-import { useGetPostByIdQuery } from '../../redux/api/postApi';
+import { useGetPostByIdQuery } from '@redux/api/postApi';
 
 //react
 import { useParams } from 'react-router-dom';

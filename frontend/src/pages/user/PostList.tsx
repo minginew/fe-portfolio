@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { useGetPostsQuery } from '../../redux/api/postApi';
-import { getKST } from '../../hooks/useDate';
-import { useGetText } from '@/hooks/useParser';
+import { useGetPostsQuery } from '@redux/api/postApi';
+import { getKST } from '@hooks/useDate';
+import { useGetText } from '@hooks/useParser';
 
 const PostList = () => {
   const { data } = useGetPostsQuery();

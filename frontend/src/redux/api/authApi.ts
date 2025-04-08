@@ -1,5 +1,5 @@
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react';
-import { supabase } from '../../util/supabaseClient';
+import { supabase } from '@util/supabaseClient';
 import { User, Session } from '@supabase/supabase-js';
 export const authApi = createApi({
   reducerPath: 'authApi',

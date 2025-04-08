@@ -1,10 +1,10 @@
-import Editor from '../../components/blog/Editor';
-import Tag from '../../components/blog/Tag';
+import Editor from '@components/blog/Editor';
+import Tag from '@components/blog/Tag';
 import { useEffect, useState } from 'react';
-import { useUploadThumbnailMutation } from '@/redux/api/storageApi';
+import { useUploadThumbnailMutation } from '@redux/api/storageApi';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useGetProjectByIdQuery } from '@/redux/api/projectApi';
-import { useCreateProjectMutation, useUpdateProjectMutation } from '@/redux/api/projectApi';
+import { useGetProjectByIdQuery } from '@redux/api/projectApi';
+import { useCreateProjectMutation, useUpdateProjectMutation } from '@redux/api/projectApi';
 
 const AdminProjectEdit = () => {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useGetProjectsQuery } from '../../redux/api/projectApi';
+import { useGetProjectsQuery } from '@redux/api/projectApi';
 const ProjectList = () => {
   const { data } = useGetProjectsQuery();
   const navigator = useNavigate();

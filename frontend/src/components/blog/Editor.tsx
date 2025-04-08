@@ -1,4 +1,4 @@
-import Toolbar from './Toolbar';
+import Toolbar from '@components/blog/Toolbar';
 
 //editor
 import { EditorContent, useEditor } from '@tiptap/react';

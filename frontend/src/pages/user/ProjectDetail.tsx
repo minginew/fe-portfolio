@@ -1,4 +1,4 @@
-import ProjectViewer from '@/components/blog/ProjectViewer';
+import ProjectViewer from '@components/blog/ProjectViewer';
 import arrowBack from '@icons/ui/arrow_back.svg';
 import { useNavigate } from 'react-router-dom';
 

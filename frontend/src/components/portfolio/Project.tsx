@@ -1,7 +1,7 @@
 import { useRef } from 'react';
-import { useFadeAnimation } from '../../hooks/useAnimation';
-import { useGetProjectsQuery } from '../../redux/api/projectApi';
-import Card from './Card';
+import { useFadeAnimation } from '@hooks/useAnimation';
+import { useGetProjectsQuery } from '@redux/api/projectApi';
+import Card from '@components/portfolio/Card';
 
 const Project = () => {
   const titleRef = useRef<HTMLDivElement>(null);

@@ -9,14 +9,15 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), svgr()],
   resolve: {
     alias: [
-      {find: "@", replacement: path.resolve(__dirname, "src")},
-      {find: "@icons", replacement: path.resolve(__dirname, "src/assets/icons")},
-      {find: "@images", replacement: path.resolve(__dirname, "src/assets/images")},
-      {find: "@components", replacement: path.resolve(__dirname, "src/components")},
-      {find: "@pages", replacement: path.resolve(__dirname, "src/pages")},
-      {find: "@hooks", replacement: path.resolve(__dirname, "src/hooks")},
-      {find: "@styles", replacement: path.resolve(__dirname, "src/styles")},
-      {find: "@redux", replacement: path.resolve(__dirname, "src/redux")},
-    ]
-  }
+      { find: '@', replacement: path.resolve(__dirname, 'src') },
+      { find: '@icons', replacement: path.resolve(__dirname, 'src/assets/icons') },
+      { find: '@images', replacement: path.resolve(__dirname, 'src/assets/images') },
+      { find: '@components', replacement: path.resolve(__dirname, 'src/components') },
+      { find: '@pages', replacement: path.resolve(__dirname, 'src/pages') },
+      { find: '@hooks', replacement: path.resolve(__dirname, 'src/hooks') },
+      { find: '@styles', replacement: path.resolve(__dirname, 'src/styles') },
+      { find: '@redux', replacement: path.resolve(__dirname, 'src/redux') },
+      { find: '@util', replacement: path.relative(__dirname, 'src/util') },
+    ],
+  },
 });

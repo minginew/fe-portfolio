@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchPosts } from '../thunks/postThunks'; // fetchPosts만 임포트
-import { Posts } from '../redux'; // Posts 타입 임포트
+import { Posts } from '@redux/redux'; // Posts 타입 임포트
 
 const initialState: Posts = {
   posts: [],

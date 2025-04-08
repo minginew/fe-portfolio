@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import Logo1 from '../../assets/images/Logo1.svg?react';
-import Logo2 from '../../assets/images/Logo2.svg?react';
+import Logo1 from '@images/Logo1.svg?react';
+import Logo2 from '@images/Logo2.svg?react';
 
 const Intro = () => {
   const introRef = useRef<HTMLDivElement>(null);
