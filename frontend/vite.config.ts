@@ -17,7 +17,7 @@ export default defineConfig({
       { find: '@hooks', replacement: path.resolve(__dirname, 'src/hooks') },
       { find: '@styles', replacement: path.resolve(__dirname, 'src/styles') },
       { find: '@redux', replacement: path.resolve(__dirname, 'src/redux') },
-      { find: '@util', replacement: path.relative(__dirname, 'src/util') },
+      { find: '@util', replacement: path.resolve(__dirname, 'src/util') },
     ],
   },
 });
