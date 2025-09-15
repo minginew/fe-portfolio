@@ -79,6 +79,7 @@ const AdminProjectEdit = () => {
   };
 
   const handleSubmitClick = () => {
+    /* const resetContent = useResetInlineStyles(content); */
     const projectData = {
       title,
       content,
