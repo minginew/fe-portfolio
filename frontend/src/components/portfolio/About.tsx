@@ -1,8 +1,8 @@
 import { useRef } from 'react';
-import { useFadeAnimation } from '../../hooks/useAnimation';
-import Skill from './Skill';
-import Education from './Education';
-import Certificate from './Certificate';
+import { useFadeAnimation } from '@hooks/useAnimation';
+import Skill from '@components/portfolio/Skill';
+import Education from '@components/portfolio/Education';
+import Certificate from '@components/portfolio/Certificate';
 import profile from '@images/sonmingi1.png';
 
 const About = () => {

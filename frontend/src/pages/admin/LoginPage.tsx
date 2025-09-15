@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Logo2 from '../../assets/images/Logo2.svg?react';
-import { useSignInMutation } from '../../redux/api/authApi';
+import Logo2 from '@images/Logo2.svg?react';
+import { useSignInMutation } from '@redux/api/authApi';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {

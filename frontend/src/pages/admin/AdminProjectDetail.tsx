@@ -1,4 +1,4 @@
-import ProjectViewer from '@/components/blog/ProjectViewer';
+import ProjectViewer from '@components/blog/ProjectViewer';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const AdminProjectDetail = () => {

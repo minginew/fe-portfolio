@@ -1,6 +1,7 @@
-import About from '../../components/portfolio/About';
-import Hero from '../../components/portfolio/Hero';
-import Project from '../../components/portfolio/Project';
+import Post from '@components/portfolio/Post';
+import About from '@components/portfolio/About';
+import Hero from '@components/portfolio/Hero';
+import Project from '@components/portfolio/Project';
 
 const PortfolioPage = () => {
   return (
@@ -13,6 +14,9 @@ const PortfolioPage = () => {
       </section>
       <section className='bg-main-black-100 relative z-1 rounded-b-3xl'>
         <Project />
+      </section>
+      <section>
+        <Post />
       </section>
     </div>
   );

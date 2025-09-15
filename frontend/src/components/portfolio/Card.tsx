@@ -1,4 +1,4 @@
-import { Project } from '@/redux/redux';
+import { Project } from '@redux/redux';
 import { useNavigate } from 'react-router-dom';
 
 const Card = ({ data }: { data: Project }) => {

@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useFadeAnimation } from '../../hooks/useAnimation';
+import { useFadeAnimation } from '@hooks/useAnimation';
 
 const Certificate = () => {
   const titleRef = useRef<HTMLDivElement>(null);

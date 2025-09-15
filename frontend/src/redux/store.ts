@@ -1,11 +1,11 @@
 import storage from 'redux-persist/lib/storage';
-import rootReducer from './reducer';
+import rootReducer from '@redux/reducer';
 import { configureStore } from '@reduxjs/toolkit';
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from 'redux-persist';
-import { authApi } from './api/authApi';
-import { postsApi } from './api/postApi';
-import { projectsApi } from './api/projectApi';
-import { storageApi } from './api/storageApi';
+import { authApi } from '@redux/api/authApi';
+import { postsApi } from '@redux/api/postApi';
+import { projectsApi } from '@redux/api/projectApi';
+import { storageApi } from '@redux/api/storageApi';
 
 //persist : 지속하다. //redux의 state 즉 상태값들을 지속적으로 유지시켜준다.
 const persistConfig = {

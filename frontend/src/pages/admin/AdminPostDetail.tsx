@@ -1,4 +1,4 @@
-import PostViewer from '@/components/blog/PostViewer';
+import PostViewer from '@components/blog/PostViewer';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const AdminPostDetail = () => {

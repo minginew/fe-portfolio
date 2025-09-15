@@ -1,18 +1,18 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import PortfolioPage from '../pages/user/PortfolioPage';
-import ProjectList from '../pages/user/ProjectList';
-import PostList from '../pages/user/PostList';
-import PostDetail from '../pages/user/PostDetail';
-import ProjectDetail from '../pages/user/ProjectDetail';
-import MainPage from '../pages/user/MainPage';
-import LoginPage from '../pages/admin/LoginPage';
-import AdminPage from '../pages/admin/AdminPage';
-import AdminProjectList from '../pages/admin/AdminProjectList';
-import AdminProjectDetail from '../pages/admin/AdminProjectDetail';
-import AdminPostList from '../pages/admin/AdminPostList';
-import AdminPostDetail from '../pages/admin/AdminPostDetail';
-import AdminProjectEdit from '../pages/admin/AdminProjectEdit';
-import AdminPostEdit from '@/pages/admin/AdminPostEdit';
+import PortfolioPage from '@pages/user/PortfolioPage';
+import ProjectList from '@pages/user/ProjectList';
+import PostList from '@pages/user/PostList';
+import PostDetail from '@pages/user/PostDetail';
+import ProjectDetail from '@pages/user/ProjectDetail';
+import MainPage from '@pages/user/MainPage';
+import LoginPage from '@pages/admin/LoginPage';
+import AdminPage from '@pages/admin/AdminPage';
+import AdminProjectList from '@pages/admin/AdminProjectList';
+import AdminProjectDetail from '@pages/admin/AdminProjectDetail';
+import AdminPostList from '@pages/admin/AdminPostList';
+import AdminPostDetail from '@pages/admin/AdminPostDetail';
+import AdminProjectEdit from '@pages/admin/AdminProjectEdit';
+import AdminPostEdit from '@pages/admin/AdminPostEdit';
 
 export const ROUTES = {
   PROJECT_EDIT: '/admin/project/edit',

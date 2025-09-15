@@ -1,5 +1,5 @@
-import Header from '../../components/common/Header';
-import Intro from '../../components/common/Intro';
+import Header from '@components/common/Header';
+import Intro from '@components/common/Intro';
 import Footer from '@components/common/Footer';
 import background from '@images/background_white.jpg';
 

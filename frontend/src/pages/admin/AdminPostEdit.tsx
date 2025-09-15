@@ -1,8 +1,8 @@
-import Editor from '../../components/blog/Editor';
-import Tag from '../../components/blog/Tag';
+import Editor from '@components/blog/Editor';
+import Tag from '@components/blog/Tag';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useCreatePostMutation, useUpdatePostMutation, useGetPostByIdQuery } from '@/redux/api/postApi';
+import { useCreatePostMutation, useUpdatePostMutation, useGetPostByIdQuery } from '@redux/api/postApi';
 
 const AdminPostEdit = () => {
   const navigate = useNavigate();
@@ -51,6 +51,7 @@ const AdminPostEdit = () => {
   };
 
   const handleSubmitClick = () => {
+    /* const resetContent = useResetInlineStyles(content); */
     const postData = {
       title,
       content,

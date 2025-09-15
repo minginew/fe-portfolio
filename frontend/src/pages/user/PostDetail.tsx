@@ -1,4 +1,4 @@
-import PostViewer from '@/components/blog/PostViewer';
+import PostViewer from '@components/blog/PostViewer';
 import arrowBack from '@icons/ui/arrow_back.svg';
 import { useNavigate } from 'react-router-dom';
 const PostDetail = () => {

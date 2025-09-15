@@ -1,5 +1,5 @@
 import { Editor } from '@tiptap/react';
-import Items from './Items';
+import Items from '@components/blog/Items';
 
 interface Props {
   editor: Editor | null;
