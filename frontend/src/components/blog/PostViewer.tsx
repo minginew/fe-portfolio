@@ -5,6 +5,7 @@ import TiptapImage from '@tiptap/extension-image';
 import ListItem from '@tiptap/extension-list-item';
 import BulletList from '@tiptap/extension-bullet-list';
 import OrderedList from '@tiptap/extension-ordered-list';
+import ImageResize from 'tiptap-extension-resize-image';
 
 //lowlight
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
@@ -61,6 +62,7 @@ const PostViewer = () => {
           class: 'language-js',
         },
       }),
+      ImageResize,
     ],
     content: '',
     editable: false, // 편집 불가
