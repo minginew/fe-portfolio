@@ -2,6 +2,8 @@ import '@styles/Tiptap.css';
 import { Editor } from '@tiptap/react';
 import { useUploadProjectFileMutation, useUploadPostFileMutation } from '@redux/api/storageApi';
 import { ROUTES } from '@/routes/router';
+import { useCallback } from 'react';
+
 interface Props {
   editor: Editor | null;
 }
@@ -87,7 +89,7 @@ export namespace Items {
       <button
         onClick={() => editor?.chain().focus().toggleCodeBlock().run()}
         disabled={!editor?.can().chain().focus().toggleCodeBlock().run()}
-        className={editor?.isActive('codeBlock') ? 'is-code-block' : 'is-not-code-block'}
+        className={editor?.isActive('codeBlock') ? 'is-code' : 'is-not-code'}
       ></button>
     );
   };
@@ -134,6 +136,41 @@ export namespace Items {
           accept='image/*'
         />
       </>
+    );
+  };
+
+  export const Link = ({ editor }: Props) => {
+    const toggleLink = useCallback(() => {
+      if (editor?.isActive('link')) {
+        editor?.chain().focus().extendMarkRange('link').unsetLink().run();
+        return;
+      }
+
+      const previousUrl = editor?.getAttributes('link').href;
+      const url = window.prompt('URL', previousUrl);
+
+      // cancelled
+      if (url === null) {
+        return;
+      }
+
+      // empty
+      if (url === '') {
+        editor?.chain().focus().extendMarkRange('link').unsetLink().run();
+        return;
+      }
+
+      // update link
+      try {
+        console.log(url);
+        editor?.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
+      } catch (e: any) {
+        alert(e.message);
+      }
+    }, [editor]);
+
+    return (
+      <button onClick={() => toggleLink()} className={editor?.isActive('link') ? 'is-link' : 'is-not-link'}></button>
     );
   };
 }

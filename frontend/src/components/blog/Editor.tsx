@@ -8,6 +8,7 @@ import ListItem from '@tiptap/extension-list-item';
 import BulletList from '@tiptap/extension-bullet-list';
 import OrderedList from '@tiptap/extension-ordered-list';
 import ImageResize from 'tiptap-extension-resize-image';
+import Link from '@tiptap/extension-link';
 
 //lowlight
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
@@ -54,6 +55,17 @@ const Editor = ({ initailState, onContentBlur }: Props) => {
       }),
       ImageResize.configure({
         inline: false,
+      }),
+      Link.configure({
+        openOnClick: true,
+        protocols: ['https'],
+        HTMLAttributes: {
+          // Change rel to different value
+          // Allow search engines to follow links(remove nofollow)
+          rel: 'noopener noreferrer',
+          // Remove target entirely so links open in current tab
+          target: '_blank',
+        },
       }),
     ],
     content: '',

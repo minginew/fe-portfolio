@@ -20,9 +20,9 @@ const Toolbar = ({ editor }: Props) => {
         <Items.Strikethrough editor={editor} />
       </div>
       <div className='flex items-center justify-center gap-2'>
-        <Items.Code editor={editor} />
-        <Items.CodeBlock editor={editor} />
+        <Items.Link editor={editor} />
         <Items.Quote editor={editor} />
+        <Items.CodeBlock editor={editor} />
         <Items.AddImage editor={editor} />
       </div>
     </div>
