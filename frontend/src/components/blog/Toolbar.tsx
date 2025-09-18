@@ -7,23 +7,25 @@ interface Props {
 const Toolbar = ({ editor }: Props) => {
   if (!editor) return null;
   return (
-    <div className='flex w-full items-center justify-center gap-5 border-b-1 pb-2'>
-      <div className='flex items-center justify-center gap-3'>
-        <Items.H1 editor={editor} />
-        <Items.H2 editor={editor} />
-        <Items.H3 editor={editor} />
-        <Items.H4 editor={editor} />
-      </div>
-      <div className='flex items-center justify-center gap-2'>
-        <Items.Bold editor={editor} />
-        <Items.Italic editor={editor} />
-        <Items.Strikethrough editor={editor} />
-      </div>
-      <div className='flex items-center justify-center gap-2'>
-        <Items.Link editor={editor} />
-        <Items.Quote editor={editor} />
-        <Items.CodeBlock editor={editor} />
-        <Items.AddImage editor={editor} />
+    <div className='w-full overflow-x-scroll [&::-webkit-scrollbar]:hidden'>
+      <div className='flex min-w-max items-center justify-center gap-5 border-b-1 pb-2'>
+        <div className='flex items-center justify-center gap-3'>
+          <Items.H1 editor={editor} />
+          <Items.H2 editor={editor} />
+          <Items.H3 editor={editor} />
+          <Items.H4 editor={editor} />
+        </div>
+        <div className='flex items-center justify-center gap-2'>
+          <Items.Bold editor={editor} />
+          <Items.Italic editor={editor} />
+          <Items.Strikethrough editor={editor} />
+        </div>
+        <div className='flex items-center justify-center gap-2'>
+          <Items.Link editor={editor} />
+          <Items.Quote editor={editor} />
+          <Items.CodeBlock editor={editor} />
+          <Items.AddImage editor={editor} />
+        </div>
       </div>
     </div>
   );

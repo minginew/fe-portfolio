@@ -88,7 +88,7 @@ const ProjectViewer = () => {
       </div>
       <div className='flex items-center font-medium'>
         <span className='w-30 text-gray-600'>기술 스택</span>
-        <div className='flex w-full flex-wrap gap-4'>
+        <div className='flex w-full gap-4 overflow-x-scroll [&::-webkit-scrollbar]:hidden'>
           {techstack.map((tag, index) => {
             return (
               <span className='rounded-2xl bg-blue-100 px-3 py-1 text-xs text-blue-600' key={index}>
@@ -100,7 +100,7 @@ const ProjectViewer = () => {
       </div>
       <div className='flex items-center font-medium'>
         <span className='w-30 text-gray-600'>담당 역할</span>
-        <div className='flex w-full flex-wrap gap-4'>
+        <div className='flex w-full gap-4 overflow-x-scroll [&::-webkit-scrollbar]:hidden'>
           {roles.map((tag, index) => {
             return (
               <span className='rounded-2xl bg-blue-100 px-3 py-1 text-xs text-blue-600' key={index}>
