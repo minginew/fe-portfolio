@@ -8,7 +8,7 @@ const AdminProjectList = () => {
   };
 
   return (
-    <div className='flex w-full flex-col items-center px-2'>
+    <div className='flex min-h-screen w-full max-w-6xl flex-col items-center px-2'>
       <div className='border-main-blue text-main-blue mb-5 flex h-28 w-full items-center justify-between border-b-1 px-2'>
         <div className='font-museo px-2 py-4 text-4xl font-bold'>PROJECT</div>
         <button
@@ -18,11 +18,11 @@ const AdminProjectList = () => {
           <span>작성하기</span>
         </button>
       </div>
-      <div className='my-5 flex w-full flex-col gap-4 px-2'>
+      <div className='my-5 flex w-full max-w-6xl flex-wrap justify-center gap-10 px-2 xl:gap-8'>
         {data?.map((project) => (
           <div
             key={project.projectId}
-            className='flex w-full cursor-pointer flex-col rounded-lg bg-white p-5 drop-shadow-md'
+            className='flex h-[484px] w-88 cursor-pointer flex-col rounded-lg bg-white p-5 drop-shadow-md'
             onClick={() => {
               navigator(`${project.projectId}`);
             }}
@@ -36,24 +36,30 @@ const AdminProjectList = () => {
               <span>~</span>
               <span>{project.endDate}</span>
             </div>
-            <div className='mb-4'>{project.summary}</div>
+            <div className='mb-4 h-20'>{project.summary}</div>
             <div className='mb-3 flex gap-3'>
-              {project.techstack?.map((stack, index) => (
-                <div key={index} className='rounded-2xl bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600'>
-                  {stack}
-                </div>
-              ))}
+              {project.techstack?.map(
+                (stack, index) =>
+                  index < 3 && (
+                    <div key={index} className='rounded-2xl bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600'>
+                      {stack}
+                    </div>
+                  )
+              )}
             </div>
             <div className='flex gap-3'>
-              {project.roles?.map((role, index) => (
-                <div key={index} className='rounded-2xl bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600'>
-                  {role}
-                </div>
-              ))}
+              {project.roles?.map(
+                (role, index) =>
+                  index < 3 && (
+                    <div key={index} className='rounded-2xl bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600'>
+                      {role}
+                    </div>
+                  )
+              )}
             </div>
-            <div></div>
           </div>
         ))}
+        {data && data.length % 2 === 1 ? <div className='invisible h-1 w-88 2xl:hidden'></div> : <></>}
       </div>
     </div>
   );
