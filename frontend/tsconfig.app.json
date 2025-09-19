@@ -35,7 +35,8 @@
       "@pages/*": ["./src/pages/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@styles": ["./src/styles/*"],
-      "@redux/*": ["./src/redux/*"]
+      "@redux/*": ["./src/redux/*"],
+      "@util/*": ["./src/util/*"]
     }
   },
   "include": ["src", "svg.d.ts"]

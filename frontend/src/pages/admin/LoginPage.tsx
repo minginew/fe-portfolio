@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Logo2 from '../../assets/images/Logo2.svg?react';
-import { useSignInMutation } from '../../redux/api/authApi';
+import Logo2 from '@images/Logo2.svg?react';
+import { useSignInMutation } from '@redux/api/authApi';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
@@ -26,7 +26,7 @@ const LoginPage = () => {
 
   return (
     <div className='flex h-svh w-full flex-col items-center justify-center bg-[url(src/assets/images/background_white.jpg)] pb-10'>
-      <Logo2 className='fill-main-blue mb-4 h-auto w-[55%]' />
+      <Logo2 className='fill-main-blue mb-10 h-auto w-72' />
       <div className='flex h-36 w-72 flex-col items-center justify-center gap-2'>
         <input
           className='border-main-gray-200 focus:outline-main-blue focus:border-main-blue bg-main-gray-100 h-12 w-full rounded-xl border-2 pl-4 focus:outline-1'

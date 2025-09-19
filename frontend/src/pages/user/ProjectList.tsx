@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useGetProjectsQuery } from '../../redux/api/projectApi';
+import { useGetProjectsQuery } from '@redux/api/projectApi';
 const ProjectList = () => {
   const { data } = useGetProjectsQuery();
   const navigator = useNavigate();
@@ -9,7 +9,7 @@ const ProjectList = () => {
       <div className='border-main-blue text-main-blue mb-5 flex h-28 w-full items-center justify-between border-b-1 px-2'>
         <div className='font-museo px-2 py-4 text-4xl font-bold'>PROJECT</div>
       </div>
-      <div className='my-5 flex w-full max-w-6xl flex-wrap justify-center gap-10 px-2'>
+      <div className='my-5 flex w-full max-w-6xl flex-wrap justify-center gap-10 px-2 xl:gap-8'>
         {data?.map((project) => (
           <div
             key={project.projectId}
@@ -39,16 +39,18 @@ const ProjectList = () => {
               )}
             </div>
             <div className='flex gap-3'>
-              {project.roles?.map((role, index) => (
-                <div key={index} className='rounded-2xl bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600'>
-                  {role}
-                </div>
-              ))}
+              {project.roles?.map(
+                (role, index) =>
+                  index < 3 && (
+                    <div key={index} className='rounded-2xl bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600'>
+                      {role}
+                    </div>
+                  )
+              )}
             </div>
-            <div></div>
           </div>
         ))}
-        {data && data.length % 2 === 1 ? <div className='invisible h-1 w-88 2xl:hidden'></div> : <></>}
+        {data && data.length % 2 == 1 ? <div className='invisible h-1 w-88 xl:hidden'></div> : <></>}
       </div>
     </div>
   );

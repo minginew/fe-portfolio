@@ -5,13 +5,14 @@ import TiptapImage from '@tiptap/extension-image';
 import ListItem from '@tiptap/extension-list-item';
 import BulletList from '@tiptap/extension-bullet-list';
 import OrderedList from '@tiptap/extension-ordered-list';
+import ImageResize from 'tiptap-extension-resize-image';
 
 //lowlight
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
 import { all, createLowlight } from 'lowlight';
 
 //Project API
-import { useGetPostByIdQuery } from '../../redux/api/postApi';
+import { useGetPostByIdQuery } from '@redux/api/postApi';
 
 //react
 import { useParams } from 'react-router-dom';
@@ -61,6 +62,7 @@ const PostViewer = () => {
           class: 'language-js',
         },
       }),
+      ImageResize,
     ],
     content: '',
     editable: false, // 편집 불가
@@ -76,7 +78,7 @@ const PostViewer = () => {
         <span>{getKST(createAt)?.data}</span>
       </div>
       <div className='flex items-center font-medium'>
-        <div className='flex w-full flex-wrap gap-4'>
+        <div className='flex w-full gap-4 overflow-x-scroll [&::-webkit-scrollbar]:hidden'>
           {tags.map((tag, index) => {
             return (
               <span className='rounded-2xl bg-blue-100 px-3 py-1 text-xs text-blue-600' key={index}>
@@ -86,7 +88,7 @@ const PostViewer = () => {
           })}
         </div>
       </div>
-      <div className='mt-1 border-t-1 border-gray-500 pt-5'>
+      <div className='mt-3 border-t-1 border-gray-500 pt-10'>
         <EditorContent editor={editor} />
       </div>
     </div>

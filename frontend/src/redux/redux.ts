@@ -1,5 +1,5 @@
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
-import { store } from './store';
+import { store } from '@redux/store';
 
 // 타입스크립트 적용 hook start
 export type RootState = ReturnType<typeof store.getState>;
@@ -17,6 +17,7 @@ export interface Project {
   thumbnail: string;
   startDate: string;
   endDate: string;
+  gitHub: string;
 }
 
 export interface Projects {

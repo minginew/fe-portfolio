@@ -1,23 +1,16 @@
 import { useRef } from 'react';
-import { useFadeAnimation } from '../../hooks/useAnimation';
-import { useGetProjectsQuery } from '../../redux/api/projectApi';
-import Card from './Card';
+import { useFadeAnimation } from '@hooks/useAnimation';
+import { useGetProjectsQuery } from '@redux/api/projectApi';
+import Card from '@components/portfolio/Card';
 
 const Project = () => {
-  const titleRef = useRef<HTMLDivElement>(null);
   const projectRef = useRef<HTMLDivElement>(null);
   const { data } = useGetProjectsQuery();
-  useFadeAnimation(titleRef);
   useFadeAnimation(projectRef);
   return (
-    <div className='flex h-auto w-full flex-col items-center overflow-y-hidden pb-20 text-white'>
-      <div ref={titleRef} className='h-32 text-5xl font-[500]'>
-        PROJECT
-      </div>
-      <div
-        ref={projectRef}
-        className='flex flex-col flex-wrap justify-around gap-10 md:flex-row md:justify-center md:gap-16 xl:w-full xl:max-w-svw'
-      >
+    <div ref={projectRef} className='flex w-full flex-col items-center overflow-y-hidden pb-10 text-white'>
+      <div className='h-32 text-5xl font-[500]'>PROJECT</div>
+      <div className='flex flex-col flex-wrap justify-around gap-10 md:flex-row md:justify-center md:gap-16 xl:w-full xl:max-w-svw'>
         {data?.map((project) => {
           return <Card key={project.projectId} data={project} />;
         })}

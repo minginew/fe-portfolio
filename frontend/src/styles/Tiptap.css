@@ -43,10 +43,11 @@
   }
 
   .tiptap img {
-    @apply my-2 w-full max-w-[768px];
+    @apply my-2 w-4xl max-w-full;
   }
-  .tiptap li > p > img {
-    @apply mt-4 w-full max-w-[400px];
+
+  .tiptap a {
+    @apply cursor-pointer text-xl text-blue-400 hover:font-bold hover:underline hover:underline-offset-2;
   }
 
   .tiptap {
@@ -206,4 +207,12 @@
 
 .is-image {
   @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Upload.svg')] bg-cover bg-center opacity-60 hover:opacity-100;
+}
+
+.is-link {
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Link.svg')] bg-cover bg-center;
+}
+
+.is-not-link {
+  @apply h-6 w-6 cursor-pointer bg-[url('@icons/toolbar/Link.svg')] bg-cover bg-center opacity-60;
 }

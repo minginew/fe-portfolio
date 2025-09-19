@@ -5,17 +5,20 @@ import TiptapImage from '@tiptap/extension-image';
 import ListItem from '@tiptap/extension-list-item';
 import BulletList from '@tiptap/extension-bullet-list';
 import OrderedList from '@tiptap/extension-ordered-list';
+import ImageResize from 'tiptap-extension-resize-image';
 
 //lowlight
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
 import { all, createLowlight } from 'lowlight';
 
 //Project API
-import { useGetProjectByIdQuery } from '../../redux/api/projectApi';
+import { useGetProjectByIdQuery } from '@redux/api/projectApi';
 
 //react
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+
+import GitHubIcon from '@icons/brand/Github-Dark.svg';
 
 const lowlight = createLowlight(all);
 const ProjectViewer = () => {
@@ -26,6 +29,7 @@ const ProjectViewer = () => {
   const [techstack, setTechstack] = useState<string[]>([]);
   const [startDate, setStartDate] = useState<string>('');
   const [endDate, setEndDate] = useState<string>('');
+  const [gitHub, setGitHub] = useState<string>('');
 
   //초기값 query
   const { data: initailState } = useGetProjectByIdQuery(projectId, {
@@ -47,7 +51,7 @@ const ProjectViewer = () => {
       setTechstack([...initailState.techstack]);
       setStartDate(initailState.startDate);
       setEndDate(initailState.endDate);
-
+      setGitHub(initailState.gitHub);
       editor?.commands.setContent(initailState.content);
     }
   }, [initailState]);
@@ -65,6 +69,7 @@ const ProjectViewer = () => {
           class: 'language-js',
         },
       }),
+      ImageResize,
     ],
     content: '',
     editable: false, // 편집 불가
@@ -86,7 +91,7 @@ const ProjectViewer = () => {
       </div>
       <div className='flex items-center font-medium'>
         <span className='w-30 text-gray-600'>기술 스택</span>
-        <div className='flex w-full flex-wrap gap-4'>
+        <div className='flex w-full gap-4 overflow-x-scroll [&::-webkit-scrollbar]:hidden'>
           {techstack.map((tag, index) => {
             return (
               <span className='rounded-2xl bg-blue-100 px-3 py-1 text-xs text-blue-600' key={index}>
@@ -98,7 +103,7 @@ const ProjectViewer = () => {
       </div>
       <div className='flex items-center font-medium'>
         <span className='w-30 text-gray-600'>담당 역할</span>
-        <div className='flex w-full flex-wrap gap-4'>
+        <div className='flex w-full gap-4 overflow-x-scroll [&::-webkit-scrollbar]:hidden'>
           {roles.map((tag, index) => {
             return (
               <span className='rounded-2xl bg-blue-100 px-3 py-1 text-xs text-blue-600' key={index}>
@@ -109,7 +114,18 @@ const ProjectViewer = () => {
         </div>
       </div>
 
-      <div className='mt-5 border-t-1 border-gray-500 pt-5'>
+      <a href={gitHub} target='_blank' rel='noopener noreferrer' className='group mt-3 flex pl-1 font-medium'>
+        <img
+          src={GitHubIcon}
+          alt='github icon'
+          className='w-7 opacity-70 transition-opacity duration-300 group-hover:opacity-100'
+        />
+        <p className='mx-2 text-xl font-bold text-gray-500 transition-colors duration-300 group-hover:text-gray-800'>
+          GitHub Repository
+        </p>
+      </a>
+
+      <div className='mt-3 border-t-1 border-gray-500 pt-10'>
         <EditorContent editor={editor} />
       </div>
     </div>

@@ -1,9 +1,11 @@
 import '@styles/Input.css';
+import AdminNavbar from '@components/admin/AdminNavbar';
+import Footer from '@components/common/Footer';
+
 import { useEffect } from 'react';
-import { supabase } from '../../util/supabaseClient';
+import { supabase } from '@util/supabaseClient';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { getTimeDifference } from '../../hooks/useDate';
-import AdminNavbar from '../../components/admin/AdminNavbar';
+import { getTimeDifference } from '@hooks/useDate';
 
 const AdminPage = () => {
   const navigator = useNavigate();
@@ -31,9 +33,12 @@ const AdminPage = () => {
     };
   }, []);
   return (
-    <div className='bg-main-gray-100 w-full'>
+    <div className='bg-main-gray-100 relative z-[9990]'>
       <AdminNavbar />
-      <Outlet />
+      <main className='mt-14 flex h-auto w-full justify-center'>
+        <Outlet />
+      </main>
+      <Footer />
     </div>
   );
 };

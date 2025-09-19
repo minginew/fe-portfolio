@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { useGetPostsQuery } from '../../redux/api/postApi';
-import { getKST } from '../../hooks/useDate';
-import { useGetText } from '@/hooks/useParser';
+import { useGetPostsQuery } from '@redux/api/postApi';
+import { getKST } from '@hooks/useDate';
+import { useGetText } from '@hooks/useParser';
 
 const PostList = () => {
   const { data } = useGetPostsQuery();
@@ -16,22 +16,23 @@ const PostList = () => {
         {data?.map((post) => (
           <div
             key={post.postId}
-            className='relative flex h-44 w-full cursor-pointer flex-col rounded-lg bg-white p-5 drop-shadow-md'
+            className='relative flex h-44 w-full cursor-pointer flex-col rounded-lg bg-white px-5 py-4 drop-shadow-md'
             onClick={() => {
               navigator(`${post.postId}`);
             }}
           >
-            <div className='text-xl font-bold'>{post.title}</div>
+            <div className='text-2xl font-bold'>{post.title}</div>
             <div className='text-main-gray-200'>{getKST(post.createAt)?.data}</div>
-            <div className='my-1 [display:-webkit-box] overflow-hidden text-ellipsis whitespace-pre-line [-webkit-box-orient:vertical] [-webkit-line-clamp:2]'>
-              {useGetText(post.content)}
-            </div>
+            <div className='my-1 line-clamp-2 break-words'>{useGetText(post.content)}</div>
             <div className='absolute bottom-3 flex gap-3'>
-              {post.tags?.map((tag, index) => (
-                <div key={index} className='rounded-2xl bg-blue-100 px-3 py-1 text-xs'>
-                  {tag}
-                </div>
-              ))}
+              {post.tags?.map(
+                (tag, index) =>
+                  index < 3 && (
+                    <div key={index} className='rounded-2xl bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600'>
+                      {tag}
+                    </div>
+                  )
+              )}
             </div>
           </div>
         ))}

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { supabase } from '../../util/supabaseClient';
-import { Project } from '../redux';
+import { supabase } from '@util/supabaseClient';
+import { Project } from '@redux/redux';
 
 // READ: Project 목록 가져오기
 export const fetchProjects = createAsyncThunk('projects/fetchProjects', async (_, thunksApi) => {

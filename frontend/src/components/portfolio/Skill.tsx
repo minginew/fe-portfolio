@@ -18,7 +18,7 @@ import Figma from '@icons/brand/Figma-Light.svg';
 import Idea from '@icons/brand/Idea-Light.svg';
 
 import { useRef } from 'react';
-import { useFadeAnimation } from '../../hooks/useAnimation';
+import { useFadeAnimation } from '@hooks/useAnimation';
 
 const Skill = () => {
   const titleRef = useRef<HTMLDivElement>(null);

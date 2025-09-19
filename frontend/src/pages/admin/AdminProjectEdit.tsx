@@ -1,10 +1,10 @@
-import Editor from '../../components/blog/Editor';
-import Tag from '../../components/blog/Tag';
+import Editor from '@components/blog/Editor';
+import Tag from '@components/blog/Tag';
 import { useEffect, useState } from 'react';
-import { useUploadThumbnailMutation } from '@/redux/api/storageApi';
+import { useUploadThumbnailMutation } from '@redux/api/storageApi';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useGetProjectByIdQuery } from '@/redux/api/projectApi';
-import { useCreateProjectMutation, useUpdateProjectMutation } from '@/redux/api/projectApi';
+import { useGetProjectByIdQuery } from '@redux/api/projectApi';
+import { useCreateProjectMutation, useUpdateProjectMutation } from '@redux/api/projectApi';
 
 const AdminProjectEdit = () => {
   const navigate = useNavigate();
@@ -19,6 +19,7 @@ const AdminProjectEdit = () => {
   const [endDate, setEndDate] = useState<string>('');
   const [thumbnail, setThumbnail] = useState<string>('');
   const [content, setContent] = useState<string>('');
+  const [gitHub, setGitHub] = useState<string>('');
 
   //초기값 query
   const { data: initailState, error: queryError } = useGetProjectByIdQuery(projectId, {
@@ -55,6 +56,7 @@ const AdminProjectEdit = () => {
       setEndDate(initailState.endDate);
       setThumbnail(initailState.thumbnail);
       setContent(initailState.content);
+      setGitHub(initailState.gitHub);
     }
   }, [initailState]);
 
@@ -79,6 +81,7 @@ const AdminProjectEdit = () => {
   };
 
   const handleSubmitClick = () => {
+    /* const resetContent = useResetInlineStyles(content); */
     const projectData = {
       title,
       content,
@@ -88,6 +91,7 @@ const AdminProjectEdit = () => {
       thumbnail,
       startDate,
       endDate,
+      gitHub,
     };
     if (projectId === -1) {
       //create
@@ -100,7 +104,7 @@ const AdminProjectEdit = () => {
   };
 
   return (
-    <div className='relative flex h-svh w-full flex-col gap-7 px-4 py-8'>
+    <div className='relative flex h-auto min-h-screen w-full max-w-6xl flex-col gap-7 px-8 py-5'>
       <div className='my-2 ml-2 text-3xl font-bold text-blue-400'>Project Info</div>
       <div className='input-border'>
         <span className='bg-main-gray-100'>PROJECT</span>
@@ -116,7 +120,7 @@ const AdminProjectEdit = () => {
       <div className='input-border'>
         <span className='bg-main-gray-100'>SUMMARY</span>
         <textarea
-          className='h-20 w-full px-3 py-2 focus:outline-none'
+          className='h-16 w-full px-3 py-2 focus:outline-none'
           defaultValue={summary}
           placeholder='프로젝트 소개를 작성하세요.'
           onBlur={(e) => {
@@ -132,11 +136,22 @@ const AdminProjectEdit = () => {
         <span className='bg-main-gray-100'>ROLE</span>
         <Tag intialState={roles} onTagBlur={handleRolesBlur} placeholder='맡은 역할' />
       </div>
+      <div className='input-border'>
+        <span className='bg-main-gray-100'>GIT HUB</span>
+        <input
+          className='h-12 w-full px-3 py-2 focus:outline-none'
+          defaultValue={gitHub}
+          placeholder='GitHub 주소를 입력하세요.'
+          onBlur={(e) => {
+            setGitHub(e.target.value);
+          }}
+        />
+      </div>
       <div className='flex gap-5'>
-        <div className='input-border px-3'>
+        <div className='input-border max-w-38 px-3'>
           <span className='bg-main-gray-100'>START DATE</span>
           <input
-            className='h-9 w-38 px-3 py-2 focus:outline-none'
+            className='h-9 px-3 py-2 focus:outline-none'
             defaultValue={startDate}
             placeholder='YYYY / MM'
             onBlur={(e) => {
@@ -144,10 +159,10 @@ const AdminProjectEdit = () => {
             }}
           />
         </div>
-        <div className='input-border px-3'>
+        <div className='input-border max-w-38 px-3'>
           <span className='bg-main-gray-100'>END DATE</span>
           <input
-            className='h-9 w-38 px-3 py-2 focus:outline-none'
+            className='h-9 px-3 py-2 focus:outline-none'
             defaultValue={endDate}
             placeholder='YYYY / MM'
             onBlur={(e) => {
@@ -178,13 +193,15 @@ const AdminProjectEdit = () => {
       </div>
       <div className='mt-2 ml-2 text-3xl font-bold text-blue-400'>Content</div>
       <Editor initailState={content} onContentBlur={handleContentBlur} />
-      <button
-        className='fixed right-5 bottom-5 cursor-pointer rounded-md bg-blue-400 px-4 py-2 text-white hover:bg-blue-400 sm:bg-blue-200'
-        onClick={handleSubmitClick}
-        disabled={isCreatingProject || isUpdatingProject}
-      >
-        {isCreatingProject || isUpdatingProject ? '..Loading' : '작성하기'}
-      </button>
+      <div className='fixed right-6 bottom-4 flex h-12 w-full max-w-6xl flex-row-reverse'>
+        <button
+          className='cursor-pointer rounded-md bg-blue-400 px-4 py-2 text-white hover:bg-blue-400 sm:bg-blue-200'
+          onClick={handleSubmitClick}
+          disabled={isCreatingProject || isUpdatingProject}
+        >
+          {isCreatingProject || isUpdatingProject ? '..Loading' : '작성하기'}
+        </button>
+      </div>
     </div>
   );
 };

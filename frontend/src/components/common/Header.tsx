@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import darkLogo from '@icons/ui/dark_logo.png';
 import whiteLogo from '@icons/ui/white_logo.png';
 import menu2 from '@icons/ui/menu2.svg';
 const Header = () => {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
@@ -15,7 +16,12 @@ const Header = () => {
       <nav className='flex h-14 w-full max-w-6xl flex-wrap items-center justify-between px-3 py-1'>
         <div className='flex items-center gap-2'>
           <img className='h-8 hover:cursor-pointer' onClick={toggleMenu} alt='menu' src={menu2} />
-          <img className='h-10' alt='logo' src={whiteLogo} />
+          <img
+            className='h-10 hover:cursor-pointer'
+            alt='logo'
+            src={whiteLogo}
+            onClick={() => navigate('/portfolio')}
+          />
         </div>
       </nav>
 

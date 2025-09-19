@@ -38,6 +38,7 @@ export type Database = {
           techstack: string[];
           thumbnail: string;
           title: string;
+          gitHub: string;
         };
         Insert: {
           content?: string;
@@ -49,6 +50,7 @@ export type Database = {
           techstack?: string[];
           thumbnail?: string;
           title?: string;
+          gitHub?: string;
         };
         Update: {
           content?: string;
@@ -60,6 +62,7 @@ export type Database = {
           techstack?: string[];
           thumbnail?: string;
           title?: string;
+          gitHub?: string;
         };
         Relationships: [];
       };
@@ -76,6 +79,7 @@ export type Database = {
           techstack: string[];
           thumbnail: string;
           title: string;
+          gitHub: string;
         };
         Relationships: [];
       };
