@@ -8,7 +8,7 @@ const Project = () => {
   const { data } = useGetProjectsQuery();
   useFadeAnimation(projectRef);
   return (
-    <div ref={projectRef} className='flex h-auto w-full flex-col items-center overflow-y-hidden pb-20 text-white'>
+    <div ref={projectRef} className='flex w-full flex-col items-center overflow-y-hidden pb-10 text-white'>
       <div className='h-32 text-5xl font-[500]'>PROJECT</div>
       <div className='flex flex-col flex-wrap justify-around gap-10 md:flex-row md:justify-center md:gap-16 xl:w-full xl:max-w-svw'>
         {data?.map((project) => {
