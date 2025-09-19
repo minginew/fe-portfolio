@@ -88,7 +88,7 @@ const PostViewer = () => {
           })}
         </div>
       </div>
-      <div className='mt-1 border-t-1 border-gray-500 pt-5'>
+      <div className='mt-3 border-t-1 border-gray-500 pt-10'>
         <EditorContent editor={editor} />
       </div>
     </div>

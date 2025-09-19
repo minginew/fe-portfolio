@@ -19,6 +19,7 @@ const AdminProjectEdit = () => {
   const [endDate, setEndDate] = useState<string>('');
   const [thumbnail, setThumbnail] = useState<string>('');
   const [content, setContent] = useState<string>('');
+  const [gitHub, setGitHub] = useState<string>('');
 
   //초기값 query
   const { data: initailState, error: queryError } = useGetProjectByIdQuery(projectId, {
@@ -55,6 +56,7 @@ const AdminProjectEdit = () => {
       setEndDate(initailState.endDate);
       setThumbnail(initailState.thumbnail);
       setContent(initailState.content);
+      setGitHub(initailState.gitHub);
     }
   }, [initailState]);
 
@@ -89,6 +91,7 @@ const AdminProjectEdit = () => {
       thumbnail,
       startDate,
       endDate,
+      gitHub,
     };
     if (projectId === -1) {
       //create
@@ -117,7 +120,7 @@ const AdminProjectEdit = () => {
       <div className='input-border'>
         <span className='bg-main-gray-100'>SUMMARY</span>
         <textarea
-          className='h-20 w-full px-3 py-2 focus:outline-none'
+          className='h-16 w-full px-3 py-2 focus:outline-none'
           defaultValue={summary}
           placeholder='프로젝트 소개를 작성하세요.'
           onBlur={(e) => {
@@ -132,6 +135,17 @@ const AdminProjectEdit = () => {
       <div className='input-border px-3'>
         <span className='bg-main-gray-100'>ROLE</span>
         <Tag intialState={roles} onTagBlur={handleRolesBlur} placeholder='맡은 역할' />
+      </div>
+      <div className='input-border'>
+        <span className='bg-main-gray-100'>GIT HUB</span>
+        <input
+          className='h-12 w-full px-3 py-2 focus:outline-none'
+          defaultValue={gitHub}
+          placeholder='GitHub 주소를 입력하세요.'
+          onBlur={(e) => {
+            setGitHub(e.target.value);
+          }}
+        />
       </div>
       <div className='flex gap-5'>
         <div className='input-border max-w-38 px-3'>
