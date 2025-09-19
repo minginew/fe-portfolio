@@ -68,14 +68,14 @@ const AdminPostEdit = () => {
   };
 
   return (
-    <div className='relative flex h-svh w-full flex-col gap-7 px-4 py-8'>
+    <div className='relative flex h-auto min-h-screen w-full max-w-6xl flex-col gap-7 px-8 py-5'>
       <div className='my-2 ml-2 text-3xl font-bold text-blue-400'>Post Info</div>
       <div className='input-border'>
         <span className='bg-main-gray-100'>POST</span>
         <input
           className='h-12 w-full px-3 py-2 focus:outline-none'
           defaultValue={title}
-          placeholder='프로젝트명을 입력하세요.'
+          placeholder='포스트명을 입력하세요.'
           onBlur={(e) => {
             setTitle(e.target.value);
           }}
@@ -87,13 +87,15 @@ const AdminPostEdit = () => {
       </div>
       <div className='mt-2 ml-2 text-3xl font-bold text-blue-400'>Content</div>
       <Editor initailState={content} onContentBlur={handleContentBlur} />
-      <button
-        className='fixed right-5 bottom-5 cursor-pointer rounded-md bg-blue-400 px-4 py-2 text-white hover:bg-blue-400 sm:bg-blue-200'
-        onClick={handleSubmitClick}
-        disabled={isCreatingPost || isUpdatingPost}
-      >
-        {isCreatingPost || isUpdatingPost ? '..Loading' : '작성하기'}
-      </button>
+      <div className='fixed right-6 bottom-4 flex h-12 w-full max-w-6xl flex-row-reverse'>
+        <button
+          className='cursor-pointer rounded-md bg-blue-400 px-4 py-2 text-white hover:bg-blue-400 sm:bg-blue-200'
+          onClick={handleSubmitClick}
+          disabled={isCreatingPost || isUpdatingPost}
+        >
+          {isCreatingPost || isUpdatingPost ? '..Loading' : '작성하기'}
+        </button>
+      </div>
     </div>
   );
 };

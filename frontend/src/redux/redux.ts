@@ -17,6 +17,7 @@ export interface Project {
   thumbnail: string;
   startDate: string;
   endDate: string;
+  gitHub: string;
 }
 
 export interface Projects {

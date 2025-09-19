@@ -78,7 +78,7 @@ const PostViewer = () => {
         <span>{getKST(createAt)?.data}</span>
       </div>
       <div className='flex items-center font-medium'>
-        <div className='flex w-full flex-wrap gap-4'>
+        <div className='flex w-full gap-4 overflow-x-scroll [&::-webkit-scrollbar]:hidden'>
           {tags.map((tag, index) => {
             return (
               <span className='rounded-2xl bg-blue-100 px-3 py-1 text-xs text-blue-600' key={index}>
@@ -88,7 +88,7 @@ const PostViewer = () => {
           })}
         </div>
       </div>
-      <div className='mt-1 border-t-1 border-gray-500 pt-5'>
+      <div className='mt-3 border-t-1 border-gray-500 pt-10'>
         <EditorContent editor={editor} />
       </div>
     </div>
