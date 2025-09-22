@@ -9,7 +9,8 @@ import ImageResize from 'tiptap-extension-resize-image';
 
 //lowlight
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
-import { all, createLowlight } from 'lowlight';
+import { createLowlight } from 'lowlight';
+import { grammars } from '@/util/grammars';
 
 //Project API
 import { useGetPostByIdQuery } from '@redux/api/postApi';
@@ -19,7 +20,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getKST } from '@/hooks/useDate';
 
-const lowlight = createLowlight(all);
+const lowlight = createLowlight(grammars);
 const PostViewer = () => {
   const { id } = useParams();
   const [postId, setPostId] = useState<number>(-1);
