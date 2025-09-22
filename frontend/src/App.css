@@ -14,34 +14,43 @@
   font-family: 'MuseoSans';
   font-style: normal;
   font-weight: 100;
-  font-display: fallback;
-  src: url(./assets/fonts/MuseoModerno-Thin.ttf);
+  font-display: swap;
+  src: url(./assets/fonts/MuseoModerno-Thin.woff2);
+  unicode-range: U+0020-007E, U+AC00-D7A3, U+00A0-00FF, U+20A0-20CF, U+2100-214F;
 }
 
 @font-face {
   font-family: 'MuseoSans';
   font-style: normal;
   font-weight: 200;
-  src: url(./assets/fonts/MuseoModerno-ExtraLight.ttf);
+  font-display: swap;
+  src: url(./assets/fonts/MuseoModerno-ExtraLight.woff2);
+  unicode-range: U+0020-007E, U+AC00-D7A3, U+00A0-00FF, U+20A0-20CF, U+2100-214F;
 }
 
 @font-face {
   font-family: 'MuseoSans';
   font-style: normal;
   font-weight: 300;
-  src: url(./assets/MuseoModerno-Light.ttf);
+  font-display: swap;
+  src: url(./assets/MuseoModerno-Light.woff2);
+  unicode-range: U+0020-007E, U+AC00-D7A3, U+00A0-00FF, U+20A0-20CF, U+2100-214F;
 }
 
 @font-face {
   font-family: 'MuseoSans';
   font-style: normal;
   font-weight: 400;
-  src: url(./assets/fonts/MuseoModerno-Regular.ttf);
+  font-display: swap;
+  src: url(./assets/fonts/MuseoModerno-Regular.woff2);
+  unicode-range: U+0020-007E, U+AC00-D7A3, U+00A0-00FF, U+20A0-20CF, U+2100-214F;
 }
 
 @font-face {
   font-family: 'MuseoSans';
   font-style: normal;
   font-weight: 500;
-  src: url(./assets/fonts/MuseoModerno-Medium.ttf);
+  font-display: swap;
+  src: url(./assets/fonts/MuseoModerno-Medium.woff2);
+  unicode-range: U+0020-007E, U+AC00-D7A3, U+00A0-00FF, U+20A0-20CF, U+2100-214F;
 }
