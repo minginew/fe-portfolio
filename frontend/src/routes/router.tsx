@@ -1,18 +1,21 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
+import React, { Suspense } from 'react';
+
 import PortfolioPage from '@pages/user/PortfolioPage';
 import ProjectList from '@pages/user/ProjectList';
 import PostList from '@pages/user/PostList';
-import PostDetail from '@pages/user/PostDetail';
-import ProjectDetail from '@pages/user/ProjectDetail';
 import MainPage from '@pages/user/MainPage';
 import LoginPage from '@pages/admin/LoginPage';
 import AdminPage from '@pages/admin/AdminPage';
 import AdminProjectList from '@pages/admin/AdminProjectList';
-import AdminProjectDetail from '@pages/admin/AdminProjectDetail';
 import AdminPostList from '@pages/admin/AdminPostList';
-import AdminPostDetail from '@pages/admin/AdminPostDetail';
-import AdminProjectEdit from '@pages/admin/AdminProjectEdit';
-import AdminPostEdit from '@pages/admin/AdminPostEdit';
+
+const ProjectDetail = React.lazy(() => import('@pages/user/ProjectDetail'));
+const PostDetail = React.lazy(() => import('@pages/user/PostDetail'));
+const AdminProjectDetail = React.lazy(() => import('@pages/admin/AdminProjectDetail'));
+const AdminPostDetail = React.lazy(() => import('@pages/admin/AdminPostDetail'));
+const AdminProjectEdit = React.lazy(() => import('@pages/admin/AdminProjectEdit'));
+const AdminPostEdit = React.lazy(() => import('@pages/admin/AdminPostEdit'));
 
 export const ROUTES = {
   PROJECT_EDIT: '/admin/project/edit',
@@ -41,7 +44,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/project/:id',
-        element: <ProjectDetail />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <ProjectDetail />
+          </Suspense>
+        ),
       },
 
       {
@@ -50,7 +57,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/post/:id',
-        element: <PostDetail />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <PostDetail />
+          </Suspense>
+        ),
       },
     ],
   },
@@ -72,11 +83,19 @@ const router = createBrowserRouter([
       },
       {
         path: 'project/:id',
-        element: <AdminProjectDetail />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <AdminProjectDetail />
+          </Suspense>
+        ),
       },
       {
         path: 'project/edit/:id?',
-        element: <AdminProjectEdit />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <AdminProjectEdit />
+          </Suspense>
+        ),
       },
       {
         path: 'post',
@@ -84,11 +103,19 @@ const router = createBrowserRouter([
       },
       {
         path: 'post/:id',
-        element: <AdminPostDetail />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <AdminPostDetail />
+          </Suspense>
+        ),
       },
       {
         path: 'post/edit/:id?',
-        element: <AdminPostEdit />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <AdminPostEdit />
+          </Suspense>
+        ),
       },
     ],
   },
