@@ -1,7 +1,7 @@
 import Header from '@components/common/Header';
 import Intro from '@components/common/Intro';
 import Footer from '@components/common/Footer';
-import background from '@images/background_white.jpg';
+import background from '@images/background_white.webp';
 
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
@@ -15,6 +15,11 @@ const MainPage = () => {
   const [introEnd, setIntroEnd] = useState<boolean>(false);
   const mainRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = background;
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -49,7 +54,7 @@ const MainPage = () => {
     >
       {location.pathname === '/' ? (
         <div
-          className={`fixed top-0 left-0 z-[9999] flex h-svh w-full flex-col items-center p-5 transition-all duration-2000 ${introEnd ? 'invisible -translate-y-full' : 'visible translate-y-0'}`}
+          className={`bg-main-gray-100 fixed top-0 left-0 z-[9999] flex h-svh w-full flex-col items-center p-5 transition-all duration-2000 ${introEnd ? 'invisible -translate-y-full' : 'visible translate-y-0'}`}
           style={{
             backgroundImage: `url(${background})`,
           }}

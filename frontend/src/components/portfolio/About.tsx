@@ -3,7 +3,7 @@ import { useFadeAnimation } from '@hooks/useAnimation';
 import Skill from '@components/portfolio/Skill';
 import Education from '@components/portfolio/Education';
 import Certificate from '@components/portfolio/Certificate';
-import profile from '@images/sonmingi1.png';
+import profile from '@images/sonmingi1.webp';
 
 const About = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -14,11 +14,14 @@ const About = () => {
         <div className='text-5xl font-[500]'>ABOUT</div>
         <div className='flex w-full flex-col items-center md:mb-15 md:flex-row md:justify-center md:gap-10'>
           <div className='mt-10 rounded-xl'>
-            <img
-              className='h-80 w-72 rounded-[10px] bg-gray-200 object-cover md:h-88 md:w-80'
-              alt='Profile'
-              src={profile}
-            />
+            <picture>
+              <source srcSet={profile} type='image/webp' />
+              <img
+                className='h-80 w-72 rounded-[10px] bg-gray-200 object-cover md:h-88 md:w-80'
+                alt='Profile'
+                src='https://ftziwrqreftpjosydpna.supabase.co/storage/v1/object/public/assets/images/sonmingi1.png'
+              />
+            </picture>
           </div>
           <div className='mb-5 flex flex-col items-center text-[18px] md:items-baseline'>
             <div className='my-10 grid grid-cols-[1fr_2.5fr] pt-5 md:mb-5'>
