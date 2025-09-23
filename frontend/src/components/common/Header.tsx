@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import darkLogo from '@icons/ui/dark_logo.png';
-import whiteLogo from '@icons/ui/white_logo.png';
+import darkLogo from '@icons/ui/dark_logo.webp';
+import whiteLogo from '@icons/ui/white_logo.webp';
 import menu2 from '@icons/ui/menu2.svg';
 const Header = () => {
   const navigate = useNavigate();
@@ -11,17 +11,29 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
 
+  useEffect(() => {
+    const logos = [darkLogo, whiteLogo];
+    logos.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   return (
     <header className='font-museo fixed top-0 z-50 flex h-auto w-full justify-center bg-black/60 text-lg font-[300] drop-shadow-md select-none'>
       <nav className='flex h-14 w-full max-w-6xl flex-wrap items-center justify-between px-3 py-1'>
         <div className='flex items-center gap-2'>
           <img className='h-8 hover:cursor-pointer' onClick={toggleMenu} alt='menu' src={menu2} />
-          <img
-            className='h-10 hover:cursor-pointer'
-            alt='logo'
-            src={whiteLogo}
-            onClick={() => navigate('/portfolio')}
-          />
+          <picture>
+            <source srcSet={whiteLogo} type='image/webp' />
+            <img
+              className='h-10 hover:cursor-pointer'
+              fetchPriority='high'
+              alt='logo'
+              src='https://ftziwrqreftpjosydpna.supabase.co/storage/v1/object/public/assets/images/white_logo.png'
+              onClick={() => navigate('/portfolio')}
+            />
+          </picture>
         </div>
       </nav>
 
@@ -34,7 +46,14 @@ const Header = () => {
         }}
       >
         <div className='flex w-full justify-center py-5 shadow-xs'>
-          <img className='h-8' alt='logo' src={darkLogo} />
+          <picture>
+            <source srcSet={darkLogo} type='image/webp' />
+            <img
+              className='h-8'
+              alt='logo'
+              src='https://ftziwrqreftpjosydpna.supabase.co/storage/v1/object/public/assets/images/dark_logo.png'
+            />
+          </picture>
         </div>
         <ul className='flex h-svh w-full flex-col items-center gap-4 pt-8 pb-5 text-2xl'>
           <li>

@@ -25,7 +25,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className='flex h-svh w-full flex-col items-center justify-center bg-[url(src/assets/images/background_white.jpg)] pb-10'>
+    <div className='flex h-svh w-full flex-col items-center justify-center bg-[url(src/assets/images/background_white.webp)] pb-10'>
       <Logo2 className='fill-main-blue mb-10 h-auto w-72' />
       <div className='flex h-36 w-72 flex-col items-center justify-center gap-2'>
         <input
