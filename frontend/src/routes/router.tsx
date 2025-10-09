@@ -9,7 +9,6 @@ import LoginPage from '@pages/admin/LoginPage';
 import AdminPage from '@pages/admin/AdminPage';
 import AdminProjectList from '@pages/admin/AdminProjectList';
 import AdminPostList from '@pages/admin/AdminPostList';
-import DetailSkeleton from '@/components/common/DetailSkeleton';
 
 const ProjectDetail = React.lazy(() => import('@pages/user/ProjectDetail'));
 const PostDetail = React.lazy(() => import('@pages/user/PostDetail'));
@@ -46,7 +45,7 @@ const router = createBrowserRouter([
       {
         path: '/project/:id',
         element: (
-          <Suspense fallback={<DetailSkeleton />}>
+          <Suspense fallback={<div>Loading...</div>}>
             <ProjectDetail />
           </Suspense>
         ),
@@ -59,7 +58,7 @@ const router = createBrowserRouter([
       {
         path: '/post/:id',
         element: (
-          <Suspense fallback={<DetailSkeleton />}>
+          <Suspense fallback={<div>Loading...</div>}>
             <PostDetail />
           </Suspense>
         ),
@@ -85,7 +84,7 @@ const router = createBrowserRouter([
       {
         path: 'project/:id',
         element: (
-          <Suspense fallback={<DetailSkeleton />}>
+          <Suspense fallback={<div>Loading...</div>}>
             <AdminProjectDetail />
           </Suspense>
         ),
@@ -93,7 +92,7 @@ const router = createBrowserRouter([
       {
         path: 'project/edit/:id?',
         element: (
-          <Suspense fallback={<DetailSkeleton />}>
+          <Suspense fallback={<div>Loading...</div>}>
             <AdminProjectEdit />
           </Suspense>
         ),
@@ -105,7 +104,7 @@ const router = createBrowserRouter([
       {
         path: 'post/:id',
         element: (
-          <Suspense fallback={<DetailSkeleton />}>
+          <Suspense fallback={<div>Loading...</div>}>
             <AdminPostDetail />
           </Suspense>
         ),
@@ -113,7 +112,7 @@ const router = createBrowserRouter([
       {
         path: 'post/edit/:id?',
         element: (
-          <Suspense fallback={<DetailSkeleton />}>
+          <Suspense fallback={<div>Loading...</div>}>
             <AdminPostEdit />
           </Suspense>
         ),

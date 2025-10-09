@@ -29,15 +29,13 @@ const About = () => {
               <div>손민기</div>
               <div>birth</div>
               <div>1997.07.26</div>
+              <div>tel</div>
+              <div>010-7531-7734</div>
               <div>e-mail</div>
               <div>thsalsrl7531@naver.com </div>
-              <div>github</div>
-              <a target='_blank' rel='noopener noreferrer' href='https://github.com/minginew'>
-                <p className='cursor-pointer font-sans underline'>@Minginew</p>
-              </a>
             </div>
             <div className='mb-2 text-[20px] font-bold'>꾸준하게 성장하는 개발자</div>
-            <div className='w-full px-10 break-words opacity-45 sm:w-[400px] sm:px-0'>
+            <div className='w-[400px] px-4 break-words opacity-45 sm:px-0'>
               <p>
                 사용자의 의사결정과 원활한 서비스 이용을 돕는 직관적인 웹서비스를 구축하는 것에 흥미를 느껴 프론트엔드
                 개발을 시작했습니다.
