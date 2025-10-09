@@ -89,7 +89,7 @@ const AdminPostEdit = () => {
       <Editor initailState={content} onContentBlur={handleContentBlur} />
       <div className='fixed right-6 bottom-4 flex h-12 w-full max-w-6xl flex-row-reverse'>
         <button
-          className='cursor-pointer rounded-md bg-blue-400 px-4 py-2 text-white hover:bg-blue-400 sm:bg-blue-200'
+          className='cursor-pointer rounded-md bg-blue-400 px-3 py-1 text-white hover:bg-blue-400 sm:bg-blue-200'
           onClick={handleSubmitClick}
           disabled={isCreatingPost || isUpdatingPost}
         >
