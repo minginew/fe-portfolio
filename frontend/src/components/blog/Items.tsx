@@ -1,4 +1,3 @@
-import '@styles/Tiptap.css';
 import { Editor } from '@tiptap/react';
 import { useUploadProjectFileMutation, useUploadPostFileMutation } from '@redux/api/storageApi';
 import { ROUTES } from '@/routes/router';

@@ -151,7 +151,7 @@ const AdminProjectEdit = () => {
         <div className='input-border max-w-38 px-3'>
           <span className='bg-main-gray-100'>START DATE</span>
           <input
-            className='h-9 px-3 py-2 focus:outline-none'
+            className='h-9 w-full px-3 py-2 focus:outline-none'
             defaultValue={startDate}
             placeholder='YYYY / MM'
             onBlur={(e) => {
@@ -162,7 +162,7 @@ const AdminProjectEdit = () => {
         <div className='input-border max-w-38 px-3'>
           <span className='bg-main-gray-100'>END DATE</span>
           <input
-            className='h-9 px-3 py-2 focus:outline-none'
+            className='h-9 w-full px-3 py-2 focus:outline-none'
             defaultValue={endDate}
             placeholder='YYYY / MM'
             onBlur={(e) => {
@@ -186,7 +186,7 @@ const AdminProjectEdit = () => {
         </div>
         <label
           htmlFor='file-upload'
-          className='flex h-9 cursor-pointer items-center rounded-md bg-blue-400 px-3 text-sm text-white hover:bg-blue-400 sm:bg-blue-200'
+          className='flex h-9 cursor-pointer items-center rounded-md bg-blue-400 px-2 text-sm text-white hover:bg-blue-400 sm:bg-blue-200'
         >
           {isUploadingThumbnail ? <span> ..Loading </span> : <span>파일 선택</span>}
         </label>
@@ -195,7 +195,7 @@ const AdminProjectEdit = () => {
       <Editor initailState={content} onContentBlur={handleContentBlur} />
       <div className='fixed right-6 bottom-4 flex h-12 w-full max-w-6xl flex-row-reverse'>
         <button
-          className='cursor-pointer rounded-md bg-blue-400 px-4 py-2 text-white hover:bg-blue-400 sm:bg-blue-200'
+          className='cursor-pointer rounded-md bg-blue-400 px-3 py-1 text-white hover:bg-blue-400 sm:bg-blue-200'
           onClick={handleSubmitClick}
           disabled={isCreatingProject || isUpdatingProject}
         >
