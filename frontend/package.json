@@ -14,8 +14,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
-    "format": "prettier --check ./src ./scripts vite.config.ts vitest.config.ts eslint.config.js",
-    "format:fix": "prettier --write ./src ./scripts vite.config.ts vitest.config.ts eslint.config.js",
+    "e2e": "vite build && playwright test",
+    "e2e:ui": "playwright test --ui",
+    "format": "prettier --check ./src ./scripts ./e2e vite.config.ts vitest.config.ts eslint.config.js playwright.config.ts",
+    "format:fix": "prettier --write ./src ./scripts ./e2e vite.config.ts vitest.config.ts eslint.config.js playwright.config.ts",
     "gen": "npx supabase gen types typescript --project-id \"$VITE_SUPABASE_PROJECT_ID\" --schema public > src/types/supabase.ts",
     "perf": "bash scripts/perf/measure.sh"
   },
@@ -39,6 +41,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
+    "@playwright/test": "1.63.0",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/react": "16.3.3",
     "@testing-library/user-event": "14.6.7",
