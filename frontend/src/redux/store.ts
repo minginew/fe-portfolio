@@ -12,7 +12,12 @@ export const store = configureStore({
     [storageApi.reducerPath]: storageApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware, postsApi.middleware, projectsApi.middleware, storageApi.middleware),
+    getDefaultMiddleware().concat(
+      authApi.middleware,
+      postsApi.middleware,
+      projectsApi.middleware,
+      storageApi.middleware
+    ),
 });
 
 export default store;
