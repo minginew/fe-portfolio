@@ -17,7 +17,7 @@ import { useGetPostByIdQuery } from '@redux/api/postApi';
 //react
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getKST } from '@/hooks/useDate';
+import { getKST } from '@util/date';
 
 const lowlight = createLowlight(all);
 const PostViewer = () => {

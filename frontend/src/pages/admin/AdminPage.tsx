@@ -5,7 +5,7 @@ import Footer from '@components/common/Footer';
 import { useEffect } from 'react';
 import { supabase } from '@util/supabaseClient';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { getTimeDifference } from '@hooks/useDate';
+import { getTimeDifference } from '@util/date';
 
 const AdminPage = () => {
   const navigator = useNavigate();
