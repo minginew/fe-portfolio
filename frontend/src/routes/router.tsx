@@ -1,22 +1,18 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import React, { Suspense } from 'react';
-
 import PortfolioPage from '@pages/user/PortfolioPage';
 import ProjectList from '@pages/user/ProjectList';
 import PostList from '@pages/user/PostList';
+import PostDetail from '@pages/user/PostDetail';
+import ProjectDetail from '@pages/user/ProjectDetail';
 import MainPage from '@pages/user/MainPage';
 import LoginPage from '@pages/admin/LoginPage';
 import AdminPage from '@pages/admin/AdminPage';
 import AdminProjectList from '@pages/admin/AdminProjectList';
+import AdminProjectDetail from '@pages/admin/AdminProjectDetail';
 import AdminPostList from '@pages/admin/AdminPostList';
-import DetailSkeleton from '@/components/common/DetailSkeleton';
-
-const ProjectDetail = React.lazy(() => import('@pages/user/ProjectDetail'));
-const PostDetail = React.lazy(() => import('@pages/user/PostDetail'));
-const AdminProjectDetail = React.lazy(() => import('@pages/admin/AdminProjectDetail'));
-const AdminPostDetail = React.lazy(() => import('@pages/admin/AdminPostDetail'));
-const AdminProjectEdit = React.lazy(() => import('@pages/admin/AdminProjectEdit'));
-const AdminPostEdit = React.lazy(() => import('@pages/admin/AdminPostEdit'));
+import AdminPostDetail from '@pages/admin/AdminPostDetail';
+import AdminProjectEdit from '@pages/admin/AdminProjectEdit';
+import AdminPostEdit from '@pages/admin/AdminPostEdit';
 
 export const ROUTES = {
   PROJECT_EDIT: '/admin/project/edit',
@@ -45,11 +41,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/project/:id',
-        element: (
-          <Suspense fallback={<DetailSkeleton />}>
-            <ProjectDetail />
-          </Suspense>
-        ),
+        element: <ProjectDetail />,
       },
 
       {
@@ -58,11 +50,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/post/:id',
-        element: (
-          <Suspense fallback={<DetailSkeleton />}>
-            <PostDetail />
-          </Suspense>
-        ),
+        element: <PostDetail />,
       },
     ],
   },
@@ -84,19 +72,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'project/:id',
-        element: (
-          <Suspense fallback={<DetailSkeleton />}>
-            <AdminProjectDetail />
-          </Suspense>
-        ),
+        element: <AdminProjectDetail />,
       },
       {
         path: 'project/edit/:id?',
-        element: (
-          <Suspense fallback={<DetailSkeleton />}>
-            <AdminProjectEdit />
-          </Suspense>
-        ),
+        element: <AdminProjectEdit />,
       },
       {
         path: 'post',
@@ -104,19 +84,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'post/:id',
-        element: (
-          <Suspense fallback={<DetailSkeleton />}>
-            <AdminPostDetail />
-          </Suspense>
-        ),
+        element: <AdminPostDetail />,
       },
       {
         path: 'post/edit/:id?',
-        element: (
-          <Suspense fallback={<DetailSkeleton />}>
-            <AdminPostEdit />
-          </Suspense>
-        ),
+        element: <AdminPostEdit />,
       },
     ],
   },

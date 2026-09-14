@@ -7,7 +7,6 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-report
 node_modules
 dist
 dist-ssr
@@ -25,3 +24,6 @@ dist-ssr
 *.sw?
 
 .env
+
+report
+scripts/perf/results

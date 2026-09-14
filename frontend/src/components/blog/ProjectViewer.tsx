@@ -9,8 +9,7 @@ import ImageResize from 'tiptap-extension-resize-image';
 
 //lowlight
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
-import { createLowlight } from 'lowlight';
-import { grammars } from '@/util/grammars';
+import { all, createLowlight } from 'lowlight';
 
 //Project API
 import { useGetProjectByIdQuery } from '@redux/api/projectApi';
@@ -21,7 +20,7 @@ import { useEffect, useState } from 'react';
 
 import GitHubIcon from '@icons/brand/Github-Dark.svg';
 
-const lowlight = createLowlight(grammars);
+const lowlight = createLowlight(all);
 const ProjectViewer = () => {
   const { id } = useParams();
   const [projectId, setProjectId] = useState<number>(-1);
