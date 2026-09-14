@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Logo2 from '@images/Logo2.svg?react';
+import background from '@images/background_white.jpg';
 import { useSignInMutation } from '@redux/api/authApi';
 import { useNavigate } from 'react-router-dom';
 
@@ -25,7 +26,10 @@ const LoginPage = () => {
   };
 
   return (
-    <div className='flex h-svh w-full flex-col items-center justify-center bg-[url(src/assets/images/background_white.jpg)] pb-10'>
+    <div
+      className='flex h-svh w-full flex-col items-center justify-center pb-10'
+      style={{ backgroundImage: `url(${background})` }}
+    >
       <Logo2 className='fill-main-blue mb-10 h-auto w-48 sm:w-72' />
       <div className='flex h-36 w-72 flex-col items-center justify-center gap-2'>
         <input
