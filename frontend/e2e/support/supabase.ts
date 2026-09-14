@@ -1,5 +1,11 @@
-const url = () => process.env.VITE_SUPABASE_URL as string;
-const key = () => process.env.VITE_SUPABASE_KEY as string;
+function env(name: string): string {
+  const value = process.env[name];
+  if (!value) throw new Error(`${name} 미설정 — E2E 실행 불가`);
+  return value;
+}
+
+const url = () => env('VITE_SUPABASE_URL');
+const key = () => env('VITE_SUPABASE_KEY');
 
 export const E2E_PREFIX = '[e2e] ';
 
@@ -16,6 +22,7 @@ export async function signInAdmin(): Promise<string> {
 
 // 제목이 "[e2e] "로 시작하는 글을 모두 삭제하고 삭제 건수를 돌려준다
 export async function deleteE2EPosts(token: string): Promise<number> {
+  if (!E2E_PREFIX) throw new Error('E2E_PREFIX 비어 있음 — 전체 삭제 위험');
   const pattern = encodeURIComponent(`${E2E_PREFIX}*`);
   const res = await fetch(`${url()}/rest/v1/posts?title=like.${pattern}`, {
     method: 'DELETE',

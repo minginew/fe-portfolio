@@ -7,13 +7,16 @@ const ProjectList = () => {
   return (
     <div className='flex min-h-screen w-full max-w-6xl flex-col items-center px-2'>
       <div className='border-main-blue text-main-blue mb-5 flex h-28 w-full items-center justify-between border-b-1 px-2'>
-        <div className='font-museo px-2 py-4 text-4xl font-bold'>PROJECT</div>
+        <div className='font-museo px-2 py-4 text-4xl font-bold' data-testid='page-title'>
+          PROJECT
+        </div>
       </div>
       <div className='my-5 flex w-full max-w-6xl flex-wrap justify-center gap-10 px-2 xl:gap-8'>
         {data?.map((project) => (
           <div
             key={project.projectId}
             className='flex h-[484px] w-88 cursor-pointer flex-col rounded-lg bg-white p-5 drop-shadow-md'
+            data-testid='project-card'
             onClick={() => {
               navigator(`${project.projectId}`);
             }}

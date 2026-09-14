@@ -5,7 +5,6 @@ const hasCreds = Boolean(process.env.E2E_ADMIN_EMAIL && process.env.E2E_ADMIN_PA
 
 test.describe('관리자', () => {
   test.skip(!hasCreds, 'E2E_ADMIN_EMAIL/PASSWORD 없음 — 관리자 E2E 건너뜀');
-  test.skip(({ isMobile }) => Boolean(isMobile), '관리자 E2E는 desktop만');
 
   let token = '';
   test.beforeAll(async () => {

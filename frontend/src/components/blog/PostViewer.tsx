@@ -73,7 +73,9 @@ const PostViewer = () => {
 
   return (
     <div className='flex h-full w-full flex-col gap-3'>
-      <div className='my-3 text-4xl font-bold text-gray-800'> {title}</div>
+      <div className='my-3 text-4xl font-bold text-gray-800' data-testid='detail-title'>
+        {title}
+      </div>
       <div className='flex items-center px-1 font-medium text-gray-400'>
         <span>{getKST(createAt)?.data}</span>
       </div>

@@ -80,7 +80,9 @@ const ProjectViewer = () => {
 
   return (
     <div className='flex h-full w-full flex-col gap-4'>
-      <div className='my-3 text-4xl font-bold text-gray-800'> {title}</div>
+      <div className='my-3 text-4xl font-bold text-gray-800' data-testid='detail-title'>
+        {title}
+      </div>
       <div className='flex items-center font-medium'>
         <span className='w-32 text-gray-600'>프로젝트 기간</span>
         <div className='flex w-full gap-2 pl-4'>
