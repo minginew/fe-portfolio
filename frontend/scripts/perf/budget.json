@@ -1,0 +1,9 @@
+{
+  "pages": {
+    "portfolio": { "LCP": 6150, "totalKB": 1700 },
+    "post": { "LCP": 6200, "totalKB": 860 },
+    "post_97": { "LCP": 5750, "totalKB": 760 },
+    "project": { "LCP": 8100, "totalKB": 1220 },
+    "project_11": { "LCP": 5250, "totalKB": 750 }
+  }
+}

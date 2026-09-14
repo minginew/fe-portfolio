@@ -19,7 +19,9 @@
     "format": "prettier --check ./src ./scripts ./e2e vite.config.ts vitest.config.ts eslint.config.js playwright.config.ts",
     "format:fix": "prettier --write ./src ./scripts ./e2e vite.config.ts vitest.config.ts eslint.config.js playwright.config.ts",
     "gen": "npx supabase gen types typescript --project-id \"$VITE_SUPABASE_PROJECT_ID\" --schema public > src/types/supabase.ts",
-    "perf": "bash scripts/perf/measure.sh"
+    "perf": "bash scripts/perf/measure.sh",
+    "perf:compare": "node scripts/perf/compare.mjs",
+    "perf:bundle": "node scripts/perf/bundle-size.mjs"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.0",
