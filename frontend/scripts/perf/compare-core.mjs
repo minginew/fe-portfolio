@@ -34,17 +34,23 @@ export function renderTable(base, head) {
   return lines.join('\n');
 }
 
-// budget: { pages: { slug: { LCP: ms, totalKB: kb, ... } } } — head 값이 예산을 넘는 항목 목록
+// budget: { gate: { fail: [metric], warn: [metric] }, pages: { slug: { metric: limit } } }
+// head 값이 예산을 넘는 항목을 fail/warn으로 나눠 돌려준다. gate에 없는 metric은 무시
+// - fail: 결정적 지표(전송량)만. 같은 코드면 바이트 차이 0
+// - warn: LCP 등 CI 3회 중앙값으로 ±600ms 흔들리는 지표 — 표시만 하고 게이트로 쓰지 않음 (PR #79 오탐)
 export function checkBudget(head, budget) {
-  const violations = [];
+  const fail = [];
+  const warn = [];
+  const gate = budget?.gate ?? { fail: [], warn: [] };
   for (const [slug, limits] of Object.entries(budget?.pages ?? {})) {
     const h = head[slug];
     if (!h) continue;
     for (const [metric, limit] of Object.entries(limits)) {
-      if (Number.isFinite(h[metric]) && h[metric] > limit) {
-        violations.push(`${slug}: ${metric} ${fmt(h[metric], metric === 'CLS' ? 3 : 0)} > budget ${limit}`);
-      }
+      if (!(Number.isFinite(h[metric]) && h[metric] > limit)) continue;
+      const line = `${slug}: ${metric} ${fmt(h[metric], metric === 'CLS' ? 3 : 0)} > budget ${limit}`;
+      if (gate.fail?.includes(metric)) fail.push(line);
+      else if (gate.warn?.includes(metric)) warn.push(line);
     }
   }
-  return violations;
+  return { fail, warn };
 }
