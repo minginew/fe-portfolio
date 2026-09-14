@@ -77,7 +77,7 @@ export const Code = ({ editor }: Props) => {
     <button
       onClick={() => editor?.chain().focus().toggleCode().run()}
       disabled={!editor?.can().chain().focus().toggleCode().run()}
-      className={editor?.isActive('strike') ? 'is-code' : 'is-not-code'}
+      className={editor?.isActive('code') ? 'is-code' : 'is-not-code'}
     ></button>
   );
 };
