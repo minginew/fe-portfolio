@@ -13,6 +13,7 @@ import AdminPostList from '@pages/admin/AdminPostList';
 import AdminPostDetail from '@pages/admin/AdminPostDetail';
 import AdminProjectEdit from '@pages/admin/AdminProjectEdit';
 import AdminPostEdit from '@pages/admin/AdminPostEdit';
+import ErrorPage from '@pages/errors/ErrorPage';
 
 export const ROUTES = {
   PROJECT_EDIT: '/admin/project/edit',
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <MainPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '',
@@ -57,10 +59,12 @@ const router = createBrowserRouter([
   {
     path: '/signin',
     element: <LoginPage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '/admin',
     element: <AdminPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '',

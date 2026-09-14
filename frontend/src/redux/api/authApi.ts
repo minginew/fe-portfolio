@@ -16,7 +16,7 @@ export const authApi = createApi({
             return { error: { message: '로그인 실패' } };
           }
           return { data };
-        } catch (err) {
+        } catch {
           return { error: { message: '서버 오류가 발생했습니다.' } };
         }
       },
