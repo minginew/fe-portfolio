@@ -49,7 +49,7 @@ const LoginPage = () => {
       </div>
       {isLoading ? (
         <div className='text-main-gray-100 bg-main-blue flex h-12 w-72 cursor-pointer items-center justify-center rounded-xl text-xl font-medium opacity-60'>
-          <span>Loaidng...</span>
+          <span>Loading...</span>
         </div>
       ) : (
         <div
