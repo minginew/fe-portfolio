@@ -12,8 +12,7 @@ import Link from '@tiptap/extension-link';
 
 //lowlight
 import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
-import { createLowlight } from 'lowlight';
-import { grammars } from '@/util/grammars';
+import { all, createLowlight } from 'lowlight';
 
 //StorageApi
 import { useUploadProjectFileMutation, useUploadPostFileMutation } from '@/redux/api/storageApi';
@@ -27,7 +26,7 @@ interface Props {
   initailState: string;
   onContentBlur(data: string): void;
 }
-const lowlight = createLowlight(grammars);
+const lowlight = createLowlight(all);
 
 const Editor = ({ initailState, onContentBlur }: Props) => {
   const location = useLocation();
