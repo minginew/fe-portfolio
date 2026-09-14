@@ -101,7 +101,7 @@ jobs:
         run: |
           (npx vite preview --port 4173 --strictPort > /tmp/head.log 2>&1 &)
           for i in $(seq 1 20); do curl -sf -o /dev/null http://localhost:4173/portfolio && break || sleep 1; done
-          npm run perf -- head 3 \
+          npm run --silent perf -- head 3 \
             http://localhost:4173/portfolio http://localhost:4173/post http://localhost:4173/post/97 \
             http://localhost:4173/project http://localhost:4173/project/11 > /tmp/head.md
           pkill -f "vite preview --port 4173" || true
