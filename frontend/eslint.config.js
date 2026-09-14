@@ -29,5 +29,14 @@ export default tseslint.config(
       'react/prop-types': 'off',
     },
   },
+  {
+    files: ['**/*.{js,mjs}'],
+    extends: [js.configs.recommended],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: globals.node,
+    },
+  },
   prettier
 );
