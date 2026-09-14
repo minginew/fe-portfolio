@@ -1,11 +1,7 @@
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import { store } from '@redux/store';
 
-// 타입스크립트 적용 hook start
 export type RootState = ReturnType<typeof store.getState>;
-export type AddDispatch = typeof store.dispatch;
-export const useAppDispatch = () => useDispatch<AddDispatch>();
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+export type AppDispatch = typeof store.dispatch;
 
 export interface Project {
   projectId: number;
@@ -20,22 +16,10 @@ export interface Project {
   gitHub: string;
 }
 
-export interface Projects {
-  projects: Project[];
-  status: string;
-  error: string;
-}
-
 export interface Post {
   postId: number;
   title: string;
   content: string;
   tags: string[];
   createAt: string;
-}
-
-export interface Posts {
-  posts: Post[];
-  status: string;
-  error: string;
 }
