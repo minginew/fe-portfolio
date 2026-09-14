@@ -76,13 +76,13 @@ const Editor = ({ initailState, onContentBlur }: Props) => {
       handleDrop: function (view, event, _, moved) {
         if (!moved && event.dataTransfer && event.dataTransfer.files && event.dataTransfer.files[0]) {
           // if dropping external files
-          let file = event.dataTransfer.files[0]; // the dropped file
-          let filesize = (file.size / 1024 / 1024).toFixed(4); // filesize in MB
+          const file = event.dataTransfer.files[0]; // the dropped file
+          const filesize = (file.size / 1024 / 1024).toFixed(4); // filesize in MB
           if ((file.type === 'image/jpeg' || file.type === 'image/png') && parseInt(filesize) < 10) {
             // check valid image type under 10MB
             // check the dimensions
-            let _URL = window.URL || window.webkitURL;
-            let img = new Image(); /* global Image */
+            const _URL = window.URL || window.webkitURL;
+            const img = new Image(); /* global Image */
             img.src = _URL.createObjectURL(file);
             img.onload = async () => {
               if (img.width > 5000 || img.height > 5000) {
@@ -103,7 +103,7 @@ const Editor = ({ initailState, onContentBlur }: Props) => {
                     src = data.url;
                   }
                 }
-                let image = new Image();
+                const image = new Image();
                 image.src = src;
                 image.onload = function () {
                   // place the now uploaded image in the editor where it was dropped

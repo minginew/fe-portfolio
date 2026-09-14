@@ -161,8 +161,8 @@ export const Link = ({ editor }: Props) => {
     // update link
     try {
       editor?.chain().focus().extendMarkRange('link').setLink({ href: url }).run();
-    } catch (e: any) {
-      alert(e.message);
+    } catch (e) {
+      alert(e instanceof Error ? e.message : String(e));
     }
   }, [editor]);
 
