@@ -6,7 +6,11 @@ import { server } from './msw/server';
 // vitest.config.ts가 globals:true를 켜지 않아 @testing-library/react의 자동
 // afterEach(cleanup) 등록(typeof afterEach === 'function' 전역 체크)이 동작하지
 // 않는다 — 렌더된 DOM이 테스트 간에 누적돼 getBy*가 중복 엘리먼트를 찾는다. 명시 등록.
-afterEach(() => cleanup());
+// supabase-js가 로그인 성공 시 세션을 localStorage에 저장하므로 테스트 간 초기화
+afterEach(() => {
+  cleanup();
+  localStorage.clear();
+});
 
 // beforeAll(() => server.listen(...))이 아니라 여기서 즉시 호출한다: supabaseClient.ts가
 // 모듈 스코프에서 createClient()를 실행하며 PostgrestClient/GoTrueClient가 그 시점의
