@@ -6,23 +6,23 @@
   "pages": {
     "portfolio": {
       "LCP": 2200,
-      "totalKB": 630
+      "totalKB": 280
     },
     "post": {
       "LCP": 3200,
       "totalKB": 250
     },
     "post_97": {
-      "LCP": 3700,
-      "totalKB": 370
+      "LCP": 3050,
+      "totalKB": 270
     },
     "project": {
-      "LCP": 5150,
-      "totalKB": 610
+      "LCP": 3400,
+      "totalKB": 280
     },
     "project_11": {
-      "LCP": 3350,
-      "totalKB": 370
+      "LCP": 2850,
+      "totalKB": 270
     }
   }
 }
