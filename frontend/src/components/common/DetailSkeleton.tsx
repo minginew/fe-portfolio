@@ -1,9 +1,6 @@
 const DetailSkeleton = () => {
   return (
-    <div
-      data-testid='detail-skeleton'
-      className='relative flex h-auto min-h-screen w-full max-w-6xl animate-pulse flex-col justify-center px-8 py-5'
-    >
+    <div data-testid='detail-skeleton' className='flex w-full animate-pulse flex-col'>
       <div className='flex h-full w-full flex-col gap-4'>
         <div className='my-3 h-12 w-1/2 rounded bg-gray-200'></div>
         <div className='flex items-center'>
