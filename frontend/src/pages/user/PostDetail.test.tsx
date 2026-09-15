@@ -20,4 +20,10 @@ describe('PostDetail', () => {
     expect(await screen.findByText('Tree')).toBeInTheDocument();
     expect(screen.queryByTestId('detail-skeleton')).not.toBeInTheDocument();
   });
+
+  it('없는 글은 안내 문구를 보인다', async () => {
+    renderWithProviders(<PostDetail />, { route: '/post/999', path: '/post/:id' });
+    expect(await screen.findByTestId('detail-empty')).toBeInTheDocument();
+    expect(screen.queryByTestId('detail-skeleton')).not.toBeInTheDocument();
+  });
 });

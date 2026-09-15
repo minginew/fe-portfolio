@@ -8,8 +8,13 @@ export async function resizeToWebp(
   const canvas = document.createElement('canvas');
   canvas.width = Math.round(bitmap.width * scale);
   canvas.height = Math.round(bitmap.height * scale);
-  canvas.getContext('2d')!.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
-  bitmap.close();
+  try {
+    const ctx = canvas.getContext('2d');
+    if (!ctx) throw new Error('canvas 2d 컨텍스트를 만들 수 없음');
+    ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  } finally {
+    bitmap.close();
+  }
   const blob = await new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, 'image/webp', quality));
   if (!blob || blob.type !== 'image/webp') throw new Error('이 브라우저는 webp 인코딩을 지원하지 않음');
   return new File([blob], `${crypto.randomUUID()}.webp`, { type: 'image/webp' });

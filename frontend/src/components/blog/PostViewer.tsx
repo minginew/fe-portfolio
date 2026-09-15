@@ -36,7 +36,13 @@ const PostViewer = () => {
 
   //postId 확정 후 로딩이 끝났는데도 데이터가 없다면(예: 조회 실패) 스켈레톤을 계속 띄우지 않고 최소한의 빈 레이아웃을 렌더한다.
   if (!initailState) {
-    return <div className='flex h-full w-full flex-col gap-3' />;
+    return (
+      <div className='flex h-full w-full flex-col gap-3'>
+        <p className='py-10 text-gray-500' data-testid='detail-empty'>
+          글을 찾을 수 없습니다
+        </p>
+      </div>
+    );
   }
 
   return (

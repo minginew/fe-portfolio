@@ -14,8 +14,9 @@ const ProjectDetail = () => {
         <button
           className='h-12 w-12 cursor-pointer rounded-full bg-blue-400 pl-4 hover:bg-blue-400 sm:bg-blue-200'
           onClick={handleGoBack}
+          aria-label='뒤로 가기'
         >
-          <ArrowBack width={24} height={24} aria-label='button' />
+          <ArrowBack width={24} height={24} aria-hidden='true' focusable='false' />
         </button>
       </div>
     </div>

@@ -10,6 +10,7 @@ const AdminProjectEdit = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [file, setFile] = useState<File | null>(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const [projectId, setProjectId] = useState<number>(-1);
   const [title, setTitle] = useState<string>('');
   const [summary, setSummary] = useState<string>('');
@@ -73,9 +74,13 @@ const AdminProjectEdit = () => {
     const file = e.target.files?.[0];
     if (file) {
       setFile(file);
-      const { data } = await uploadThumbnail(file);
+      const { data, error } = await uploadThumbnail(file);
       if (data) {
         setThumbnail(data.url);
+        setUploadError(null);
+      }
+      if (error) {
+        setUploadError('썸네일 업로드 실패 — 파일 형식을 확인하세요');
       }
     }
   };
@@ -190,6 +195,11 @@ const AdminProjectEdit = () => {
           {isUploadingThumbnail ? <span> ..Loading </span> : <span>파일 선택</span>}
         </label>
       </div>
+      {uploadError && (
+        <p role='alert' className='text-sm text-red-500'>
+          {uploadError}
+        </p>
+      )}
       <div className='mt-2 ml-2 text-3xl font-bold text-blue-400'>Content</div>
       <Editor initailState={content} onContentBlur={handleContentBlur} />
       <div className='fixed right-6 bottom-4 flex h-12 w-full max-w-6xl flex-row-reverse'>

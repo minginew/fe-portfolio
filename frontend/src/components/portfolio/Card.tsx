@@ -1,7 +1,7 @@
 import { Project } from '@redux/redux';
 import { useNavigate } from 'react-router-dom';
 
-const Card = ({ data, eager = false }: { data: Project; eager?: boolean }) => {
+const Card = ({ data }: { data: Project }) => {
   const navigator = useNavigate();
   return (
     <div
@@ -17,7 +17,7 @@ const Card = ({ data, eager = false }: { data: Project; eager?: boolean }) => {
           alt='logo'
           className='h-full w-full object-cover duration-500 group-hover:scale-125'
           src={data.thumbnail}
-          loading={eager ? 'eager' : 'lazy'}
+          loading='lazy'
           decoding='async'
         />
       </div>

@@ -15,7 +15,10 @@ function stubCanvas(width: number, height: number, blobType = 'image/webp') {
   });
   return { drawImage };
 }
-afterEach(() => vi.restoreAllMocks());
+afterEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
+});
 
 describe('resizeToWebp', () => {
   it('maxWidth보다 큰 이미지는 비율을 유지해 줄인다', async () => {
@@ -32,6 +35,19 @@ describe('resizeToWebp', () => {
   });
   it('webp 인코딩이 안 되면 에러', async () => {
     stubCanvas(400, 300, 'image/png');
+    await expect(resizeToWebp(new File(['x'], 'a.png'))).rejects.toThrow('webp');
+  });
+  it('toBlob이 null을 콜백하면 에러', async () => {
+    vi.stubGlobal(
+      'createImageBitmap',
+      vi.fn(async () => ({ width: 400, height: 300, close: vi.fn() }))
+    );
+    vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue({
+      drawImage: vi.fn(),
+    } as unknown as CanvasRenderingContext2D);
+    vi.spyOn(HTMLCanvasElement.prototype, 'toBlob').mockImplementation(function (this: HTMLCanvasElement, cb) {
+      cb(null);
+    });
     await expect(resizeToWebp(new File(['x'], 'a.png'))).rejects.toThrow('webp');
   });
 });

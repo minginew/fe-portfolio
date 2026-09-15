@@ -14,7 +14,9 @@ const HtmlViewer = ({ html }: { html: string }) => {
   const clean = useMemo(() => sanitize(html), [html]);
 
   useEffect(() => {
-    ref.current?.querySelectorAll<HTMLElement>('pre code').forEach((el) => hljs.highlightElement(el));
+    ref.current?.querySelectorAll<HTMLElement>('pre code').forEach((el) => {
+      if (!el.dataset.highlighted) hljs.highlightElement(el);
+    });
   }, [clean]);
 
   return <div ref={ref} className='tiptap' data-testid='html-viewer' dangerouslySetInnerHTML={{ __html: clean }} />;

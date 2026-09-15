@@ -17,6 +17,10 @@ describe('sanitize', () => {
     expect(out).toContain('rel="noopener noreferrer"');
     expect(out).toContain('width: 300px');
   });
+  it('javascript: 링크를 제거한다', () => {
+    const out = sanitize('<a href="javascript:alert(1)">x</a>');
+    expect(out).not.toContain('javascript:');
+  });
 });
 
 describe('HtmlViewer', () => {
