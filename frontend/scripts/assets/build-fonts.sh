@@ -2,8 +2,9 @@
 # 사용법: VENV=<python venv 경로> scripts/assets/build-fonts.sh
 # Google Fonts의 MuseoModerno 가변 TTF(OFL)를 받아 라틴 서브셋 woff2를 만든다.
 # 산출: src/assets/fonts/MuseoModerno-latin.woff2 (가변, wght 100-900)
-#       src/assets/fonts/static/MuseoModerno-{300,400,500,700}-latin.woff2 (정적, 비교용)
+#       정적 4종(300/400/500/700)은 크기 비교용으로만 만들고 보관하지 않음(임시 디렉터리에만 생성)
 set -euo pipefail
+cd "$(dirname "$0")/../.."
 VENV=${VENV:?venv 경로 필요}
 OUT=src/assets/fonts
 TMP=$(mktemp -d)
@@ -18,10 +19,9 @@ curl -fsSL -o "$OUT/OFL.txt" "https://raw.githubusercontent.com/google/fonts/809
 "$VENV/bin/pyftsubset" "$TMP/MuseoModerno.ttf" --unicodes="$LATIN" --flavor=woff2 \
   --layout-features='*' --output-file="$OUT/MuseoModerno-latin.woff2"
 
-mkdir -p "$OUT/static"
 for W in 300 400 500 700; do
   "$VENV/bin/fonttools" varLib.instancer -q "$TMP/MuseoModerno.ttf" wght=$W -o "$TMP/static-$W.ttf"
   "$VENV/bin/pyftsubset" "$TMP/static-$W.ttf" --unicodes="$LATIN" --flavor=woff2 \
-    --layout-features='*' --output-file="$OUT/static/MuseoModerno-$W-latin.woff2"
+    --layout-features='*' --output-file="$TMP/MuseoModerno-$W-latin.woff2"
 done
-ls -l "$OUT"/*.woff2 "$OUT"/static/*.woff2
+ls -l "$OUT"/*.woff2 "$TMP"/*.woff2

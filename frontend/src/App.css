@@ -7,7 +7,7 @@
   --color-main-gray-200: #808080;
   --color-main-black-50: #343434;
   --color-main-black-100: #232323;
-  --font-museo: 'MuseoSans', 'sans-serif';
+  --font-museo: 'MuseoSans', sans-serif;
 }
 
 @font-face {
