@@ -1,15 +1,9 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 import { makeStore } from '@redux/store';
 import { routes } from './router';
-
-const { setContent } = vi.hoisted(() => ({ setContent: vi.fn() }));
-vi.mock('@tiptap/react', () => ({
-  useEditor: () => ({ commands: { setContent } }),
-  EditorContent: () => <div data-testid='editor-content' />,
-}));
 
 describe('routes', () => {
   it('/post/:id는 스켈레톤을 먼저 보이고 lazy 청크 로드 후 글을 렌더한다', async () => {

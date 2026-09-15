@@ -1,16 +1,5 @@
-//editor
-import { EditorContent, useEditor } from '@tiptap/react';
-import StarterKit from '@tiptap/starter-kit';
-import TiptapImage from '@tiptap/extension-image';
-import ListItem from '@tiptap/extension-list-item';
-import BulletList from '@tiptap/extension-bullet-list';
-import OrderedList from '@tiptap/extension-ordered-list';
-import ImageResize from 'tiptap-extension-resize-image';
-
-//lowlight
-import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
-import { createLowlight } from 'lowlight';
-import { grammars } from '@util/grammars';
+//viewer
+import HtmlViewer from '@components/blog/HtmlViewer';
 
 //Project API
 import { useGetProjectByIdQuery } from '@redux/api/projectApi';
@@ -21,7 +10,6 @@ import { useEffect, useState } from 'react';
 
 import GitHubIcon from '@icons/brand/Github-Dark.svg';
 
-const lowlight = createLowlight(grammars);
 const ProjectViewer = () => {
   const { id } = useParams();
   const [projectId, setProjectId] = useState<number>(-1);
@@ -53,28 +41,8 @@ const ProjectViewer = () => {
       setStartDate(initailState.startDate);
       setEndDate(initailState.endDate);
       setGitHub(initailState.gitHub);
-      editor?.commands.setContent(initailState.content);
     }
   }, [initailState]);
-
-  const editor = useEditor({
-    extensions: [
-      StarterKit,
-      BulletList,
-      OrderedList,
-      ListItem,
-      TiptapImage.configure({ inline: true, allowBase64: true }),
-      CodeBlockLowlight.configure({
-        lowlight,
-        HTMLAttributes: {
-          class: 'language-js',
-        },
-      }),
-      ImageResize,
-    ],
-    content: '',
-    editable: false, // 편집 불가
-  });
   // project의 id를 받아온다
   // query를 이용해 데이터를 받는다.
   // 뿌린다.
@@ -129,7 +97,7 @@ const ProjectViewer = () => {
       </a>
 
       <div className='mt-3 border-t-1 border-gray-500 pt-10'>
-        <EditorContent editor={editor} />
+        <HtmlViewer html={initailState?.content ?? ''} />
       </div>
     </div>
   );
