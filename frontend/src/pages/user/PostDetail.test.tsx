@@ -13,4 +13,11 @@ describe('PostDetail', () => {
     expect(screen.getByText('트리 자료구조 정리')).toBeInTheDocument();
     expect(container.querySelector('pre code.hljs .hljs-keyword')).toHaveTextContent('const');
   });
+
+  it('데이터 로드 중에는 스켈레톤을 보이고 로드 후 글을 렌더한다', async () => {
+    renderWithProviders(<PostDetail />, { route: '/post/97', path: '/post/:id' });
+    expect(screen.getByTestId('detail-skeleton')).toBeInTheDocument();
+    expect(await screen.findByText('Tree')).toBeInTheDocument();
+    expect(screen.queryByTestId('detail-skeleton')).not.toBeInTheDocument();
+  });
 });

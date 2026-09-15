@@ -28,16 +28,13 @@ const DetailSkeleton = () => {
           <div className='h-7 w-72 rounded bg-gray-200'></div>
         </div>
         <div className='mt-3 border-t border-gray-300 pt-10'>
-          <div className='mt-3 flex w-full items-center gap-10'>
-            <div className='h-72 w-72 rounded bg-gray-200'></div>
-            <div className='flex w-full flex-col gap-5'>
-              <div className='h-7 max-w-xl rounded bg-gray-200'></div>
-              <div className='h-7 max-w-lg rounded bg-gray-200'></div>
-              <div className='h-7 max-w-md rounded bg-gray-200'></div>
-              <div className='h-24 max-w-xl rounded bg-gray-200'></div>
-            </div>
+          <div className='flex w-full flex-col gap-4'>
+            <div className='h-6 max-w-xl rounded bg-gray-200'></div>
+            <div className='h-6 max-w-lg rounded bg-gray-200'></div>
+            <div className='h-6 max-w-2xl rounded bg-gray-200'></div>
+            <div className='h-40 max-w-3xl rounded bg-gray-200'></div>
+            <div className='h-6 max-w-md rounded bg-gray-200'></div>
           </div>
-          <div className='mt-10 h-52 w-4xl rounded bg-gray-200'></div>
         </div>
       </div>
     </div>
