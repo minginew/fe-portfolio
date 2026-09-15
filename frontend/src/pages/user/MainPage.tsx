@@ -17,11 +17,6 @@ const MainPage = () => {
   const buttonRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const img = new Image();
-    img.src = background;
-  }, []);
-
-  useEffect(() => {
     window.scrollTo(0, 0);
     if (location.pathname === '/' && introEnd) {
       navigator('portfolio');
@@ -54,7 +49,7 @@ const MainPage = () => {
     >
       {location.pathname === '/' ? (
         <div
-          className={`bg-main-gray-100 fixed top-0 left-0 z-[9999] flex h-svh w-full flex-col items-center p-5 transition-all duration-2000 ${introEnd ? 'invisible -translate-y-full' : 'visible translate-y-0'}`}
+          className={`fixed top-0 left-0 z-[9999] flex h-svh w-full flex-col items-center p-5 transition-all duration-2000 ${introEnd ? 'invisible -translate-y-full' : 'visible translate-y-0'}`}
           style={{
             backgroundImage: `url(${background})`,
           }}

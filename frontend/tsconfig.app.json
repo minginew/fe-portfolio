@@ -39,5 +39,5 @@
       "@util/*": ["./src/util/*"]
     }
   },
-  "include": ["src", "svg.d.ts"]
+  "include": ["src", "svg.d.ts", "e2e", "playwright.config.ts"]
 }

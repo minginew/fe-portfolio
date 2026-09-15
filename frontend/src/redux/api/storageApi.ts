@@ -1,5 +1,6 @@
 import { createApi, fakeBaseQuery } from '@reduxjs/toolkit/query/react';
 import { supabase } from '@util/supabaseClient';
+import { resizeToWebp } from '@util/image';
 
 export const storageApi = createApi({
   reducerPath: 'storageApi',
@@ -8,9 +9,10 @@ export const storageApi = createApi({
     uploadThumbnail: builder.mutation<{ url: string }, File>({
       queryFn: async (file) => {
         try {
+          const webp = await resizeToWebp(file);
           const { data, error } = await supabase.storage
             .from('project_images')
-            .upload(`thumbnail/${file.name}`, file, { upsert: true });
+            .upload(`thumbnail/${webp.name}`, webp, { contentType: 'image/webp', upsert: false });
 
           if (error) return { error };
 

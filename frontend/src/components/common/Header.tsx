@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import darkLogo from '@icons/ui/dark_logo.webp';
 import whiteLogo from '@icons/ui/white_logo.webp';
@@ -11,29 +11,19 @@ const Header = () => {
     setMenuOpen(!menuOpen);
   };
 
-  useEffect(() => {
-    const logos = [darkLogo, whiteLogo];
-    logos.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, []);
-
   return (
     <header className='font-museo fixed top-0 z-50 flex h-auto w-full justify-center bg-black/60 text-lg font-[300] drop-shadow-md select-none'>
       <nav className='flex h-14 w-full max-w-6xl flex-wrap items-center justify-between px-3 py-1'>
         <div className='flex items-center gap-2'>
           <img className='h-8 hover:cursor-pointer' onClick={toggleMenu} alt='menu' src={menu2} />
-          <picture>
-            <source srcSet={whiteLogo} type='image/webp' />
-            <img
-              className='h-10 hover:cursor-pointer'
-              fetchPriority='high'
-              alt='logo'
-              src='https://ftziwrqreftpjosydpna.supabase.co/storage/v1/object/public/assets/images/white_logo.png'
-              onClick={() => navigate('/portfolio')}
-            />
-          </picture>
+          <img
+            className='h-10 w-auto hover:cursor-pointer'
+            alt='logo'
+            src={whiteLogo}
+            width={214}
+            height={77}
+            onClick={() => navigate('/portfolio')}
+          />
         </div>
       </nav>
 
@@ -46,14 +36,7 @@ const Header = () => {
         }}
       >
         <div className='flex w-full justify-center py-5 shadow-xs'>
-          <picture>
-            <source srcSet={darkLogo} type='image/webp' />
-            <img
-              className='h-8'
-              alt='logo'
-              src='https://ftziwrqreftpjosydpna.supabase.co/storage/v1/object/public/assets/images/dark_logo.png'
-            />
-          </picture>
+          <img className='h-8 w-auto' alt='logo' src={darkLogo} width={214} height={77} />
         </div>
         <ul className='flex h-svh w-full flex-col items-center gap-4 pt-8 pb-5 text-2xl'>
           <li>

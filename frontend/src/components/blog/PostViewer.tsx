@@ -1,16 +1,6 @@
-//editor
-import { EditorContent, useEditor } from '@tiptap/react';
-import StarterKit from '@tiptap/starter-kit';
-import TiptapImage from '@tiptap/extension-image';
-import ListItem from '@tiptap/extension-list-item';
-import BulletList from '@tiptap/extension-bullet-list';
-import OrderedList from '@tiptap/extension-ordered-list';
-import ImageResize from 'tiptap-extension-resize-image';
-
-//lowlight
-import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
-import { createLowlight } from 'lowlight';
-import { grammars } from '@/util/grammars';
+//viewer
+import HtmlViewer from '@components/blog/HtmlViewer';
+import DetailSkeleton from '@components/common/DetailSkeleton';
 
 //Project API
 import { useGetPostByIdQuery } from '@redux/api/postApi';
@@ -18,18 +8,14 @@ import { useGetPostByIdQuery } from '@redux/api/postApi';
 //react
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getKST } from '@/hooks/useDate';
+import { getKST } from '@util/date';
 
-const lowlight = createLowlight(grammars);
 const PostViewer = () => {
   const { id } = useParams();
   const [postId, setPostId] = useState<number>(-1);
-  const [title, setTitle] = useState<string>('');
-  const [tags, setTags] = useState<string[]>([]);
-  const [createAt, setCreateAt] = useState<string>('');
 
   //초기값 query
-  const { data: initailState } = useGetPostByIdQuery(postId, {
+  const { data: initailState, isLoading } = useGetPostByIdQuery(postId, {
     skip: postId === -1,
   });
 
@@ -39,48 +25,37 @@ const PostViewer = () => {
       setPostId(parseInt(id));
     }
   }, [id]);
-
-  //Project viewer 초기값
-  useEffect(() => {
-    if (initailState) {
-      setTitle(initailState.title);
-      setTags([...initailState.tags]);
-      setCreateAt(initailState.createAt);
-      editor?.commands.setContent(initailState.content);
-    }
-  }, [initailState]);
-
-  const editor = useEditor({
-    extensions: [
-      StarterKit,
-      BulletList,
-      OrderedList,
-      ListItem,
-      TiptapImage.configure({ inline: true, allowBase64: true }),
-      CodeBlockLowlight.configure({
-        lowlight,
-        HTMLAttributes: {
-          class: 'language-js',
-        },
-      }),
-      ImageResize,
-    ],
-    content: '',
-    editable: false, // 편집 불가
-  });
   // project의 id를 받아온다
   // query를 이용해 데이터를 받는다.
   // 뿌린다.
 
+  //데이터 도착 전(초기 id 파싱 대기 포함)에는 스켈레톤으로 덮어 "빈 값→채움" CLS를 막는다.
+  if (!initailState && (postId === -1 || isLoading)) {
+    return <DetailSkeleton />;
+  }
+
+  //postId 확정 후 로딩이 끝났는데도 데이터가 없다면(예: 조회 실패) 스켈레톤을 계속 띄우지 않고 최소한의 빈 레이아웃을 렌더한다.
+  if (!initailState) {
+    return (
+      <div className='flex h-full w-full flex-col gap-3'>
+        <p className='py-10 text-gray-500' data-testid='detail-empty'>
+          글을 찾을 수 없습니다
+        </p>
+      </div>
+    );
+  }
+
   return (
     <div className='flex h-full w-full flex-col gap-3'>
-      <div className='my-3 text-4xl font-bold text-gray-800'> {title}</div>
+      <div className='my-3 text-4xl font-bold text-gray-800' data-testid='detail-title'>
+        {initailState.title}
+      </div>
       <div className='flex items-center px-1 font-medium text-gray-400'>
-        <span>{getKST(createAt)?.data}</span>
+        <span>{getKST(initailState.createAt)?.data}</span>
       </div>
       <div className='flex items-center font-medium'>
         <div className='flex w-full gap-4 overflow-x-scroll [&::-webkit-scrollbar]:hidden'>
-          {tags.map((tag, index) => {
+          {initailState.tags.map((tag, index) => {
             return (
               <span className='rounded-2xl bg-blue-100 px-3 py-1 text-xs text-blue-600' key={index}>
                 {tag}
@@ -90,7 +65,7 @@ const PostViewer = () => {
         </div>
       </div>
       <div className='mt-3 border-t-1 border-gray-500 pt-10'>
-        <EditorContent editor={editor} />
+        <HtmlViewer html={initailState.content} />
       </div>
     </div>
   );

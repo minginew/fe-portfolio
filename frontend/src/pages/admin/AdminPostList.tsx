@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useGetPostsQuery } from '@redux/api/postApi';
-import { getKST } from '@hooks/useDate';
-import { useGetText } from '@/hooks/useParser';
+import { getKST } from '@util/date';
+import { getText } from '@util/parser';
 
 const AdminPostList = () => {
   const { data } = useGetPostsQuery();
@@ -32,7 +32,7 @@ const AdminPostList = () => {
           >
             <div className='text-2xl font-bold'>{post.title}</div>
             <div className='text-main-gray-200'>{getKST(post.createAt)?.data}</div>
-            <div className='my-1 line-clamp-2 break-words'>{useGetText(post.content)}</div>
+            <div className='my-1 line-clamp-2 break-words'>{getText(post.content)}</div>
             <div className='absolute bottom-3 flex gap-3'>
               {post.tags?.map(
                 (tag, index) =>

@@ -70,7 +70,6 @@ export function useScrollFadeAnimation(
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       const scrollElement = scrollRef.current;
       entries.forEach((entry) => {
-        console.log(entry.boundingClientRect.top);
         if (entry.boundingClientRect.top > 0) {
           //부모의 감지 + 부모의 top이 0보다 크면 숨기기
           scrollElement?.classList.add('opacity-0', 'pointer-events-none');

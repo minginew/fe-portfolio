@@ -7,7 +7,7 @@ const Intro = () => {
   return (
     <div ref={introRef} className='relative flex h-full w-full items-center justify-center'>
       <div className='animation-border'>
-        <span className='flex h-52 w-52 flex-col items-center justify-center'>
+        <span className='flex h-56 w-52 flex-col items-center justify-center'>
           <Logo2 className='animation-svg-draw w-40 sm:w-48' />
           <Logo1 className='animation-svg-fill w-22 sm:w-26' />
         </span>
