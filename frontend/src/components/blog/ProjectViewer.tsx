@@ -1,5 +1,6 @@
 //viewer
 import HtmlViewer from '@components/blog/HtmlViewer';
+import DetailSkeleton from '@components/common/DetailSkeleton';
 
 //Project API
 import { useGetProjectByIdQuery } from '@redux/api/projectApi';
@@ -13,15 +14,9 @@ import GitHubIcon from '@icons/brand/Github-Dark.svg';
 const ProjectViewer = () => {
   const { id } = useParams();
   const [projectId, setProjectId] = useState<number>(-1);
-  const [title, setTitle] = useState<string>('');
-  const [roles, setRoles] = useState<string[]>([]);
-  const [techstack, setTechstack] = useState<string[]>([]);
-  const [startDate, setStartDate] = useState<string>('');
-  const [endDate, setEndDate] = useState<string>('');
-  const [gitHub, setGitHub] = useState<string>('');
 
   //초기값 query
-  const { data: initailState } = useGetProjectByIdQuery(projectId, {
+  const { data: initailState, isLoading } = useGetProjectByIdQuery(projectId, {
     skip: projectId === -1,
   });
 
@@ -31,39 +26,37 @@ const ProjectViewer = () => {
       setProjectId(parseInt(id));
     }
   }, [id]);
-
-  //Project viewer 초기값
-  useEffect(() => {
-    if (initailState) {
-      setTitle(initailState.title);
-      setRoles([...initailState.roles]);
-      setTechstack([...initailState.techstack]);
-      setStartDate(initailState.startDate);
-      setEndDate(initailState.endDate);
-      setGitHub(initailState.gitHub);
-    }
-  }, [initailState]);
   // project의 id를 받아온다
   // query를 이용해 데이터를 받는다.
   // 뿌린다.
 
+  //데이터 도착 전(초기 id 파싱 대기 포함)에는 스켈레톤으로 덮어 "빈 값→채움" CLS를 막는다.
+  if (!initailState && (projectId === -1 || isLoading)) {
+    return <DetailSkeleton />;
+  }
+
+  //projectId 확정 후 로딩이 끝났는데도 데이터가 없다면(예: 조회 실패) 스켈레톤을 계속 띄우지 않고 최소한의 빈 레이아웃을 렌더한다.
+  if (!initailState) {
+    return <div className='flex h-full w-full flex-col gap-4' />;
+  }
+
   return (
     <div className='flex h-full w-full flex-col gap-4'>
       <div className='my-3 text-4xl font-bold text-gray-800' data-testid='detail-title'>
-        {title}
+        {initailState.title}
       </div>
       <div className='flex items-center font-medium'>
         <span className='w-32 text-gray-600'>프로젝트 기간</span>
         <div className='flex w-full gap-2 pl-4'>
-          <div>{startDate}</div>
+          <div>{initailState.startDate}</div>
           <>~</>
-          <div>{endDate}</div>
+          <div>{initailState.endDate}</div>
         </div>
       </div>
       <div className='flex items-center font-medium'>
         <span className='w-32 text-gray-600'>기술 스택</span>
         <div className='flex w-full gap-4 overflow-x-scroll [&::-webkit-scrollbar]:hidden'>
-          {techstack.map((tag, index) => {
+          {initailState.techstack.map((tag, index) => {
             return (
               <span className='rounded-2xl bg-blue-100 px-3 py-1 text-xs text-blue-600' key={index}>
                 {tag}
@@ -75,7 +68,7 @@ const ProjectViewer = () => {
       <div className='flex items-center font-medium'>
         <span className='w-32 text-gray-600'>담당 역할</span>
         <div className='flex w-full gap-4 overflow-x-scroll [&::-webkit-scrollbar]:hidden'>
-          {roles.map((tag, index) => {
+          {initailState.roles.map((tag, index) => {
             return (
               <span className='rounded-2xl bg-blue-100 px-3 py-1 text-xs text-blue-600' key={index}>
                 {tag}
@@ -85,7 +78,12 @@ const ProjectViewer = () => {
         </div>
       </div>
 
-      <a href={gitHub} target='_blank' rel='noopener noreferrer' className='group mt-3 flex pl-1 font-medium'>
+      <a
+        href={initailState.gitHub}
+        target='_blank'
+        rel='noopener noreferrer'
+        className='group mt-3 flex pl-1 font-medium'
+      >
         <img
           src={GitHubIcon}
           alt='github icon'
@@ -97,7 +95,7 @@ const ProjectViewer = () => {
       </a>
 
       <div className='mt-3 border-t-1 border-gray-500 pt-10'>
-        <HtmlViewer html={initailState?.content ?? ''} />
+        <HtmlViewer html={initailState.content} />
       </div>
     </div>
   );
