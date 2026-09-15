@@ -1,10 +1,28 @@
 {
-  "gate": { "fail": ["totalKB"], "warn": ["LCP"] },
+  "gate": {
+    "fail": ["totalKB"],
+    "warn": ["LCP"]
+  },
   "pages": {
-    "portfolio": { "LCP": 6150, "totalKB": 1700 },
-    "post": { "LCP": 6200, "totalKB": 860 },
-    "post_97": { "LCP": 5750, "totalKB": 760 },
-    "project": { "LCP": 8100, "totalKB": 1220 },
-    "project_11": { "LCP": 5250, "totalKB": 750 }
+    "portfolio": {
+      "LCP": 2200,
+      "totalKB": 630
+    },
+    "post": {
+      "LCP": 3200,
+      "totalKB": 250
+    },
+    "post_97": {
+      "LCP": 3700,
+      "totalKB": 370
+    },
+    "project": {
+      "LCP": 5150,
+      "totalKB": 610
+    },
+    "project_11": {
+      "LCP": 3350,
+      "totalKB": 370
+    }
   }
 }
