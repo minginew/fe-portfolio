@@ -1,4 +1,5 @@
 {
+  "gate": { "fail": ["totalKB"], "warn": ["LCP"] },
   "pages": {
     "portfolio": { "LCP": 6150, "totalKB": 1700 },
     "post": { "LCP": 6200, "totalKB": 860 },

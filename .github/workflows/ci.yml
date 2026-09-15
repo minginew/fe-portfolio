@@ -136,4 +136,4 @@ jobs:
           path: /tmp/comment.md
       - name: fail on budget
         if: env.BUDGET_FAIL == '1'
-        run: echo "::error::performance budget exceeded (see PR comment)" && exit 1
+        run: echo "::error::transfer-size budget exceeded (see PR comment)" && exit 1

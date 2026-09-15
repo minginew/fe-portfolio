@@ -24,11 +24,26 @@ describe('renderTable', () => {
 });
 
 describe('checkBudget', () => {
-  const budget = { pages: { portfolio: { LCP: 6000, totalKB: 1000 } } };
-  it('예산 내면 빈 배열', () => expect(checkBudget({ portfolio: { LCP: 5000, totalKB: 900 } }, budget)).toEqual([]));
-  it('초과 항목을 문자열로', () =>
-    expect(checkBudget({ portfolio: { LCP: 6500, totalKB: 900 } }, budget)).toEqual([
-      'portfolio: LCP 6500 > budget 6000',
-    ]));
-  it('예산에 없는 페이지는 무시', () => expect(checkBudget({ other: { LCP: 99999 } }, budget)).toEqual([]));
+  const budget = {
+    gate: { fail: ['totalKB'], warn: ['LCP'] },
+    pages: { portfolio: { LCP: 6000, totalKB: 1000 } },
+  };
+  it('예산 내면 둘 다 빈 배열', () =>
+    expect(checkBudget({ portfolio: { LCP: 5000, totalKB: 900 } }, budget)).toEqual({ fail: [], warn: [] }));
+  it('전송량 초과는 fail', () =>
+    expect(checkBudget({ portfolio: { LCP: 5000, totalKB: 1100 } }, budget)).toEqual({
+      fail: ['portfolio: totalKB 1100 > budget 1000'],
+      warn: [],
+    }));
+  it('LCP 초과는 warn (게이트 아님)', () =>
+    expect(checkBudget({ portfolio: { LCP: 6500, totalKB: 900 } }, budget)).toEqual({
+      fail: [],
+      warn: ['portfolio: LCP 6500 > budget 6000'],
+    }));
+  it('gate에 없는 지표는 무시', () => {
+    const b = { gate: { fail: [], warn: [] }, pages: { portfolio: { LCP: 6000 } } };
+    expect(checkBudget({ portfolio: { LCP: 9999 } }, b)).toEqual({ fail: [], warn: [] });
+  });
+  it('예산에 없는 페이지는 무시', () =>
+    expect(checkBudget({ other: { LCP: 99999, totalKB: 99999 } }, budget)).toEqual({ fail: [], warn: [] }));
 });
