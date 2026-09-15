@@ -37,4 +37,7 @@ for row in rows:
     if DRY: continue
     req('POST', f'/storage/v1/object/project_images/{name}', buf.getvalue(), {**auth, 'Content-Type': 'image/webp'}, raw=True)
     new_url = f'{URL}/storage/v1/object/public/project_images/{name}'
-    req('PATCH', f"/rest/v1/projects?project_id=eq.{row['project_id']}", {'thumbnail': new_url}, {**auth, 'Prefer': 'return=minimal'})
+    resp = req('PATCH', f"/rest/v1/projects?project_id=eq.{row['project_id']}", {'thumbnail': new_url}, {**auth, 'Prefer': 'return=representation'})
+    updated = json.loads(resp)
+    if len(updated) != 1:
+        raise SystemExit(f"{row['project_id']}: 갱신된 행 0개 — RLS/필터 확인")
