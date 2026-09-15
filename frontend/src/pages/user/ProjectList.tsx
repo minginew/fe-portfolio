@@ -12,7 +12,7 @@ const ProjectList = () => {
         </div>
       </div>
       <div className='my-5 flex w-full max-w-6xl flex-wrap justify-center gap-10 px-2 xl:gap-8'>
-        {data?.map((project) => (
+        {data?.map((project, i) => (
           <div
             key={project.projectId}
             className='flex h-[484px] w-88 cursor-pointer flex-col rounded-lg bg-white p-5 drop-shadow-md'
@@ -23,7 +23,13 @@ const ProjectList = () => {
           >
             <div className='mb-4 text-xl font-bold'>{project.title}</div>
             <div className='mb-4 flex h-48 w-full items-center justify-center rounded-t-3xl bg-blue-200'>
-              <img alt='logo' className='h-full w-full rounded-t-3xl object-cover' src={project.thumbnail} />
+              <img
+                alt='logo'
+                className='h-full w-full rounded-t-3xl object-cover'
+                src={project.thumbnail}
+                loading={i < 2 ? 'eager' : 'lazy'}
+                decoding='async'
+              />
             </div>
             <div className='text-main-gray-200 mb-4 flex gap-1'>
               <span>{project.startDate}</span>
