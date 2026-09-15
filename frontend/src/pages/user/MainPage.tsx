@@ -67,7 +67,7 @@ const MainPage = () => {
       ) : (
         <></>
       )}
-      <div className='relative z-[9990]'>
+      <div className='relative z-[9990] h-full w-full'>
         <Header />
         <main className='mt-14 flex h-auto w-full justify-center'>
           <Outlet />
