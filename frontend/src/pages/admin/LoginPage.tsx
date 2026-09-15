@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Logo2 from '@images/Logo2.svg?react';
-import background from '@images/background_white.jpg';
+import background from '@images/background_white.webp';
 import { useSignInMutation } from '@redux/api/authApi';
 import { useNavigate } from 'react-router-dom';
 

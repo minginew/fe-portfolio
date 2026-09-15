@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import whiteLogo from '@icons/ui/white_logo.png';
+import whiteLogo from '@icons/ui/white_logo.webp';
 
 const AdminNavbar = () => {
   const navigator = useNavigate();

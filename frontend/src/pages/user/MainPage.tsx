@@ -1,7 +1,7 @@
 import Header from '@components/common/Header';
 import Intro from '@components/common/Intro';
 import Footer from '@components/common/Footer';
-import background from '@images/background_white.jpg';
+import background from '@images/background_white.webp';
 
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';

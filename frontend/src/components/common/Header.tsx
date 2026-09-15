@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import darkLogo from '@icons/ui/dark_logo.png';
-import whiteLogo from '@icons/ui/white_logo.png';
+import darkLogo from '@icons/ui/dark_logo.webp';
+import whiteLogo from '@icons/ui/white_logo.webp';
 import menu2 from '@icons/ui/menu2.svg';
 const Header = () => {
   const navigate = useNavigate();
@@ -17,9 +17,11 @@ const Header = () => {
         <div className='flex items-center gap-2'>
           <img className='h-8 hover:cursor-pointer' onClick={toggleMenu} alt='menu' src={menu2} />
           <img
-            className='h-10 hover:cursor-pointer'
+            className='h-10 w-auto hover:cursor-pointer'
             alt='logo'
             src={whiteLogo}
+            width={214}
+            height={77}
             onClick={() => navigate('/portfolio')}
           />
         </div>
@@ -34,7 +36,7 @@ const Header = () => {
         }}
       >
         <div className='flex w-full justify-center py-5 shadow-xs'>
-          <img className='h-8' alt='logo' src={darkLogo} />
+          <img className='h-8 w-auto' alt='logo' src={darkLogo} width={214} height={77} />
         </div>
         <ul className='flex h-svh w-full flex-col items-center gap-4 pt-8 pb-5 text-2xl'>
           <li>
