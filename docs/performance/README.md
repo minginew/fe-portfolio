@@ -125,6 +125,21 @@ Netlify(https://minginew.netlify.app), main=c18690b(=develop-fe e95f95b), 2026-0
 - 로고 CDN 로드: portfolio LCP 프로덕션이 로컬 대비 +1340ms. 로고 이미지 응답 427ms(로컬 30ms) + load delay +850ms — CDN 이미지 응답 지연이 주 원인
 - 참고값(주장에는 쓰지 않음): 원복 전 배포(main c29414e) 대비 같은 조건 재측정 시 portfolio LCP 2792→2146, post_97 3446→2803, project_11 3209→2593, 전송량 336→253KB. 공식 기준은 기준점이며 이 값은 실제 배포 화면이 얼마나 바뀌었는지에만 답함
 
+### 재측정 (#72 배포 후)
+
+main=eadbbaf(=develop-fe fd0c6dd), 2026-09-16, 같은 방식. 배포본 `index-CrQJ23LW.js` 해시 로컬 빌드와 동일, `/assets/*` 응답 `cache-control: public,max-age=31536000,immutable` 확인:
+
+| page | score | FCP(ms) | LCP(ms) | CLS | total(KB transfer) | JS(KB gz) | img(KB transfer) | TTFB(ms) |
+|---|---|---|---|---|---|---|---|---|
+| portfolio | 89 | 2034 | 3281 | 0.000 | 245 | 137 | 48 | 832 |
+| post | 92 | 2078 | 2835 | 0.000 | 215 | 137 | 14 | 822 |
+| post_97 | 92 | 2070 | 2978 | 0.000 | 232 | 161 | 14 | 827 |
+| project | 88 | 1885 | 3380 | 0.000 | 239 | 137 | 42 | 688 |
+| project_11 | 96 | 2076 | 2301 | 0.000 | 232 | 163 | 14 | 814 |
+| `/` | 96 | 1796 | 2471 | 0.000 | 244 | 137 | 48 | 603 |
+
+- 이전 배포 대비: `/` LCP 3120 → 2471, img 64 → 48KB(인트로 배경 타일 20.7 → 4KB). 나머지 5페이지는 타일 preload로 +4KB, LCP 변화 −48~+200(노이즈 범위), CLS 전 페이지 0
+
 ## 한계
 
 - 로컬 절대값은 낙관적(TTFB 452ms vs 프로덕션 614~859ms) — 항목별 Δ(코드 효과) 판단용, 절대 사용자 경험 수치 아님
