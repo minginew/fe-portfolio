@@ -20,7 +20,17 @@ const AdminPostDetail = lazy(() => import('@pages/admin/AdminPostDetail'));
 const AdminProjectEdit = lazy(() => import('@pages/admin/AdminProjectEdit'));
 const AdminPostEdit = lazy(() => import('@pages/admin/AdminPostEdit'));
 
-const withSkeleton = (el: ReactNode) => <Suspense fallback={<DetailSkeleton />}>{el}</Suspense>;
+const withSkeleton = (el: ReactNode) => (
+  <Suspense
+    fallback={
+      <div className='relative flex min-h-screen w-full max-w-6xl flex-col px-8 py-5'>
+        <DetailSkeleton />
+      </div>
+    }
+  >
+    {el}
+  </Suspense>
+);
 
 export const ROUTES = {
   PROJECT_EDIT: '/admin/project/edit',

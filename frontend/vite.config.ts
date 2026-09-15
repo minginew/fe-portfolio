@@ -7,6 +7,10 @@ import path from 'path';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss(), svgr()],
+  build: {
+    // 인트로 배경 타일(4KB)은 인라인하지 않는다: 엔트리 청크에 들어가면 전 페이지 FCP +150ms(실측), 별도 파일 + preload가 더 유리
+    assetsInlineLimit: (filePath) => (filePath.includes('background_white') ? false : undefined),
+  },
   resolve: {
     alias: [
       { find: '@', replacement: path.resolve(__dirname, 'src') },
