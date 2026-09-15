@@ -3,7 +3,7 @@ import { useFadeAnimation } from '@hooks/useAnimation';
 import Skill from '@components/portfolio/Skill';
 import Education from '@components/portfolio/Education';
 import Certificate from '@components/portfolio/Certificate';
-import profile from '@images/sonmingi1.png';
+import profile from '@images/sonmingi1.webp';
 
 const About = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -18,6 +18,8 @@ const About = () => {
               className='h-80 w-72 rounded-[10px] bg-gray-200 object-cover md:h-88 md:w-80'
               alt='Profile'
               src={profile}
+              width={472}
+              height={591}
             />
           </div>
           <div className='mb-5 flex flex-col items-center text-[18px] md:items-baseline'>
