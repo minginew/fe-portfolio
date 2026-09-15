@@ -13,35 +13,7 @@
 @font-face {
   font-family: 'MuseoSans';
   font-style: normal;
-  font-weight: 100;
-  font-display: fallback;
-  src: url(./assets/fonts/MuseoModerno-Thin.ttf);
-}
-
-@font-face {
-  font-family: 'MuseoSans';
-  font-style: normal;
-  font-weight: 200;
-  src: url(./assets/fonts/MuseoModerno-ExtraLight.ttf);
-}
-
-@font-face {
-  font-family: 'MuseoSans';
-  font-style: normal;
-  font-weight: 300;
-  src: url(./assets/fonts/MuseoModerno-Light.ttf);
-}
-
-@font-face {
-  font-family: 'MuseoSans';
-  font-style: normal;
-  font-weight: 400;
-  src: url(./assets/fonts/MuseoModerno-Regular.ttf);
-}
-
-@font-face {
-  font-family: 'MuseoSans';
-  font-style: normal;
-  font-weight: 500;
-  src: url(./assets/fonts/MuseoModerno-Medium.ttf);
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(./assets/fonts/MuseoModerno-latin.woff2) format('woff2');
 }
