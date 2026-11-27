@@ -11,8 +11,8 @@ set search_path = ''
 as $$
   select coalesce(
     auth.uid() in (
-      '87e269ec-512f-4589-9d7b-242ef22c87fe'::uuid,  -- 관리자
-      '91fbc6ae-d451-43fe-a134-820e70fc42ee'::uuid   -- E2E 테스트 계정
+      '<관리자 uid>'::uuid,     -- 대시보드 Authentication > Users에서 확인
+      '<E2E 계정 uid>'::uuid   -- E2E 테스트 계정
     ),
     false
   );
